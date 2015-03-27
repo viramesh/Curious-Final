@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>496D86C2-E107-437E-9A5D-A3ECE359836F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Curious</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8475A580D2F35DC9EFD0A4E403C635F9DC5BEA6C</key>
+		<string>https://github.com/viramesh/Curious-Final.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Curious/Curious.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8475A580D2F35DC9EFD0A4E403C635F9DC5BEA6C</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/viramesh/Curious-Final.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8475A580D2F35DC9EFD0A4E403C635F9DC5BEA6C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8475A580D2F35DC9EFD0A4E403C635F9DC5BEA6C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Curious%20Final</string>
+		</dict>
+	</array>
+</dict>
+</plist>

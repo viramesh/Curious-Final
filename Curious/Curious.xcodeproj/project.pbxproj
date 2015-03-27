@@ -20,6 +20,7 @@
 		24ABEE5F1AC53036005B356C /* Edmondsans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24ABEE5C1AC53036005B356C /* Edmondsans-Bold.otf */; };
 		24ABEE601AC53036005B356C /* Edmondsans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24ABEE5D1AC53036005B356C /* Edmondsans-Regular.otf */; };
 		24ABEE621AC530D9005B356C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24ABEE611AC530D9005B356C /* Common.swift */; };
+		24BAA7B41AC5B3FA000032DE /* LoremSwiftum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BAA7B31AC5B3FA000032DE /* LoremSwiftum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		24ABEE5C1AC53036005B356C /* Edmondsans-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Edmondsans-Bold.otf"; sourceTree = "<group>"; };
 		24ABEE5D1AC53036005B356C /* Edmondsans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Edmondsans-Regular.otf"; sourceTree = "<group>"; };
 		24ABEE611AC530D9005B356C /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		24BAA7B31AC5B3FA000032DE /* LoremSwiftum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoremSwiftum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				24ABEE551AC52C94005B356C /* HomeViewController.swift */,
 				24ABEE571AC52E3C005B356C /* ProjectCell.swift */,
 				24ABEE591AC52F4A005B356C /* DetailViewController.swift */,
+				24BAA7B31AC5B3FA000032DE /* LoremSwiftum.swift */,
 			);
 			path = Curious;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24ABEE381AC519DD005B356C /* ViewController.swift in Sources */,
+				24BAA7B41AC5B3FA000032DE /* LoremSwiftum.swift in Sources */,
 				24ABEE361AC519DD005B356C /* AppDelegate.swift in Sources */,
 				24ABEE5A1AC52F4A005B356C /* DetailViewController.swift in Sources */,
 				24ABEE561AC52C94005B356C /* HomeViewController.swift in Sources */,
@@ -435,6 +439,7 @@
 				24ABEE511AC519DD005B356C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24ABEE521AC519DD005B356C /* Build configuration list for PBXNativeTarget "CuriousTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +448,7 @@
 				24ABEE541AC519DD005B356C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

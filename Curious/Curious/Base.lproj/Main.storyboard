@@ -3,10 +3,14 @@
     <dependencies>
         <deployment version="2048" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Edmondsans-Medium.otf">
+            <string>Edmondsans-Medium</string>
+            <string>Edmondsans-Medium</string>
+            <string>Edmondsans-Medium</string>
             <string>Edmondsans-Medium</string>
             <string>Edmondsans-Medium</string>
         </mutableArray>
@@ -95,7 +99,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bvi-nW-uMB">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="300" id="Cng-xS-rvk"/>
+                                                        <constraint firstAttribute="height" constant="320" id="Cng-xS-rvk"/>
                                                     </constraints>
                                                 </imageView>
                                                 <view clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ryo-Fh-nkz">
@@ -103,7 +107,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="300" id="mJA-j5-yef"/>
+                                                        <constraint firstAttribute="height" constant="360" id="mJA-j5-yef"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVG-96-qw5">
@@ -173,17 +177,128 @@
                     <view key="view" contentMode="scaleToFill" id="mS2-1y-yf2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9v-0p-cyS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTc-ZT-yaD" userLabel="Everything except carousel">
+                                        <rect key="frame" x="0.0" y="350" width="414" height="389"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OK STRING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vZ-YE-7yT">
+                                                <rect key="frame" x="25" y="262" width="364" height="28"/>
+                                                <fontDescription key="fontDescription" name="Edmondsans-Medium" family="Edmondsans" pointSize="24"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="String wrapped around nails on wood canvas" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IB-UT-n4g">
+                                                <rect key="frame" x="25" y="280" width="364" height="48"/>
+                                                <fontDescription key="fontDescription" name="Edmondsans-Medium" family="Edmondsans" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpf-bs-gQ5">
+                                                <rect key="frame" x="27" y="325" width="362" height="30"/>
+                                                <color key="backgroundColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Edmondsans-Medium" family="Edmondsans" pointSize="18"/>
+                                                <state key="normal" title="Add to cart"/>
+                                                <connections>
+                                                    <action selector="buyButtonWasTapped:" destination="Kfb-5H-2dY" eventType="touchUpInside" id="oui-EN-qib"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Fpf-bs-gQ5" secondAttribute="bottom" constant="25" id="1Ie-eM-1Ft"/>
+                                            <constraint firstItem="Fpf-bs-gQ5" firstAttribute="leading" secondItem="tTc-ZT-yaD" secondAttribute="leading" constant="25" id="aBd-An-80K"/>
+                                            <constraint firstAttribute="trailing" secondItem="Fpf-bs-gQ5" secondAttribute="trailing" constant="25" id="hmU-Xr-mYg"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-t6-9XS">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="320"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="320" id="tgo-jz-aAi"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="VJt-ot-P4g" appends="YES" id="Szo-0g-W4Z"/>
+                                        </connections>
+                                    </imageView>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nR-w5-njr">
+                                        <rect key="frame" x="0.0" y="358" width="414" height="230"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="8nR-w5-njr" secondAttribute="height" multiplier="9:5" id="BL1-fE-vrg"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="rvA-ok-Awq" appends="YES" id="xtu-jg-thi"/>
+                                        </connections>
+                                    </scrollView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnM-ZD-VlN">
+                                        <rect key="frame" x="-6" y="10" width="53" height="45"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="Back Arrow">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backButtonDidTap:" destination="Kfb-5H-2dY" eventType="touchUpInside" id="Iv1-zm-2pR"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YG4-p9-IY9" userLabel="Progress">
+                                        <rect key="frame" x="0.0" y="328" width="414" height="5"/>
+                                        <color key="backgroundColor" red="0.9519029329608939" green="0.9519029329608939" blue="0.9519029329608939" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="tTc-ZT-yaD" firstAttribute="leading" secondItem="a9v-0p-cyS" secondAttribute="leading" id="0Sm-95-izO"/>
+                                    <constraint firstItem="SSb-t6-9XS" firstAttribute="top" secondItem="a9v-0p-cyS" secondAttribute="top" id="2Uc-Vn-hYk"/>
+                                    <constraint firstAttribute="bottom" secondItem="tTc-ZT-yaD" secondAttribute="bottom" id="A8g-l8-yqk"/>
+                                    <constraint firstItem="SSb-t6-9XS" firstAttribute="leading" secondItem="a9v-0p-cyS" secondAttribute="leading" id="dW4-Fr-x02"/>
+                                    <constraint firstAttribute="trailing" secondItem="SSb-t6-9XS" secondAttribute="trailing" id="f2X-j0-KPB"/>
+                                    <constraint firstItem="YG4-p9-IY9" firstAttribute="top" secondItem="SSb-t6-9XS" secondAttribute="bottom" id="mel-2Q-tXA"/>
+                                    <constraint firstAttribute="trailing" secondItem="tTc-ZT-yaD" secondAttribute="trailing" id="q9f-qb-PB7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ut7-HB-1cl" firstAttribute="bottom" secondItem="a9v-0p-cyS" secondAttribute="bottom" id="8tL-Sh-vGR"/>
+                            <constraint firstItem="a9v-0p-cyS" firstAttribute="top" secondItem="g0Z-cW-var" secondAttribute="top" id="MtA-Kn-WuM"/>
+                            <constraint firstAttribute="trailing" secondItem="a9v-0p-cyS" secondAttribute="trailing" id="iSY-O9-LCT"/>
+                            <constraint firstItem="a9v-0p-cyS" firstAttribute="leading" secondItem="mS2-1y-yf2" secondAttribute="leading" id="nED-IU-M68"/>
+                        </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="buyButton" destination="Fpf-bs-gQ5" id="VHX-k0-ZIe"/>
+                        <outlet property="carouselImageView" destination="SSb-t6-9XS" id="JKC-fg-pEd"/>
+                        <outlet property="detailView" destination="a9v-0p-cyS" id="sb1-1q-U5d"/>
+                        <outlet property="details" destination="tTc-ZT-yaD" id="Uzk-zi-GEw"/>
+                        <outlet property="detailsBottom" destination="A8g-l8-yqk" id="TEA-9l-5Xr"/>
+                        <outlet property="instructionsScrollView" destination="8nR-w5-njr" id="bQy-0c-vWU"/>
+                        <outlet property="progressView" destination="YG4-p9-IY9" id="ZpC-pq-FQI"/>
+                        <outlet property="projectDescription" destination="2IB-UT-n4g" id="zsn-80-Jj4"/>
+                        <outlet property="projectTitle" destination="2vZ-YE-7yT" id="rsu-A6-2xJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bDb-wM-tOW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="rvA-ok-Awq" userLabel="pan instructions">
+                    <connections>
+                        <action selector="instructionsDidPan:" destination="Kfb-5H-2dY" id="QUB-Hx-BFH"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="VJt-ot-P4g" userLabel="pan image">
+                    <connections>
+                        <action selector="imageDidPan:" destination="Kfb-5H-2dY" id="1IA-cX-n4c"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2069" y="720"/>
+            <point key="canvasLocation" x="2069" y="717"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Back Arrow" width="22" height="31"/>
         <image name="bottom-green" width="84" height="84"/>
         <image name="bottom-pink" width="84" height="84"/>
         <image name="bottom-yellow" width="171" height="84"/>

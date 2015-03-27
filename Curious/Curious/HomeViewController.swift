@@ -31,7 +31,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var newLabelAlpha:CGFloat!
     var newScale:CGFloat!
     
-    var TOP_height:CGFloat! = 280
+    var TOP_height:CGFloat! = 320
     var BOTTOM_height:CGFloat! = 100
     var TOP_alpha:CGFloat! = 0.2
     var BOTTOM_alpha:CGFloat! = 0.7
@@ -70,9 +70,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         var destinationVC = segue.destinationViewController as DetailViewController
         destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
         destinationVC.transitioningDelegate = self
-//        destinationVC.carouselImage = images[selectedImage.row]
-//        destinationVC.detailTitle = titles[selectedImage.row]
-//        destinationVC.detailSubLabel = subLabels[selectedImage.row]
+        destinationVC.carouselImage = images[selectedImage.row]
+        destinationVC.detailTitle = titles[selectedImage.row]
+        destinationVC.detailSubLabel = subLabels[selectedImage.row]
         
     }
     
@@ -92,66 +92,56 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
         // The value here should be the duration of the animations scheduled in the animationTransition method
-        return 0.5
+        return 0.4
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
-//        var containerView = transitionContext.containerView()
-//        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-//        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
-//        
-//        movingImageView = UIImageView()
-//        movingImageView.image = UIImage(named: images[selectedImage.row])
-//        
-//        
-//        var rectInTableView: CGRect = projectsTableView.rectForRowAtIndexPath(selectedImage)
-//        var rectInSuperview: CGRect = projectsTableView.convertRect(rectInTableView, toView: projectsTableView.superview)
-//        movingImageView.frame = rectInSuperview
-//        movingImageView.contentMode = UIViewContentMode.ScaleAspectFill
-//        movingImageView.clipsToBounds = true
-//        
-//        var window = UIApplication.sharedApplication().keyWindow!
-//        
-//        
-//        
-//        if (isPresenting) {
-//            var destinationVC = toViewController as DetailViewController
-//            containerView.addSubview(toViewController.view)
-//            
-//            window.addSubview(movingImageView)
-//            
-//            
-//            toViewController.view.alpha = 0
-//            destinationVC.detailView.alpha = 0
-//            
-//            //println(images[selectedImage.row])
-//            
-//            UIView.animateWithDuration(0.4, animations: { () -> Void in
-//                toViewController.view.alpha = 1
-//                self.movingImageView.frame = destinationVC.carouselImageView.frame
-//                }) { (finished: Bool) -> Void in
-//                    
-//                    self.movingImageView.removeFromSuperview()
-//                    self.projectsTableView.reloadData()
-//                    UIView.animateWithDuration(0.5, delay: 0.1, options: nil, animations: { () -> Void in
-//                        destinationVC.detailView.alpha = 1
-//                        }, completion: { (finished) -> Void in
-//                            //
-//                    })
-//                    
-//                    transitionContext.completeTransition(true)
-//            }
-//            
-//            
-//        } else {
-//            UIView.animateWithDuration(0.4, animations: { () -> Void in
-//                fromViewController.view.alpha = 0
-//                }) { (finished: Bool) -> Void in
-//                    transitionContext.completeTransition(true)
-//                    fromViewController.view.removeFromSuperview()
-//            }
-//        }
+        var containerView = transitionContext.containerView()
+        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        
+        movingImageView = UIImageView()
+        movingImageView.image = UIImage(named: images[selectedImage.row])
+        
+        
+        var rectInTableView: CGRect = projectsTableView.rectForRowAtIndexPath(selectedImage)
+        var rectInSuperview: CGRect = projectsTableView.convertRect(rectInTableView, toView: projectsTableView.superview)
+        movingImageView.frame = rectInSuperview
+        movingImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        movingImageView.clipsToBounds = true
+        
+        var window = UIApplication.sharedApplication().keyWindow!
+        
+
+        
+        if (isPresenting) {
+            var destinationVC = toViewController as DetailViewController
+            containerView.addSubview(toViewController.view)
+            window.addSubview(movingImageView)
+            toViewController.view.alpha = 0
+            //println(images[selectedImage.row])
+            var newFrame:CGRect = CGRectMake(destinationVC.carouselImageView.frame.origin.x, destinationVC.carouselImageView.frame.origin.y, self.view.frame.width, destinationVC.carouselImageView.frame.height)
+            
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                toViewController.view.alpha = 1
+                self.movingImageView.frame = newFrame
+
+                }) { (finished: Bool) -> Void in
+                    self.movingImageView.removeFromSuperview()
+                    self.projectsTableView.reloadData()
+                    transitionContext.completeTransition(true)
+            }
+            
+            
+        } else {
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                fromViewController.view.alpha = 0
+                }) { (finished: Bool) -> Void in
+                    transitionContext.completeTransition(true)
+                    fromViewController.view.removeFromSuperview()
+            }
+        }
     }
     
     
@@ -167,7 +157,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //println("\(indexPath.row)")
         selectedImage = indexPath
         
-//        performSegueWithIdentifier("detailSegue", sender: self)
+        performSegueWithIdentifier("detailSegue", sender: self)
         
         
     }
