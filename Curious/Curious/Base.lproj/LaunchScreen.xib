@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTd-uP-tZv">
+                    <rect key="frame" x="124" y="256" width="166" height="223"/>
+                    <subviews>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="top-green" translatesAutoresizingMaskIntoConstraints="NO" id="pn1-YG-zfR">
+                            <rect key="frame" x="57" y="0.0" width="109" height="54"/>
+                        </imageView>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="top-pink" translatesAutoresizingMaskIntoConstraints="NO" id="zHH-Pg-ouc">
+                            <rect key="frame" x="0.0" y="0.0" width="54" height="109"/>
+                        </imageView>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="bottom-green" translatesAutoresizingMaskIntoConstraints="NO" id="EsV-bk-cEa">
+                            <rect key="frame" x="0.0" y="112" width="54" height="54"/>
+                        </imageView>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="bottom-pink" translatesAutoresizingMaskIntoConstraints="NO" id="QeM-ad-6Mc">
+                            <rect key="frame" x="0.0" y="169" width="54" height="54"/>
+                        </imageView>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="bottom-yellow" translatesAutoresizingMaskIntoConstraints="NO" id="ClF-sm-h3W">
+                            <rect key="frame" x="57" y="169" width="109" height="54"/>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="223" id="H9r-7Q-ACi"/>
+                        <constraint firstAttribute="width" constant="166" id="wn4-QP-Vvo"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="ZTd-uP-tZv" secondAttribute="centerX" id="QDj-Mr-f2V"/>
+                <constraint firstAttribute="centerY" secondItem="ZTd-uP-tZv" secondAttribute="centerY" id="pdB-ib-dIx"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+            <point key="canvasLocation" x="548" y="455"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bottom-green" width="84" height="84"/>
+        <image name="bottom-pink" width="84" height="84"/>
+        <image name="bottom-yellow" width="171" height="84"/>
+        <image name="top-green" width="171" height="84"/>
+        <image name="top-pink" width="84" height="171"/>
+    </resources>
+</document>
