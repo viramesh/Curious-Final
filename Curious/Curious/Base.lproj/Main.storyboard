@@ -98,9 +98,6 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bvi-nW-uMB">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="320" id="Cng-xS-rvk"/>
-                                                    </constraints>
                                                 </imageView>
                                                 <view clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ryo-Fh-nkz">
                                                     <rect key="frame" x="-160" y="-100" width="640" height="300"/>
@@ -131,6 +128,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="bvi-nW-uMB" secondAttribute="trailing" id="PTF-Zg-Kdn"/>
                                                 <constraint firstItem="bvi-nW-uMB" firstAttribute="leading" secondItem="qU6-CW-8he" secondAttribute="leadingMargin" id="SH4-43-IAT"/>
                                                 <constraint firstItem="bvi-nW-uMB" firstAttribute="top" secondItem="qU6-CW-8he" secondAttribute="top" id="XhR-O6-Jed"/>
+                                                <constraint firstAttribute="bottom" secondItem="bvi-nW-uMB" secondAttribute="bottom" id="aDu-at-C8c"/>
                                                 <constraint firstAttribute="centerY" secondItem="9bi-RF-dx9" secondAttribute="centerY" id="ac7-Wa-AHp"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ryo-Fh-nkz" secondAttribute="trailing" id="ekI-x2-cMf"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="9bi-RF-dx9" secondAttribute="trailing" id="ics-b5-cJ5"/>
@@ -181,23 +179,33 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9v-0p-cyS">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTc-ZT-yaD" userLabel="Everything except carousel">
-                                        <rect key="frame" x="0.0" y="350" width="414" height="389"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nR-w5-njr">
+                                        <rect key="frame" x="0.0" y="341" width="414" height="230"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="8nR-w5-njr" secondAttribute="height" multiplier="9:5" id="BL1-fE-vrg"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="rvA-ok-Awq" appends="YES" id="xtu-jg-thi"/>
+                                        </connections>
+                                    </scrollView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTc-ZT-yaD" userLabel="Everything except carousel">
+                                        <rect key="frame" x="0.0" y="567" width="414" height="170"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OK STRING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vZ-YE-7yT">
-                                                <rect key="frame" x="25" y="262" width="364" height="28"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="OK STRING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vZ-YE-7yT">
+                                                <rect key="frame" x="25" y="34" width="364" height="28"/>
                                                 <fontDescription key="fontDescription" name="Edmondsans-Medium" family="Edmondsans" pointSize="24"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="String wrapped around nails on wood canvas" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IB-UT-n4g">
-                                                <rect key="frame" x="25" y="280" width="364" height="48"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="String wrapped around nails on wood canvas" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IB-UT-n4g">
+                                                <rect key="frame" x="25" y="60" width="364" height="30"/>
                                                 <fontDescription key="fontDescription" name="Edmondsans-Medium" family="Edmondsans" pointSize="18"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpf-bs-gQ5">
-                                                <rect key="frame" x="27" y="325" width="362" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpf-bs-gQ5">
+                                                <rect key="frame" x="27" y="102" width="362" height="30"/>
                                                 <color key="backgroundColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Edmondsans-Medium" family="Edmondsans" pointSize="18"/>
                                                 <state key="normal" title="Add to cart"/>
@@ -205,12 +213,25 @@
                                                     <action selector="buyButtonWasTapped:" destination="Kfb-5H-2dY" eventType="touchUpInside" id="oui-EN-qib"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5DU-aS-NRn">
+                                                <rect key="frame" x="173" y="1" width="65" height="1"/>
+                                                <color key="backgroundColor" red="0.10816457628525268" green="0.67848725558659218" blue="0.61737957824217393" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="65" id="6Zl-Jk-Tfq"/>
+                                                    <constraint firstAttribute="height" constant="1" id="vwV-KY-bz5"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Fpf-bs-gQ5" secondAttribute="bottom" constant="25" id="1Ie-eM-1Ft"/>
+                                            <constraint firstAttribute="centerX" secondItem="5DU-aS-NRn" secondAttribute="centerX" id="1GN-gr-dcj"/>
+                                            <constraint firstAttribute="trailing" secondItem="2IB-UT-n4g" secondAttribute="trailing" constant="25" id="ClA-Xy-GQX"/>
+                                            <constraint firstAttribute="height" constant="170" id="IQy-5w-XQG"/>
+                                            <constraint firstItem="2vZ-YE-7yT" firstAttribute="leading" secondItem="tTc-ZT-yaD" secondAttribute="leading" constant="25" id="PJe-qN-swO"/>
+                                            <constraint firstItem="2IB-UT-n4g" firstAttribute="leading" secondItem="tTc-ZT-yaD" secondAttribute="leading" constant="25" id="Zv2-l9-XB4"/>
                                             <constraint firstItem="Fpf-bs-gQ5" firstAttribute="leading" secondItem="tTc-ZT-yaD" secondAttribute="leading" constant="25" id="aBd-An-80K"/>
                                             <constraint firstAttribute="trailing" secondItem="Fpf-bs-gQ5" secondAttribute="trailing" constant="25" id="hmU-Xr-mYg"/>
+                                            <constraint firstAttribute="trailing" secondItem="2vZ-YE-7yT" secondAttribute="trailing" constant="25" id="xjc-85-38f"/>
                                         </constraints>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-t6-9XS">
@@ -223,19 +244,9 @@
                                             <outletCollection property="gestureRecognizers" destination="VJt-ot-P4g" appends="YES" id="Szo-0g-W4Z"/>
                                         </connections>
                                     </imageView>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nR-w5-njr">
-                                        <rect key="frame" x="0.0" y="358" width="414" height="230"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="8nR-w5-njr" secondAttribute="height" multiplier="9:5" id="BL1-fE-vrg"/>
-                                        </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="rvA-ok-Awq" appends="YES" id="xtu-jg-thi"/>
-                                        </connections>
-                                    </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnM-ZD-VlN">
                                         <rect key="frame" x="-6" y="10" width="53" height="45"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="Back Arrow">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -252,8 +263,11 @@
                                 <constraints>
                                     <constraint firstItem="tTc-ZT-yaD" firstAttribute="leading" secondItem="a9v-0p-cyS" secondAttribute="leading" id="0Sm-95-izO"/>
                                     <constraint firstItem="SSb-t6-9XS" firstAttribute="top" secondItem="a9v-0p-cyS" secondAttribute="top" id="2Uc-Vn-hYk"/>
-                                    <constraint firstAttribute="bottom" secondItem="tTc-ZT-yaD" secondAttribute="bottom" id="A8g-l8-yqk"/>
+                                    <constraint firstItem="8nR-w5-njr" firstAttribute="leading" secondItem="a9v-0p-cyS" secondAttribute="leading" id="30O-gf-bsU"/>
+                                    <constraint firstItem="tTc-ZT-yaD" firstAttribute="top" secondItem="a9v-0p-cyS" secondAttribute="top" constant="567" id="JMW-UD-pkh"/>
+                                    <constraint firstAttribute="trailing" secondItem="8nR-w5-njr" secondAttribute="trailing" id="Q8b-yy-GgJ"/>
                                     <constraint firstItem="SSb-t6-9XS" firstAttribute="leading" secondItem="a9v-0p-cyS" secondAttribute="leading" id="dW4-Fr-x02"/>
+                                    <constraint firstItem="8nR-w5-njr" firstAttribute="top" secondItem="a9v-0p-cyS" secondAttribute="top" constant="341" id="eVc-6O-o9x"/>
                                     <constraint firstAttribute="trailing" secondItem="SSb-t6-9XS" secondAttribute="trailing" id="f2X-j0-KPB"/>
                                     <constraint firstItem="YG4-p9-IY9" firstAttribute="top" secondItem="SSb-t6-9XS" secondAttribute="bottom" id="mel-2Q-tXA"/>
                                     <constraint firstAttribute="trailing" secondItem="tTc-ZT-yaD" secondAttribute="trailing" id="q9f-qb-PB7"/>
@@ -275,8 +289,10 @@
                         <outlet property="carouselImageView" destination="SSb-t6-9XS" id="JKC-fg-pEd"/>
                         <outlet property="detailView" destination="a9v-0p-cyS" id="sb1-1q-U5d"/>
                         <outlet property="details" destination="tTc-ZT-yaD" id="Uzk-zi-GEw"/>
-                        <outlet property="detailsBottom" destination="A8g-l8-yqk" id="TEA-9l-5Xr"/>
+                        <outlet property="detailsTop" destination="JMW-UD-pkh" id="49j-Af-f3k"/>
+                        <outlet property="imageHeight" destination="tgo-jz-aAi" id="FlN-fq-GQB"/>
                         <outlet property="instructionsScrollView" destination="8nR-w5-njr" id="bQy-0c-vWU"/>
+                        <outlet property="instructionsTop" destination="eVc-6O-o9x" id="A2F-1X-k64"/>
                         <outlet property="progressView" destination="YG4-p9-IY9" id="ZpC-pq-FQI"/>
                         <outlet property="projectDescription" destination="2IB-UT-n4g" id="zsn-80-Jj4"/>
                         <outlet property="projectTitle" destination="2vZ-YE-7yT" id="rsu-A6-2xJ"/>

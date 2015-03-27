@@ -43,6 +43,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        TOP_height = self.view.frame.height * 0.4
         newHeight = TOP_height
         newAlpha = TOP_alpha
         newScale = TOP_scale
@@ -113,15 +114,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         var window = UIApplication.sharedApplication().keyWindow!
         
-
-        
         if (isPresenting) {
             var destinationVC = toViewController as DetailViewController
             containerView.addSubview(toViewController.view)
             window.addSubview(movingImageView)
             toViewController.view.alpha = 0
             //println(images[selectedImage.row])
-            var newFrame:CGRect = CGRectMake(destinationVC.carouselImageView.frame.origin.x, destinationVC.carouselImageView.frame.origin.y, self.view.frame.width, destinationVC.carouselImageView.frame.height)
+            var newFrame:CGRect = CGRectMake(destinationVC.carouselImageView.frame.origin.x, destinationVC.carouselImageView.frame.origin.y, self.view.frame.width, TOP_height)
             
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 toViewController.view.alpha = 1
@@ -166,6 +165,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //println(indexPath.row)
         projectCell = tableView.dequeueReusableCellWithIdentifier("projectCellId") as ProjectCell
+        //projectCell.projectImageView.frame = CGRectMake(0, 0, self.view.frame.width, TOP_height)
         projectCell.projectLabel.text = titles[indexPath.row]
         projectCell.projectSubLabel.text = subLabels[indexPath.row]
         var image = UIImage(named: images[indexPath.row])

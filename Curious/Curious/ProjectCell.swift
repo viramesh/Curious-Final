@@ -15,10 +15,13 @@ class ProjectCell: UITableViewCell {
     @IBOutlet weak var projectLabel: UILabel!
     @IBOutlet weak var projectSubLabel: UILabel!
     
+    @IBOutlet weak var imageHeight: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

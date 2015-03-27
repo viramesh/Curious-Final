@@ -79,7 +79,7 @@ extension Lorem {
     }
     
     public class func sentence() -> String {
-        let numberOfWordsInSentence: UInt = randomNumber(min: 10, max: 16)
+        let numberOfWordsInSentence: UInt = randomNumber(min: 8, max: 12)
         let capitalizeFirstLetter: Decorator = { $0.stringByCapitalizingFirstLetter() }
         return compose(word, numberOfWordsInSentence, middleSeparator: " ", endSeparator: ".", decorator: capitalizeFirstLetter)
     }

@@ -19,7 +19,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var instructionsScrollView: UIScrollView!
     @IBOutlet weak var buyButton: UIButton!
     
-    @IBOutlet weak var detailsBottom: NSLayoutConstraint!
+    @IBOutlet weak var imageHeight: NSLayoutConstraint!
+    @IBOutlet weak var instructionsTop: NSLayoutConstraint!
+    @IBOutlet weak var detailsTop: NSLayoutConstraint!
+    var spacer:CGFloat! = 10
     
     //for scrubbing
     var imageNamePrefix:String = ""
@@ -36,7 +39,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var progressBlock: CGFloat!
     
     //for auto scrubbing back to 1st step
-    var rewindDuration:Double = 5
+    var rewindDuration:Double = 4
     var scrollBackSpeed:NSTimeInterval!
     var rewindLabel:UILabel!
     
@@ -51,8 +54,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imageHeight.constant = self.view.frame.height * 0.4
+        instructionsTop.constant = imageHeight.constant - instructionsScrollView.frame.height
+        instructionsScrollView.layoutIfNeeded()
+        detailsTop.constant = imageHeight.constant - 5.0
+        details.layoutIfNeeded()
         
-        // Do any additional setup after loading the view.
         currentImage = imageNameMIN
         
         carouselImageView.image = UIImage(named: carouselImage)
@@ -73,7 +80,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         setupRewindLabel()
         
         //give everything time to load and then rewind back to first step
-        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "resetToFirstStep", userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: "resetToFirstStep", userInfo: nil, repeats: false)
         
     }
     
@@ -84,10 +91,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
 
     func setupRewindLabel() {
-        var rewindLabelFrame:CGRect = CGRectMake(0, 360, self.view.frame.width, 40)
+        var rewindLabelFrame:CGRect = CGRectMake(0, imageHeight.constant-40, self.view.frame.width, 40)
         rewindLabel = UILabel(frame: rewindLabelFrame)
-        rewindLabel.text = "Taking you back to how it all started..."
-        rewindLabel.textColor = UIColor.blackColor()
+        rewindLabel.text = "Curious to know how it all started?"
+        rewindLabel.textColor = UIColor.whiteColor()
+        rewindLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         rewindLabel.textAlignment = NSTextAlignment.Center
         rewindLabel.alpha = 0
         self.view.addSubview(rewindLabel)
@@ -172,25 +180,39 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             var instructionView:UIView = UIView(frame: vframe)
             instructionView.userInteractionEnabled = true
             
-            var stepNumFrame:CGRect = CGRectMake(10, 20, 40, 30)
+            //step number
+            var stepNumFrame:CGRect = CGRectMake(instructionsScrollView.center.x-20, 20, 40, 40)
             var stepNum:UILabel = UILabel(frame: stepNumFrame)
             var num = i+1
-            if (num < 10) {
-                stepNum.text = "0" + String(num)
-            }
-            else {
-                stepNum.text = String(num)
-            }
-            stepNum.textAlignment = NSTextAlignment.Right
-            stepNum.font = UIFont(name: "Edmondsans-Regular", size: 30.0)!
+            stepNum.text = String(num)
+            stepNum.layer.borderColor = UIColor.blackColor().CGColor
+            stepNum.layer.borderWidth = 1
+            stepNum.layer.cornerRadius = 20
+            stepNum.textAlignment = NSTextAlignment.Center
+            stepNum.font = UIFont(name: "Edmondsans-Regular", size: 20.0)!
             instructionView.addSubview(stepNum)
             
-            var stepDescFrame:CGRect = CGRectMake(60, 20, 240, instructionsScrollView.frame.height-40.0)
-            var stepDesc:UILabel = UILabel(frame: stepDescFrame)
-            stepDesc.text = Lorem.sentences(2)
-            stepDesc.font = UIFont(name: "Edmondsans-Regular", size: 18.0)!
-            stepDesc.numberOfLines = 0
-            stepDesc.sizeToFit()
+            //step description
+            var stepDescFrame:CGRect = CGRectMake(25, 70, instructionsScrollView.frame.width-50, instructionsScrollView.frame.height-90.0)
+            
+            var stepDesc:UITextView = UITextView(frame: stepDescFrame)
+            let font = UIFont(name: "Edmondsans-Regular", size: 16.0)!
+            let textFont = [NSFontAttributeName:font]
+            
+            let para = NSMutableAttributedString()
+            let attrString = NSAttributedString(string: Lorem.sentences(2), attributes:textFont)
+            para.appendAttributedString(attrString)
+            
+            let paraStyle = NSMutableParagraphStyle()
+            paraStyle.lineSpacing = 5.0
+            para.addAttribute(NSParagraphStyleAttributeName, value: paraStyle, range: NSRange(location: 0,length: para.length))
+            
+            stepDesc.attributedText = para
+//            var stepDesc:UILabel = UILabel(frame: stepDescFrame)
+//            stepDesc.text = Lorem.sentences(2)
+//            stepDesc.font = UIFont(name: "Edmondsans-Regular", size: 16.0)!
+//            stepDesc.numberOfLines = 0
+//            stepDesc.sizeToFit()
             instructionView.addSubview(stepDesc)
             
             instructionsScrollView.addSubview(instructionView)
@@ -198,13 +220,22 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         instructionsScrollView.delegate = self
         instructionsScrollView.contentSize = CGSize(width: CGFloat(imageNameMAX+1)*instructionsScrollView.frame.width, height: instructionsScrollView.frame.height)
-        //println(instructionsScrollView.contentSize)
+        
     }
     
     func showInstructions() {
-        UIView.animateWithDuration(0.4, animations: { () -> Void in
-            self.instructionsScrollView.alpha = 1
+        
+        detailsTop.constant = imageHeight.constant + instructionsScrollView.frame.height + spacer
+        instructionsTop.constant = imageHeight.constant + spacer
+
+        UIView.animateWithDuration(2.0, animations: { () -> Void in
+            self.details.layoutIfNeeded()
+            self.instructionsScrollView.layoutIfNeeded()
         })
+        
+        UIView.animateWithDuration(0.6, delay: 0.4, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.instructionsScrollView.alpha = 1
+        }, completion: nil)
     }
 
     
@@ -242,7 +273,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func buyButtonWasTapped(sender: AnyObject) {
-        performSegueWithIdentifier("cartSegue", sender: self)
+        //performSegueWithIdentifier("cartSegue", sender: self)
     }
     
     @IBAction func instructionsDidPan(sender: UIPanGestureRecognizer) {
