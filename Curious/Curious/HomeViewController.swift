@@ -21,6 +21,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var loginHeight:CGFloat! = 50
     var loginViewShown:Bool! = false
     var loginView:LoginViewController!
+    var originalConstant:CGFloat!
     
     //Passing info over
     var movingImageView: UIImageView!
@@ -294,48 +295,59 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func loginBtnDidPress(sender: AnyObject) {
-        
-        displayLoginViewController(loginView)
-        
-        loginContainerTop.constant = 0
-        
-        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-            self.loginContainer.layoutIfNeeded()
-            self.loginHideBtn.alpha = 1
-            }) { (Bool) -> Void in
-                //
-        }
+        showLogin()
     }
-    
     
     @IBAction func loginHideBtnDidPress(sender: AnyObject) {
-        
-        loginContainerTop.constant = self.view.frame.height - loginHeight
-        
-        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-            self.loginContainer.layoutIfNeeded()
-            self.loginHideBtn.alpha = 0
-            }) { (Bool) -> Void in
-                
-                self.hideLoginViewController(self.loginView)
-        }
-
+        hideLogin()
     }
-    
     
     @IBAction func loginDidPan(sender: UIPanGestureRecognizer) {
         var velocity = sender.velocityInView(view)
         var translation = sender.translationInView(view)
-        
+
         if sender.state == UIGestureRecognizerState.Began {
-            //
+            if (loginViewShown == true) {
+                originalConstant = 0
+            }
+            else {
+                originalConstant = self.view.frame.height - loginHeight
+                displayLoginViewController(loginView)
+            }
         }
         else if sender.state == UIGestureRecognizerState.Changed {
-            //
+            loginContainerTop.constant = originalConstant + translation.y
+            loginContainer.layoutIfNeeded()
         }
         else if sender.state == UIGestureRecognizerState.Ended {
-            //
+            if(velocity.y > 0) {
+                hideLogin()
+            }
+            else {
+                showLogin()
+            }
         }
     }
     
+    func showLogin() {
+        displayLoginViewController(loginView)
+        loginContainerTop.constant = 0
+        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.loginContainer.layoutIfNeeded()
+            self.loginHideBtn.alpha = 1
+            }) { (Bool) -> Void in
+                self.loginViewShown = true
+        }
+    }
+    
+    func hideLogin() {
+        loginContainerTop.constant = self.view.frame.height - loginHeight
+        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.loginContainer.layoutIfNeeded()
+            self.loginHideBtn.alpha = 0
+            }) { (Bool) -> Void in
+                self.loginViewShown = false
+                self.hideLoginViewController(self.loginView)
+        }
+    }
 }
