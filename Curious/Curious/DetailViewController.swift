@@ -166,13 +166,13 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             }
         }
         
-        
     }
-    
     
     func setupInstructions() {
         
         instructionsScrollView.alpha = 0
+        
+        println("setting up \(instructionsScrollView)")
         
         //for each image, create an instruction view and add it to the scrollview
         for var i=0; i<=imageNameMAX; i++ {
@@ -196,6 +196,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             var stepDescFrame:CGRect = CGRectMake(25, 70, instructionsScrollView.frame.width-50, instructionsScrollView.frame.height-90.0)
             
             var stepDesc:UITextView = UITextView(frame: stepDescFrame)
+            stepDesc.userInteractionEnabled = false
+            
             let font = UIFont(name: "Edmondsans-Regular", size: 16.0)!
             let textFont = [NSFontAttributeName:font]
             
@@ -206,13 +208,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             let paraStyle = NSMutableParagraphStyle()
             paraStyle.lineSpacing = 5.0
             para.addAttribute(NSParagraphStyleAttributeName, value: paraStyle, range: NSRange(location: 0,length: para.length))
-            
             stepDesc.attributedText = para
-//            var stepDesc:UILabel = UILabel(frame: stepDescFrame)
-//            stepDesc.text = Lorem.sentences(2)
-//            stepDesc.font = UIFont(name: "Edmondsans-Regular", size: 16.0)!
-//            stepDesc.numberOfLines = 0
-//            stepDesc.sizeToFit()
             instructionView.addSubview(stepDesc)
             
             instructionsScrollView.addSubview(instructionView)
@@ -300,7 +296,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         }
         else if sender.state == UIGestureRecognizerState.Ended {
             var stepNum = Int(instructionsScrollView.contentOffset.x / instructionsScrollView.frame.width)
-            
+
             if(velocity.x > 0) {
                 //go to next step
                 UIView.animateWithDuration(0.4, animations: { () -> Void in
