@@ -12,6 +12,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var projectsTableView: UITableView!
 
+    //Login Screen stuff
+    @IBOutlet weak var loginContainer: UIView!
+    @IBOutlet weak var loginContents: UIView!
+    @IBOutlet weak var loginButtons: UIView!
+    @IBOutlet weak var loginContainerTop: NSLayoutConstraint!
+    @IBOutlet weak var loginHideBtn: UIButton!
+    var loginHeight:CGFloat! = 50
+    var loginViewShown:Bool! = false
+    var loginView:LoginViewController!
     
     //Passing info over
     var movingImageView: UIImageView!
@@ -32,7 +41,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var newScale:CGFloat!
     
     var TOP_height:CGFloat! = 320
-    var BOTTOM_height:CGFloat! = 100
+    var BOTTOM_height:CGFloat! = 120
     var TOP_alpha:CGFloat! = 0.2
     var BOTTOM_alpha:CGFloat! = 0.7
     var TOP_label_alpha:CGFloat! = 1.0
@@ -59,12 +68,51 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         images = ["string-22.jpg", "plant-10.jpg",  "coaster-30.jpg", "candles-32.jpg", "string-22.jpg", "plant-10.jpg",  "coaster-30.jpg", "candles-32.jpg", "string-22.jpg", "plant-10.jpg",  "coaster-30.jpg", "candles-32.jpg", "string-22.jpg", "plant-10.jpg",  "coaster-30.jpg", "candles-32.jpg", "string-22.jpg", "plant-10.jpg",  "coaster-30.jpg", "candles-32.jpg"]
         
         selectedImage = NSIndexPath(forRow: 0, inSection: 0)
+        
+        //init login stuff
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        loginView = storyboard.instantiateViewControllerWithIdentifier("loginViewController") as LoginViewController
+        
+        loginHideBtn.alpha = 0
+        loginButtons.alpha = 0
+        NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: "revealTable", userInfo: nil, repeats: false)
 
     }
     
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
+    func displayLoginViewController(content: UIViewController) {
+        addChildViewController(content)
+        self.loginContents.addSubview(content.view)
+        self.loginContainer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+
+        content.didMoveToParentViewController(self)
+    }
+    
+    func hideLoginViewController(content: UIViewController) {
+        content.willMoveToParentViewController(nil)
+        content.view.removeFromSuperview()
+        content.removeFromParentViewController()
+    }
+    
+    func revealTable() {
+        loginContainerTop.constant = self.view.frame.height - loginHeight
+        
+        UIView.animateWithDuration(1.2, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.loginContainer.layoutIfNeeded()
+        }) { (Bool) -> Void in
+            //
+        }
+        
+        UIView.animateWithDuration(0.4, delay: 0.8, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.loginContainer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+            self.loginButtons.alpha = 1
+        }, completion: nil)
+    }
+    
     
     //Custom Transition
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -245,5 +293,49 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    @IBAction func loginBtnDidPress(sender: AnyObject) {
+        
+        displayLoginViewController(loginView)
+        
+        loginContainerTop.constant = 0
+        
+        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.loginContainer.layoutIfNeeded()
+            self.loginHideBtn.alpha = 1
+            }) { (Bool) -> Void in
+                //
+        }
+    }
+    
+    
+    @IBAction func loginHideBtnDidPress(sender: AnyObject) {
+        
+        loginContainerTop.constant = self.view.frame.height - loginHeight
+        
+        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.loginContainer.layoutIfNeeded()
+            self.loginHideBtn.alpha = 0
+            }) { (Bool) -> Void in
+                
+                self.hideLoginViewController(self.loginView)
+        }
+
+    }
+    
+    
+    @IBAction func loginDidPan(sender: UIPanGestureRecognizer) {
+        var velocity = sender.velocityInView(view)
+        var translation = sender.translationInView(view)
+        
+        if sender.state == UIGestureRecognizerState.Began {
+            //
+        }
+        else if sender.state == UIGestureRecognizerState.Changed {
+            //
+        }
+        else if sender.state == UIGestureRecognizerState.Ended {
+            //
+        }
+    }
     
 }

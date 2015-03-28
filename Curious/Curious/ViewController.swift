@@ -84,7 +84,7 @@ class ViewController: UIViewController {
                 //
         }
         
-        NSTimer.scheduledTimerWithTimeInterval(1.4, target: self, selector: "loadHomeView", userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "loadHomeView", userInfo: nil, repeats: false)
 
     }
     

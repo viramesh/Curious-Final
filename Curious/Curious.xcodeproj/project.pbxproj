@@ -21,6 +21,7 @@
 		24ABEE601AC53036005B356C /* Edmondsans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24ABEE5D1AC53036005B356C /* Edmondsans-Regular.otf */; };
 		24ABEE621AC530D9005B356C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24ABEE611AC530D9005B356C /* Common.swift */; };
 		24BAA7B41AC5B3FA000032DE /* LoremSwiftum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BAA7B31AC5B3FA000032DE /* LoremSwiftum.swift */; };
+		24BAA7B61AC66F70000032DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BAA7B51AC66F70000032DE /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		24ABEE5D1AC53036005B356C /* Edmondsans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Edmondsans-Regular.otf"; sourceTree = "<group>"; };
 		24ABEE611AC530D9005B356C /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		24BAA7B31AC5B3FA000032DE /* LoremSwiftum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoremSwiftum.swift; sourceTree = "<group>"; };
+		24BAA7B51AC66F70000032DE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				24ABEE571AC52E3C005B356C /* ProjectCell.swift */,
 				24ABEE591AC52F4A005B356C /* DetailViewController.swift */,
 				24BAA7B31AC5B3FA000032DE /* LoremSwiftum.swift */,
+				24BAA7B51AC66F70000032DE /* LoginViewController.swift */,
 			);
 			path = Curious;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				24BAA7B41AC5B3FA000032DE /* LoremSwiftum.swift in Sources */,
 				24ABEE361AC519DD005B356C /* AppDelegate.swift in Sources */,
 				24ABEE5A1AC52F4A005B356C /* DetailViewController.swift in Sources */,
+				24BAA7B61AC66F70000032DE /* LoginViewController.swift in Sources */,
 				24ABEE561AC52C94005B356C /* HomeViewController.swift in Sources */,
 				24ABEE621AC530D9005B356C /* Common.swift in Sources */,
 				24ABEE581AC52E3C005B356C /* ProjectCell.swift in Sources */,
