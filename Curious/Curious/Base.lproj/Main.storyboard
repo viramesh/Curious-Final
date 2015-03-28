@@ -93,7 +93,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vXg-lq-ZII">
                                 <rect key="frame" x="-16" y="0.0" width="446" height="736"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="projectCellId" rowHeight="100" id="6wL-7m-2aL" customClass="ProjectCell" customModule="Curious" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -141,6 +141,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="WVG-96-qw5" secondAttribute="trailing" id="pEC-Dk-bK2"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="mask" destination="ryo-Fh-nkz" id="BpT-fP-WrC"/>
                                             <outlet property="projectImageView" destination="bvi-nW-uMB" id="9LC-m9-AaA"/>
@@ -207,7 +208,7 @@
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zjx-d3-b8C" firstAttribute="top" secondItem="bD8-CY-Ufy" secondAttribute="top" id="AwG-n0-MkT"/>
                             <constraint firstItem="zjx-d3-b8C" firstAttribute="leading" secondItem="nvp-Ue-Guf" secondAttribute="leading" id="B2E-ej-sHj"/>

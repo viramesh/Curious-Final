@@ -28,7 +28,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var isPresenting: Bool = true
     var selectedImage: NSIndexPath!
     
-    
     var titles = [String]()
     var subLabels = [String]()
     var images = [String]()
@@ -316,8 +315,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         else if sender.state == UIGestureRecognizerState.Changed {
-            loginContainerTop.constant = originalConstant + translation.y
+            
+            var newConstant:CGFloat = originalConstant + translation.y
+            loginContainerTop.constant = newConstant
             loginContainer.layoutIfNeeded()
+            
+            var newScale = convertValue(Float(newConstant), 0, Float(self.view.frame.height - loginHeight), 0.9, 1.0)
+            projectsTableView.transform = CGAffineTransformMakeScale(CGFloat(newScale), CGFloat(newScale))
+            
         }
         else if sender.state == UIGestureRecognizerState.Ended {
             if(velocity.y > 0) {
@@ -335,6 +340,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.loginContainer.layoutIfNeeded()
             self.loginHideBtn.alpha = 1
+            self.projectsTableView.transform = CGAffineTransformMakeScale(0.9, 0.9)
             }) { (Bool) -> Void in
                 self.loginViewShown = true
         }
@@ -345,6 +351,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.loginContainer.layoutIfNeeded()
             self.loginHideBtn.alpha = 0
+            self.projectsTableView.transform = CGAffineTransformMakeScale(1.0,1.0)
             }) { (Bool) -> Void in
                 self.loginViewShown = false
                 self.hideLoginViewController(self.loginView)

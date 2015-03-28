@@ -172,8 +172,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         instructionsScrollView.alpha = 0
         
-        println("setting up \(instructionsScrollView)")
-        
         //for each image, create an instruction view and add it to the scrollview
         for var i=0; i<=imageNameMAX; i++ {
             var vframe:CGRect = CGRectMake(instructionsScrollView.frame.width * CGFloat(i), 0.0, instructionsScrollView.frame.width, instructionsScrollView.frame.height)
