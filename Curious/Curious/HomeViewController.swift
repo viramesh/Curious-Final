@@ -317,7 +317,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         else if sender.state == UIGestureRecognizerState.Changed {
             
             var newConstant:CGFloat = originalConstant + translation.y
+            
             loginContainerTop.constant = newConstant
+            
             loginContainer.layoutIfNeeded()
             
             var newScale = convertValue(Float(newConstant), 0, Float(self.view.frame.height - loginHeight), 0.9, 1.0)

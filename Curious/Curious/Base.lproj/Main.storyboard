@@ -18,6 +18,9 @@
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
+            <string>Edmondsans-Regular</string>
+            <string>Edmondsans-Regular</string>
+            <string>Edmondsans-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -272,6 +275,39 @@
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPz-9y-Z46">
+                                <rect key="frame" x="219" y="261" width="78" height="30"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="20"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpBtnDidPress:" destination="PlI-9r-Zdg" eventType="touchUpInside" id="s09-ld-5aP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A86-zV-mdq">
+                                <rect key="frame" x="139" y="322" width="143" height="29"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="15"/>
+                                <state key="normal" title="Forgot Password?">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="forgotPasswordBtnDidPress:" destination="PlI-9r-Zdg" eventType="touchUpInside" id="oOx-bL-6lB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF5-si-Ifw">
+                                <rect key="frame" x="121" y="262" width="73" height="29"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="20"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginBtnDidPress:" destination="PlI-9r-Zdg" eventType="touchUpInside" id="MVa-qJ-Zpm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -288,8 +324,11 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="forgotPasswordBtn" destination="A86-zV-mdq" id="i21-I1-lFq"/>
                         <outlet property="inputPassword" destination="leP-CT-lUE" id="InA-1k-c2V"/>
                         <outlet property="inputUsername" destination="dED-52-IXH" id="pv4-qc-r6a"/>
+                        <outlet property="loginBtn" destination="OF5-si-Ifw" id="QYl-0b-u0x"/>
+                        <outlet property="signUpBtn" destination="hPz-9y-Z46" id="PHb-8C-41f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQM-kH-NJE" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,8 +12,11 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var inputPassword: UITextField!
     @IBOutlet weak var inputUsername: UITextField!
+
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var signUpBtn: UIButton!
     
-    @IBOutlet weak var hideLogin: UIButton!
+    @IBOutlet weak var forgotPasswordBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,4 +47,15 @@ class LoginViewController: UIViewController {
     }
     */
 
+    @IBAction func loginBtnDidPress(sender: AnyObject) {
+    }
+    
+    
+    @IBAction func signUpBtnDidPress(sender: AnyObject) {
+    }
+    
+    @IBAction func forgotPasswordBtnDidPress(sender: AnyObject) {
+    }
+    
+    
 }
