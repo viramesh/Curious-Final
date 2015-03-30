@@ -7,7 +7,12 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="Edmondsans-Bold.otf">
+            <string>Edmondsans-Bold</string>
+        </mutableArray>
         <mutableArray key="Edmondsans-Medium.otf">
+            <string>Edmondsans-Medium</string>
+            <string>Edmondsans-Medium</string>
             <string>Edmondsans-Medium</string>
             <string>Edmondsans-Medium</string>
             <string>Edmondsans-Medium</string>
@@ -467,6 +472,7 @@
                         <outlet property="progressView" destination="YG4-p9-IY9" id="ZpC-pq-FQI"/>
                         <outlet property="projectDescription" destination="2IB-UT-n4g" id="zsn-80-Jj4"/>
                         <outlet property="projectTitle" destination="2vZ-YE-7yT" id="rsu-A6-2xJ"/>
+                        <segue destination="1ER-BO-RCq" kind="presentation" identifier="cartSegue" id="oT9-s3-W2a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bDb-wM-tOW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -482,6 +488,93 @@
                 </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2069" y="717"/>
+        </scene>
+        <!--Cart View Controller-->
+        <scene sceneID="MfV-of-zcM">
+            <objects>
+                <viewController id="1ER-BO-RCq" customClass="CartViewController" customModule="Curious" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5sn-lt-Dci"/>
+                        <viewControllerLayoutGuide type="bottom" id="wQI-9F-4ah"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Jz-mQ-Zlc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="OK STRING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQS-gZ-Gs3">
+                                <rect key="frame" x="16" y="336" width="134" height="34"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Medium" family="Edmondsans" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xYz-VQ-t4D">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="320"/>
+                                <color key="backgroundColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="1c9-I3-Kyo"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wg4-EG-iXv">
+                                <rect key="frame" x="-6" y="10" width="53" height="45"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="Back Arrow">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonDidTap:" destination="Kfb-5H-2dY" eventType="touchUpInside" id="kAR-bR-XW5"/>
+                                    <action selector="backButtonPressed:" destination="1ER-BO-RCq" eventType="touchUpInside" id="ubD-Mg-Vjv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhr-YJ-Qyj">
+                                <rect key="frame" x="26" y="685" width="362" height="30"/>
+                                <color key="backgroundColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Medium" family="Edmondsans" pointSize="18"/>
+                                <state key="normal" title="Add to cart"/>
+                                <connections>
+                                    <action selector="buyButtonWasTapped:" destination="Kfb-5H-2dY" eventType="touchUpInside" id="rWU-fU-IAr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$8.99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZA-uN-v26">
+                                <rect key="frame" x="16" y="370" width="170" height="47"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Bold" family="Edmondsans" pointSize="34"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pZA-uN-v26" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" constant="16" id="5gS-u6-cbM"/>
+                            <constraint firstItem="xYz-VQ-t4D" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" id="ERj-XV-sjh"/>
+                            <constraint firstAttribute="trailing" secondItem="Jhr-YJ-Qyj" secondAttribute="trailing" constant="25" id="Esb-kd-iM3"/>
+                            <constraint firstItem="wQI-9F-4ah" firstAttribute="top" secondItem="Jhr-YJ-Qyj" secondAttribute="bottom" constant="37" id="JWb-hB-T3r"/>
+                            <constraint firstItem="wQI-9F-4ah" firstAttribute="top" secondItem="Jhr-YJ-Qyj" secondAttribute="bottom" constant="21" id="Lld-gS-gfv"/>
+                            <constraint firstItem="pZA-uN-v26" firstAttribute="top" secondItem="TQS-gZ-Gs3" secondAttribute="bottom" constant="5" id="Nyn-Ce-EBT"/>
+                            <constraint firstItem="TQS-gZ-Gs3" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" constant="16" id="Z9A-mC-rki"/>
+                            <constraint firstItem="TQS-gZ-Gs3" firstAttribute="top" secondItem="xYz-VQ-t4D" secondAttribute="bottom" constant="16" id="fPL-Oe-Eo9"/>
+                            <constraint firstItem="xYz-VQ-t4D" firstAttribute="top" secondItem="5sn-lt-Dci" secondAttribute="bottom" id="gML-Ds-AZI"/>
+                            <constraint firstAttribute="trailing" secondItem="xYz-VQ-t4D" secondAttribute="trailing" id="k4r-iy-HnG"/>
+                            <constraint firstItem="Jhr-YJ-Qyj" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" constant="25" id="vPy-Uv-65P"/>
+                            <constraint firstItem="wQI-9F-4ah" firstAttribute="top" secondItem="Jhr-YJ-Qyj" secondAttribute="bottom" constant="38" id="wHh-C2-IVA"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="JWb-hB-T3r"/>
+                                <exclude reference="wHh-C2-IVA"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="cartMainImage" destination="xYz-VQ-t4D" id="xFn-81-n6w"/>
+                        <outlet property="cartPriceLabel" destination="pZA-uN-v26" id="ttk-UQ-0ti"/>
+                        <outlet property="cartTitleLabel" destination="TQS-gZ-Gs3" id="wBc-1d-emG"/>
+                        <outlet property="imageHeight" destination="1c9-I3-Kyo" id="PfQ-WK-hkZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C5x-9c-qfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2537" y="717"/>
         </scene>
     </scenes>
     <resources>

@@ -267,7 +267,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func buyButtonWasTapped(sender: AnyObject) {
-        //performSegueWithIdentifier("cartSegue", sender: self)
+        performSegueWithIdentifier("cartSegue", sender: self)
     }
     
     @IBAction func instructionsDidPan(sender: UIPanGestureRecognizer) {

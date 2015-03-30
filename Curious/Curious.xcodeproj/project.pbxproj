@@ -22,6 +22,7 @@
 		24ABEE621AC530D9005B356C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24ABEE611AC530D9005B356C /* Common.swift */; };
 		24BAA7B41AC5B3FA000032DE /* LoremSwiftum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BAA7B31AC5B3FA000032DE /* LoremSwiftum.swift */; };
 		24BAA7B61AC66F70000032DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BAA7B51AC66F70000032DE /* LoginViewController.swift */; };
+		2BBC64F21AC90D2000B63D91 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC64F11AC90D2000B63D91 /* CartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		24ABEE611AC530D9005B356C /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		24BAA7B31AC5B3FA000032DE /* LoremSwiftum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoremSwiftum.swift; sourceTree = "<group>"; };
 		24BAA7B51AC66F70000032DE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2BBC64F11AC90D2000B63D91 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				24ABEE351AC519DD005B356C /* AppDelegate.swift */,
 				24ABEE371AC519DD005B356C /* ViewController.swift */,
 				24ABEE391AC519DD005B356C /* Main.storyboard */,
+				2BBC64F11AC90D2000B63D91 /* CartViewController.swift */,
 				24ABEE3C1AC519DD005B356C /* Images.xcassets */,
 				24ABEE3E1AC519DD005B356C /* LaunchScreen.xib */,
 				24ABEE331AC519DD005B356C /* Supporting Files */,
@@ -249,6 +252,7 @@
 				24BAA7B61AC66F70000032DE /* LoginViewController.swift in Sources */,
 				24ABEE561AC52C94005B356C /* HomeViewController.swift in Sources */,
 				24ABEE621AC530D9005B356C /* Common.swift in Sources */,
+				2BBC64F21AC90D2000B63D91 /* CartViewController.swift in Sources */,
 				24ABEE581AC52E3C005B356C /* ProjectCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
