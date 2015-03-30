@@ -26,6 +26,7 @@
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
+            <string>Edmondsans-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -365,6 +366,17 @@
                                             <outletCollection property="gestureRecognizers" destination="rvA-ok-Awq" appends="YES" id="xtu-jg-thi"/>
                                         </connections>
                                     </scrollView>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbU-Ib-czu">
+                                        <rect key="frame" x="25" y="353" width="364" height="30"/>
+                                        <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="16"/>
+                                        <state key="normal" title="Show me how its done!">
+                                            <color key="titleColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="rewindBtnDidPress:" destination="Kfb-5H-2dY" eventType="touchUpInside" id="NnX-Sh-mmt"/>
+                                        </connections>
+                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTc-ZT-yaD" userLabel="Everything except carousel">
                                         <rect key="frame" x="0.0" y="567" width="414" height="170"/>
                                         <subviews>
@@ -440,11 +452,14 @@
                                     <constraint firstItem="tTc-ZT-yaD" firstAttribute="leading" secondItem="a9v-0p-cyS" secondAttribute="leading" id="0Sm-95-izO"/>
                                     <constraint firstItem="SSb-t6-9XS" firstAttribute="top" secondItem="a9v-0p-cyS" secondAttribute="top" id="2Uc-Vn-hYk"/>
                                     <constraint firstItem="8nR-w5-njr" firstAttribute="leading" secondItem="a9v-0p-cyS" secondAttribute="leading" id="30O-gf-bsU"/>
+                                    <constraint firstItem="lbU-Ib-czu" firstAttribute="top" secondItem="a9v-0p-cyS" secondAttribute="top" constant="353" id="Gzv-EU-jiV"/>
                                     <constraint firstItem="tTc-ZT-yaD" firstAttribute="top" secondItem="a9v-0p-cyS" secondAttribute="top" constant="567" id="JMW-UD-pkh"/>
                                     <constraint firstAttribute="trailing" secondItem="8nR-w5-njr" secondAttribute="trailing" id="Q8b-yy-GgJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="lbU-Ib-czu" secondAttribute="trailing" id="Y3M-7S-hoC"/>
                                     <constraint firstItem="SSb-t6-9XS" firstAttribute="leading" secondItem="a9v-0p-cyS" secondAttribute="leading" id="dW4-Fr-x02"/>
                                     <constraint firstItem="8nR-w5-njr" firstAttribute="top" secondItem="a9v-0p-cyS" secondAttribute="top" constant="341" id="eVc-6O-o9x"/>
                                     <constraint firstAttribute="trailing" secondItem="SSb-t6-9XS" secondAttribute="trailing" id="f2X-j0-KPB"/>
+                                    <constraint firstItem="lbU-Ib-czu" firstAttribute="leading" secondItem="a9v-0p-cyS" secondAttribute="leading" id="h3U-Xn-g7m"/>
                                     <constraint firstItem="YG4-p9-IY9" firstAttribute="top" secondItem="SSb-t6-9XS" secondAttribute="bottom" id="mel-2Q-tXA"/>
                                     <constraint firstAttribute="trailing" secondItem="tTc-ZT-yaD" secondAttribute="trailing" id="q9f-qb-PB7"/>
                                 </constraints>
@@ -472,6 +487,8 @@
                         <outlet property="progressView" destination="YG4-p9-IY9" id="ZpC-pq-FQI"/>
                         <outlet property="projectDescription" destination="2IB-UT-n4g" id="zsn-80-Jj4"/>
                         <outlet property="projectTitle" destination="2vZ-YE-7yT" id="rsu-A6-2xJ"/>
+                        <outlet property="rewindBtnTop" destination="Gzv-EU-jiV" id="qMo-0K-apz"/>
+                        <outlet property="rewindButton" destination="lbU-Ib-czu" id="wK8-sO-WHn"/>
                         <segue destination="1ER-BO-RCq" kind="presentation" identifier="cartSegue" id="oT9-s3-W2a"/>
                     </connections>
                 </viewController>

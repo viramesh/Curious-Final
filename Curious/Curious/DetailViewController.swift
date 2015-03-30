@@ -17,11 +17,15 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var projectTitle: UILabel!
     @IBOutlet weak var projectDescription: UILabel!
     @IBOutlet weak var instructionsScrollView: UIScrollView!
+    @IBOutlet weak var rewindButton: UIButton!
     @IBOutlet weak var buyButton: UIButton!
     
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     @IBOutlet weak var instructionsTop: NSLayoutConstraint!
     @IBOutlet weak var detailsTop: NSLayoutConstraint!
+    @IBOutlet weak var rewindBtnTop: NSLayoutConstraint!
+    
+    var btnHeight:CGFloat! = 50
     var spacer:CGFloat! = 10
     
     //for scrubbing
@@ -39,7 +43,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var progressBlock: CGFloat!
     
     //for auto scrubbing back to 1st step
-    var rewindDuration:Double = 4
+    var rewindDuration:Double = 3
     var scrollBackSpeed:NSTimeInterval!
     var rewindLabel:UILabel!
     
@@ -57,8 +61,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         imageHeight.constant = self.view.frame.height * 0.4
         instructionsTop.constant = imageHeight.constant - instructionsScrollView.frame.height
         instructionsScrollView.layoutIfNeeded()
-        detailsTop.constant = imageHeight.constant - 5.0
+        detailsTop.constant = imageHeight.constant + btnHeight
         details.layoutIfNeeded()
+        rewindBtnTop.constant = imageHeight.constant + spacer
+        rewindButton.layoutIfNeeded()
         
         currentImage = imageNameMIN
         
@@ -80,7 +86,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         setupRewindLabel()
         
         //give everything time to load and then rewind back to first step
-        NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: "resetToFirstStep", userInfo: nil, repeats: false)
+//        NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: "resetToFirstStep", userInfo: nil, repeats: false)
         
     }
     
@@ -89,11 +95,16 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func rewindBtnDidPress(sender: AnyObject) {
+        rewindButton.userInteractionEnabled = false
+        rewindButton.alpha = 0.3
+        resetToFirstStep()
+    }
 
     func setupRewindLabel() {
         var rewindLabelFrame:CGRect = CGRectMake(0, imageHeight.constant-40, self.view.frame.width, 40)
         rewindLabel = UILabel(frame: rewindLabelFrame)
-        rewindLabel.text = "Curious to know how it all started?"
+        rewindLabel.text = "Let's go back to the first step..."
         rewindLabel.textColor = UIColor.whiteColor()
         rewindLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         rewindLabel.textAlignment = NSTextAlignment.Center
@@ -221,14 +232,17 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         detailsTop.constant = self.view.frame.height - details.frame.height
         instructionsTop.constant = imageHeight.constant + spacer
-
-        UIView.animateWithDuration(2.0, animations: { () -> Void in
-            self.details.layoutIfNeeded()
-            self.instructionsScrollView.layoutIfNeeded()
-        })
         
-        UIView.animateWithDuration(0.6, delay: 0.4, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-            self.instructionsScrollView.alpha = 1
+        UIView.animateWithDuration(2.0, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+                self.details.layoutIfNeeded()
+                self.instructionsScrollView.layoutIfNeeded()
+                self.instructionsScrollView.alpha = 1
+            }) { (Bool) -> Void in
+                //
+        }
+        
+        UIView.animateWithDuration(0.4, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.rewindButton.alpha = 0
         }, completion: nil)
     }
 
