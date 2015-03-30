@@ -381,7 +381,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpf-bs-gQ5">
-                                                <rect key="frame" x="27" y="102" width="362" height="30"/>
+                                                <rect key="frame" x="27" y="105" width="362" height="30"/>
                                                 <color key="backgroundColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Edmondsans-Medium" family="Edmondsans" pointSize="18"/>
                                                 <state key="normal" title="Add to cart"/>
@@ -527,7 +527,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhr-YJ-Qyj">
-                                <rect key="frame" x="26" y="685" width="362" height="30"/>
+                                <rect key="frame" x="26" y="671" width="362" height="30"/>
                                 <color key="backgroundColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Edmondsans-Medium" family="Edmondsans" pointSize="18"/>
                                 <state key="normal" title="Add to cart"/>
@@ -548,7 +548,7 @@
                             <constraint firstItem="xYz-VQ-t4D" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" id="ERj-XV-sjh"/>
                             <constraint firstAttribute="trailing" secondItem="Jhr-YJ-Qyj" secondAttribute="trailing" constant="25" id="Esb-kd-iM3"/>
                             <constraint firstItem="wQI-9F-4ah" firstAttribute="top" secondItem="Jhr-YJ-Qyj" secondAttribute="bottom" constant="37" id="JWb-hB-T3r"/>
-                            <constraint firstItem="wQI-9F-4ah" firstAttribute="top" secondItem="Jhr-YJ-Qyj" secondAttribute="bottom" constant="21" id="Lld-gS-gfv"/>
+                            <constraint firstItem="wQI-9F-4ah" firstAttribute="bottom" secondItem="Jhr-YJ-Qyj" secondAttribute="bottom" constant="35" id="Lld-gS-gfv"/>
                             <constraint firstItem="pZA-uN-v26" firstAttribute="top" secondItem="TQS-gZ-Gs3" secondAttribute="bottom" constant="5" id="Nyn-Ce-EBT"/>
                             <constraint firstItem="TQS-gZ-Gs3" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" constant="16" id="Z9A-mC-rki"/>
                             <constraint firstItem="TQS-gZ-Gs3" firstAttribute="top" secondItem="xYz-VQ-t4D" secondAttribute="bottom" constant="16" id="fPL-Oe-Eo9"/>

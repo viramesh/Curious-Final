@@ -219,7 +219,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     func showInstructions() {
         
-        detailsTop.constant = imageHeight.constant + instructionsScrollView.frame.height + spacer
+        detailsTop.constant = self.view.frame.height - details.frame.height
         instructionsTop.constant = imageHeight.constant + spacer
 
         UIView.animateWithDuration(2.0, animations: { () -> Void in
