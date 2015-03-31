@@ -19,7 +19,7 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
     }
 
     
-    @IBOutlet weak var backgroundGreenView: UIView!
+    var backgroundGreenView: UIView!
     @IBOutlet weak var cartMainImage: UIImageView!
     @IBOutlet weak var cartTitleLabel: UILabel!
     @IBOutlet weak var cartPriceLabel: UILabel!
@@ -29,6 +29,7 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
 
         // Do any additional setup after loading the view.
         imageHeight.constant = self.view.frame.height * 0.4
+        cartTitleLabel.alpha = 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,14 +37,18 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
         // Dispose of any resources that can be recreated.
     }
     
-//    override func viewDidAppear(animated: Bool) {
-//        UIView.animateWithDuration(0.4, animations: { () -> Void in
-//            self.backgroundGreenView.frame = CGRect(x: 0, y: self.view.frame.height - self.cartMainImage.frame.height, width: self.view.frame.width, height: self.view.frame.height - self.cartMainImage.frame.height)
-//            
-//            }) { (Bool) -> Void in
-//                //
-//        }
-//    }
+    override func viewDidAppear(animated: Bool) {
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            self.backgroundGreenView.frame = CGRect(x: 0, y: self.cartMainImage.frame.height, width: self.view.frame.width, height: self.view.frame.height - self.cartMainImage.frame.height)
+            
+            }) { (Bool) -> Void in
+                //
+        }
+        
+        UIView.animateKeyframesWithDuration(0.4, delay: 0.4, options: UIViewKeyframeAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+            self.cartTitleLabel.alpha = 1
+        }, completion: nil)
+    }
     
     
     func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
@@ -77,11 +82,18 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
             self.cartTitleLabel.text = titleFromDetail
             
             var buttonFromDetail = detailVC.buyButton
-            self.backgroundGreenView.frame = buttonFromDetail.frame
+            self.backgroundGreenView = UIView()
+            self.backgroundGreenView.frame = detailVC.details.convertRect(buttonFromDetail.frame, toView: detailVC.details.superview)
+            self.backgroundGreenView.backgroundColor = UIColor(red: 26/255, green: 205/255, blue: 192/255, alpha: 1)
+            self.view.insertSubview(backgroundGreenView, atIndex: 0)
+            
+
+            println("Frame of new green view \(self.backgroundGreenView.frame)")
+            println("Frame of detail button \(detailVC.buyButton.frame)")
             
             containerView.addSubview(toViewController.view)
             toViewController.view.alpha = 0
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
+            UIView.animateWithDuration(0.4, delay: 0.4, options: nil, animations: { () -> Void in
                 toViewController.view.alpha = 1
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
