@@ -30,6 +30,7 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
         // Do any additional setup after loading the view.
         imageHeight.constant = self.view.frame.height * 0.4
         cartTitleLabel.alpha = 0
+        cartPriceLabel.alpha = 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +48,10 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
         
         UIView.animateKeyframesWithDuration(0.4, delay: 0.4, options: UIViewKeyframeAnimationOptions.AllowUserInteraction, animations: { () -> Void in
             self.cartTitleLabel.alpha = 1
+            self.cartTitleLabel.textColor = UIColor.whiteColor()
+            
+            self.cartPriceLabel.alpha = 1
+            self.cartPriceLabel.textColor = UIColor.whiteColor()
         }, completion: nil)
     }
     
@@ -93,7 +98,7 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
             
             containerView.addSubview(toViewController.view)
             toViewController.view.alpha = 0
-            UIView.animateWithDuration(0.4, delay: 0.4, options: nil, animations: { () -> Void in
+            UIView.animateWithDuration(0.4, delay: 0, options: nil, animations: { () -> Void in
                 toViewController.view.alpha = 1
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
