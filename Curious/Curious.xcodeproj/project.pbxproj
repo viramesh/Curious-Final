@@ -24,6 +24,7 @@
 		24BAA7B61AC66F70000032DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BAA7B51AC66F70000032DE /* LoginViewController.swift */; };
 		2B129E1D1ACA533000D752ED /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2B129E1C1ACA533000D752ED /* Podfile */; };
 		2B6E6C551ACB40C10054E4D9 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6E6C541ACB40C10054E4D9 /* CartViewController.swift */; };
+		2B6E6C571ACB5BCA0054E4D9 /* QuantityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6E6C561ACB5BCA0054E4D9 /* QuantityViewController.swift */; };
 		39AF5E0EB49D963D2F384837 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC55EEA653FF07B292755B93 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		24BAA7B51AC66F70000032DE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2B129E1C1ACA533000D752ED /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		2B6E6C541ACB40C10054E4D9 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		2B6E6C561ACB5BCA0054E4D9 /* QuantityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityViewController.swift; sourceTree = "<group>"; };
 		2E12F53F669391282825867C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AC55EEA653FF07B292755B93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4875F80F26C42615FC65428 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				24ABEE331AC519DD005B356C /* Supporting Files */,
 				24ABEE551AC52C94005B356C /* HomeViewController.swift */,
 				24ABEE571AC52E3C005B356C /* ProjectCell.swift */,
+				2B6E6C561ACB5BCA0054E4D9 /* QuantityViewController.swift */,
 				24ABEE591AC52F4A005B356C /* DetailViewController.swift */,
 				24BAA7B31AC5B3FA000032DE /* LoremSwiftum.swift */,
 				24BAA7B51AC66F70000032DE /* LoginViewController.swift */,
@@ -331,6 +334,7 @@
 				24BAA7B61AC66F70000032DE /* LoginViewController.swift in Sources */,
 				24ABEE561AC52C94005B356C /* HomeViewController.swift in Sources */,
 				24ABEE621AC530D9005B356C /* Common.swift in Sources */,
+				2B6E6C571ACB5BCA0054E4D9 /* QuantityViewController.swift in Sources */,
 				2B6E6C551ACB40C10054E4D9 /* CartViewController.swift in Sources */,
 				24ABEE581AC52E3C005B356C /* ProjectCell.swift in Sources */,
 			);
