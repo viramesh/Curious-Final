@@ -558,19 +558,26 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mMC-mE-tOw">
+                                <rect key="frame" x="26" y="671" width="362" height="30"/>
+                                <color key="backgroundColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pZA-uN-v26" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" constant="16" id="5gS-u6-cbM"/>
                             <constraint firstItem="xYz-VQ-t4D" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" id="ERj-XV-sjh"/>
                             <constraint firstAttribute="trailing" secondItem="Jhr-YJ-Qyj" secondAttribute="trailing" constant="25" id="Esb-kd-iM3"/>
+                            <constraint firstAttribute="trailing" secondItem="mMC-mE-tOw" secondAttribute="trailing" constant="26" id="GAj-VZ-wuH"/>
                             <constraint firstItem="wQI-9F-4ah" firstAttribute="top" secondItem="Jhr-YJ-Qyj" secondAttribute="bottom" constant="37" id="JWb-hB-T3r"/>
                             <constraint firstItem="wQI-9F-4ah" firstAttribute="bottom" secondItem="Jhr-YJ-Qyj" secondAttribute="bottom" constant="35" id="Lld-gS-gfv"/>
                             <constraint firstItem="pZA-uN-v26" firstAttribute="top" secondItem="TQS-gZ-Gs3" secondAttribute="bottom" constant="5" id="Nyn-Ce-EBT"/>
                             <constraint firstItem="TQS-gZ-Gs3" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" constant="16" id="Z9A-mC-rki"/>
+                            <constraint firstItem="wQI-9F-4ah" firstAttribute="top" secondItem="mMC-mE-tOw" secondAttribute="bottom" constant="35" id="bqL-cZ-FoN"/>
                             <constraint firstItem="TQS-gZ-Gs3" firstAttribute="top" secondItem="xYz-VQ-t4D" secondAttribute="bottom" constant="16" id="fPL-Oe-Eo9"/>
                             <constraint firstItem="xYz-VQ-t4D" firstAttribute="top" secondItem="5sn-lt-Dci" secondAttribute="bottom" id="gML-Ds-AZI"/>
                             <constraint firstAttribute="trailing" secondItem="xYz-VQ-t4D" secondAttribute="trailing" id="k4r-iy-HnG"/>
+                            <constraint firstItem="mMC-mE-tOw" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" constant="26" id="qZ4-NX-yKD"/>
                             <constraint firstItem="Jhr-YJ-Qyj" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" constant="25" id="vPy-Uv-65P"/>
                             <constraint firstItem="wQI-9F-4ah" firstAttribute="top" secondItem="Jhr-YJ-Qyj" secondAttribute="bottom" constant="38" id="wHh-C2-IVA"/>
                         </constraints>
@@ -583,6 +590,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="backgroundGreenView" destination="mMC-mE-tOw" id="5b8-uy-Mr1"/>
                         <outlet property="cartMainImage" destination="xYz-VQ-t4D" id="xFn-81-n6w"/>
                         <outlet property="cartPriceLabel" destination="pZA-uN-v26" id="ttk-UQ-0ti"/>
                         <outlet property="cartTitleLabel" destination="TQS-gZ-Gs3" id="wBc-1d-emG"/>

@@ -19,6 +19,7 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
     }
 
     
+    @IBOutlet weak var backgroundGreenView: UIView!
     @IBOutlet weak var cartMainImage: UIImageView!
     @IBOutlet weak var cartTitleLabel: UILabel!
     @IBOutlet weak var cartPriceLabel: UILabel!
@@ -34,6 +35,16 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+//    override func viewDidAppear(animated: Bool) {
+//        UIView.animateWithDuration(0.4, animations: { () -> Void in
+//            self.backgroundGreenView.frame = CGRect(x: 0, y: self.view.frame.height - self.cartMainImage.frame.height, width: self.view.frame.width, height: self.view.frame.height - self.cartMainImage.frame.height)
+//            
+//            }) { (Bool) -> Void in
+//                //
+//        }
+//    }
+    
     
     func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
         isPresenting = true
@@ -64,6 +75,9 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
 
             var titleFromDetail = detailVC.detailTitle
             self.cartTitleLabel.text = titleFromDetail
+            
+            var buttonFromDetail = detailVC.buyButton
+            self.backgroundGreenView.frame = buttonFromDetail.frame
             
             containerView.addSubview(toViewController.view)
             toViewController.view.alpha = 0
