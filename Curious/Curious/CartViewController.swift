@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Spring
 
 class CartViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     
@@ -21,8 +22,12 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
     
     var backgroundGreenView: UIView!
     @IBOutlet weak var cartMainImage: UIImageView!
-    @IBOutlet weak var cartTitleLabel: UILabel!
-    @IBOutlet weak var cartPriceLabel: UILabel!
+    @IBOutlet weak var cartTitleLabel: SpringLabel!
+    @IBOutlet weak var cartQuantityButton: SpringButton!
+    @IBOutlet weak var cartPriceLabel: SpringLabel!
+    @IBOutlet weak var cartItemsTextView: UITextView!
+    @IBOutlet weak var addCartButton: SpringButton!
+
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +36,9 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
         imageHeight.constant = self.view.frame.height * 0.4
         cartTitleLabel.alpha = 0
         cartPriceLabel.alpha = 0
+        cartQuantityButton.alpha = 0
+        addCartButton.alpha = 0
+        cartItemsTextView.alpha = 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,14 +54,44 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
                 //
         }
         
-        UIView.animateKeyframesWithDuration(0.4, delay: 0.4, options: UIViewKeyframeAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+        UIView.animateKeyframesWithDuration(1.0, delay: 0.4, options: UIViewKeyframeAnimationOptions.AllowUserInteraction, animations: { () -> Void in
             self.cartTitleLabel.alpha = 1
             self.cartTitleLabel.textColor = UIColor.whiteColor()
-            
+           
             self.cartPriceLabel.alpha = 1
-            self.cartPriceLabel.textColor = UIColor.whiteColor()
+            self.cartQuantityButton.alpha = 1
+            self.cartItemsTextView.alpha = 1
+            self.cartItemsTextView.textColor = UIColor.whiteColor()
+
+
         }, completion: nil)
+        
+        
+        self.cartPriceLabel.textColor = UIColor.whiteColor()
+        self.cartPriceLabel.animation = "pop"
+        self.cartPriceLabel.delay = 0.5
+        self.cartPriceLabel.force = 2.0
+        self.cartPriceLabel.duration = 1.0
+        self.cartPriceLabel.curve = "linear"
+        self.cartPriceLabel.animate()
+        
+        self.cartQuantityButton.animation = "pop"
+        self.cartQuantityButton.delay = 0.5
+        self.cartQuantityButton.force = 2.0
+        self.cartQuantityButton.duration = 1.0
+        self.cartQuantityButton.curve = "linear"
+        self.cartQuantityButton.animate()
+        
+        self.addCartButton.alpha = 1
+        self.addCartButton.animation = "fadeInUp"
+        self.addCartButton.delay = 0.2
+        self.addCartButton.duration = 0.7
+        self.addCartButton.damping = 0.5
+        self.addCartButton.curve = "easeOut"
+        self.addCartButton.animate()
     }
+    
+    
     
     
     func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {

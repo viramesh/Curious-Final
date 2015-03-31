@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JMO-fr-WM9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment version="2048" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -8,6 +8,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Edmondsans-Bold.otf">
+            <string>Edmondsans-Bold</string>
             <string>Edmondsans-Bold</string>
         </mutableArray>
         <mutableArray key="Edmondsans-Medium.otf">
@@ -20,6 +21,7 @@
             <string>Edmondsans-Medium</string>
         </mutableArray>
         <mutableArray key="Edmondsans-Regular.otf">
+            <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
@@ -502,7 +504,7 @@
                                                 <rect key="frame" x="27" y="105" width="362" height="30"/>
                                                 <color key="backgroundColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Edmondsans-Medium" family="Edmondsans" pointSize="18"/>
-                                                <state key="normal" title="Add to cart"/>
+                                                <state key="normal" title="Buy kit!"/>
                                                 <connections>
                                                     <action selector="buyButtonWasTapped:" destination="Kfb-5H-2dY" eventType="touchUpInside" id="oui-EN-qib"/>
                                                 </connections>
@@ -624,7 +626,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="OK STRING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQS-gZ-Gs3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="OK STRING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQS-gZ-Gs3" customClass="SpringLabel" customModule="Spring">
                                 <rect key="frame" x="16" y="336" width="134" height="34"/>
                                 <fontDescription key="fontDescription" name="Edmondsans-Medium" family="Edmondsans" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -649,40 +651,82 @@
                                     <action selector="backButtonPressed:" destination="1ER-BO-RCq" eventType="touchUpInside" id="ubD-Mg-Vjv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhr-YJ-Qyj">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhr-YJ-Qyj" customClass="SpringButton" customModule="Spring">
                                 <rect key="frame" x="26" y="671" width="362" height="30"/>
-                                <color key="backgroundColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Edmondsans-Medium" family="Edmondsans" pointSize="18"/>
-                                <state key="normal" title="Add to cart"/>
+                                <state key="normal" title="Add to cart">
+                                    <color key="titleColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="buyButtonWasTapped:" destination="Kfb-5H-2dY" eventType="touchUpInside" id="rWU-fU-IAr"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$8.99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZA-uN-v26">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$8.99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZA-uN-v26" customClass="SpringLabel" customModule="Spring">
                                 <rect key="frame" x="16" y="370" width="170" height="47"/>
                                 <fontDescription key="fontDescription" name="Edmondsans-Bold" family="Edmondsans" pointSize="34"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfO-sJ-kU0" customClass="SpringButton" customModule="Spring">
+                                <rect key="frame" x="335" y="375" width="63" height="38"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63" id="Ksu-S2-WYE"/>
+                                    <constraint firstAttribute="height" constant="38" id="W0X-NB-gaW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Edmondsans-Bold" family="Edmondsans" pointSize="34"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="1">
+                                    <color key="titleColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kW7-Qk-tIh">
+                                <rect key="frame" x="16" y="420" width="382" height="256"/>
+                                <string key="text">12mm plywood 60 x 60 cm 
+White acrylic paint
+Paint brush
+Downloaded and printed template pages
+25 mm (1 inch) nails, 1.6 mm size
+Hammer
+Sandpaper - optional
+Skeins of embroidery flossScissors.
+Pencil.
+Sticky tape.
+Washi tape - optional.
+Ruler.</string>
+                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pZA-uN-v26" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" constant="16" id="5gS-u6-cbM"/>
                             <constraint firstItem="xYz-VQ-t4D" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" id="ERj-XV-sjh"/>
                             <constraint firstAttribute="trailing" secondItem="Jhr-YJ-Qyj" secondAttribute="trailing" constant="25" id="Esb-kd-iM3"/>
+                            <constraint firstAttribute="trailing" secondItem="DfO-sJ-kU0" secondAttribute="trailing" constant="16" id="FqF-7q-gwE"/>
+                            <constraint firstItem="DfO-sJ-kU0" firstAttribute="top" secondItem="TQS-gZ-Gs3" secondAttribute="bottom" constant="5" id="Gc7-es-OXj"/>
                             <constraint firstItem="wQI-9F-4ah" firstAttribute="bottom" secondItem="Jhr-YJ-Qyj" secondAttribute="bottom" constant="35" id="Lld-gS-gfv"/>
                             <constraint firstItem="pZA-uN-v26" firstAttribute="top" secondItem="TQS-gZ-Gs3" secondAttribute="bottom" constant="5" id="Nyn-Ce-EBT"/>
                             <constraint firstItem="TQS-gZ-Gs3" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" constant="16" id="Z9A-mC-rki"/>
+                            <constraint firstItem="Jhr-YJ-Qyj" firstAttribute="top" secondItem="kW7-Qk-tIh" secondAttribute="bottom" constant="19" id="eeE-xa-dNK"/>
                             <constraint firstItem="TQS-gZ-Gs3" firstAttribute="top" secondItem="xYz-VQ-t4D" secondAttribute="bottom" constant="16" id="fPL-Oe-Eo9"/>
+                            <constraint firstItem="kW7-Qk-tIh" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" constant="16" id="fla-ch-eeR"/>
                             <constraint firstItem="xYz-VQ-t4D" firstAttribute="top" secondItem="5sn-lt-Dci" secondAttribute="bottom" id="gML-Ds-AZI"/>
                             <constraint firstAttribute="trailing" secondItem="xYz-VQ-t4D" secondAttribute="trailing" id="k4r-iy-HnG"/>
+                            <constraint firstAttribute="trailing" secondItem="kW7-Qk-tIh" secondAttribute="trailing" constant="16" id="r51-uz-duO"/>
                             <constraint firstItem="Jhr-YJ-Qyj" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" constant="25" id="vPy-Uv-65P"/>
+                            <constraint firstItem="kW7-Qk-tIh" firstAttribute="top" secondItem="DfO-sJ-kU0" secondAttribute="bottom" constant="7" id="vbN-sr-RKP"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="addCartButton" destination="Jhr-YJ-Qyj" id="qh8-9o-n4t"/>
+                        <outlet property="cartItemsTextView" destination="kW7-Qk-tIh" id="qiD-6f-ari"/>
                         <outlet property="cartMainImage" destination="xYz-VQ-t4D" id="xFn-81-n6w"/>
                         <outlet property="cartPriceLabel" destination="pZA-uN-v26" id="ttk-UQ-0ti"/>
+                        <outlet property="cartQuantityButton" destination="DfO-sJ-kU0" id="W0T-MT-hGs"/>
                         <outlet property="cartTitleLabel" destination="TQS-gZ-Gs3" id="wBc-1d-emG"/>
                         <outlet property="imageHeight" destination="1c9-I3-Kyo" id="PfQ-WK-hkZ"/>
                     </connections>
