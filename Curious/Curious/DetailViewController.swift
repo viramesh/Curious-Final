@@ -46,6 +46,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var rewindDuration:Double = 3
     var scrollBackSpeed:NSTimeInterval!
     var rewindLabel:UILabel!
+    var rewindCompleted:Bool! = false
     
     // passing project information
     var carouselImage: String!
@@ -169,6 +170,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                 UIView.animateWithDuration(0.4, animations: { () -> Void in
                     self.rewindLabel.alpha = 0
                     self.instructionsScrollView.alpha = 1
+                    self.rewindCompleted = true
                     self.showInstructions()
                     }, completion: { (Bool) -> Void in
                         self.rewindLabel.removeFromSuperview()
@@ -255,28 +257,30 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         var velocity = sender.velocityInView(view)
         var translation = sender.translationInView(view)
         
-        if sender.state == UIGestureRecognizerState.Began {
-            initialImage = currentImage
-        }
-        else if sender.state == UIGestureRecognizerState.Changed {
-            currentImage = initialImage + Int(translation.x * imageSpeed)
-            if(currentImage < imageNameMIN) {
-                currentImage = imageNameMIN
+        if(rewindCompleted == true) {
+            if sender.state == UIGestureRecognizerState.Began {
+                initialImage = currentImage
             }
-            else if(currentImage > imageNameMAX) {
-                currentImage = imageNameMAX
+            else if sender.state == UIGestureRecognizerState.Changed {
+                currentImage = initialImage + Int(translation.x * imageSpeed)
+                if(currentImage < imageNameMIN) {
+                    currentImage = imageNameMIN
+                }
+                else if(currentImage > imageNameMAX) {
+                    currentImage = imageNameMAX
+                }
+            
+                let toImage = UIImage(named: self.imageNamePrefix + "-" + String(currentImage) + ".jpg")
+                UIView.transitionWithView(self.carouselImageView, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+                    self.carouselImageView.image = toImage
+                }, completion: nil)
+                updateProgressBar()
             }
+            else if sender.state == UIGestureRecognizerState.Ended {
             
-            let toImage = UIImage(named: self.imageNamePrefix + "-" + String(currentImage) + ".jpg")
-            UIView.transitionWithView(self.carouselImageView, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
-                self.carouselImageView.image = toImage
-            }, completion: nil)
-            updateProgressBar()
-        }
-        else if sender.state == UIGestureRecognizerState.Ended {
+                instructionsScrollView.contentOffset.x = CGFloat(currentImage) * instructionsScrollView.frame.width
             
-            instructionsScrollView.contentOffset.x = CGFloat(currentImage) * instructionsScrollView.frame.width
-            
+            }
         }
     }
     
