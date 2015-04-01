@@ -9,7 +9,7 @@
 import UIKit
 import Spring
 
-class CartViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+class CartViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, QuantityNumberDelegate {
     
     var isPresenting: Bool = true
     
@@ -91,6 +91,12 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
         self.addCartButton.animate()
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "quantitySegue" {
+            let quantityVC:QuantityViewController = segue.destinationViewController as QuantityViewController
+            quantityVC.delegate = self
+        }
+    }
     
     
     
@@ -152,6 +158,10 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
     }
     
 
+    func quantityAmount(info: NSString) {
+        cartQuantityButton.titleLabel?.text = info
+    }
+    
     @IBAction func backButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -165,5 +175,8 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func quantityButtonTapped(sender: AnyObject) {
+        performSegueWithIdentifier("quantitySegue", sender: self)
+    }
 
 }

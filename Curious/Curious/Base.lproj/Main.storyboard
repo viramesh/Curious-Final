@@ -10,6 +10,13 @@
         <mutableArray key="Edmondsans-Bold.otf">
             <string>Edmondsans-Bold</string>
             <string>Edmondsans-Bold</string>
+            <string>Edmondsans-Bold</string>
+            <string>Edmondsans-Bold</string>
+            <string>Edmondsans-Bold</string>
+            <string>Edmondsans-Bold</string>
+            <string>Edmondsans-Bold</string>
+            <string>Edmondsans-Bold</string>
+            <string>Edmondsans-Bold</string>
         </mutableArray>
         <mutableArray key="Edmondsans-Medium.otf">
             <string>Edmondsans-Medium</string>
@@ -21,6 +28,7 @@
             <string>Edmondsans-Medium</string>
         </mutableArray>
         <mutableArray key="Edmondsans-Regular.otf">
+            <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
@@ -658,9 +666,6 @@
                                 <state key="normal" title="Add to cart">
                                     <color key="titleColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="buyButtonWasTapped:" destination="Kfb-5H-2dY" eventType="touchUpInside" id="rWU-fU-IAr"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$8.99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZA-uN-v26" customClass="SpringLabel" customModule="Spring">
                                 <rect key="frame" x="16" y="370" width="170" height="47"/>
@@ -681,6 +686,9 @@
                                     <color key="titleColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="quantityButtonTapped:" destination="1ER-BO-RCq" eventType="touchUpInside" id="ITH-s3-7cK"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kW7-Qk-tIh">
                                 <rect key="frame" x="16" y="420" width="382" height="256"/>
@@ -729,11 +737,216 @@ Ruler.</string>
                         <outlet property="cartQuantityButton" destination="DfO-sJ-kU0" id="W0T-MT-hGs"/>
                         <outlet property="cartTitleLabel" destination="TQS-gZ-Gs3" id="wBc-1d-emG"/>
                         <outlet property="imageHeight" destination="1c9-I3-Kyo" id="PfQ-WK-hkZ"/>
+                        <segue destination="IAm-q9-9Nj" kind="presentation" identifier="quantitySegue" id="hyI-lz-6AG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5x-9c-qfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2537" y="717"/>
+        </scene>
+        <!--Quantity View Controller-->
+        <scene sceneID="pk1-mj-tvg">
+            <objects>
+                <viewController id="IAm-q9-9Nj" customClass="QuantityViewController" customModule="Curious" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dgl-aX-eTD"/>
+                        <viewControllerLayoutGuide type="bottom" id="W5k-3D-en1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dap-FW-bTE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d6R-go-7q6" userLabel="backgroundBlackView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="AMO-J7-b0J" appends="YES" id="Pp0-fM-axt"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssJ-zo-ZqC" customClass="SpringButton" customModule="Spring">
+                                <rect key="frame" x="34" y="195" width="86" height="62"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Bold" family="Edmondsans" pointSize="50"/>
+                                <state key="normal" title="1">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideDown"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="quantityButtonPressed:" destination="IAm-q9-9Nj" eventType="touchUpInside" id="svZ-uA-pma"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXy-3i-5Ni" customClass="SpringButton" customModule="Spring">
+                                <rect key="frame" x="172" y="195" width="70" height="62"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Bold" family="Edmondsans" pointSize="50"/>
+                                <state key="normal" title="2">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideDown"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="quantityButtonPressed:" destination="IAm-q9-9Nj" eventType="touchUpInside" id="kqJ-Ai-TdZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ap3-yC-ytR" customClass="SpringButton" customModule="Spring">
+                                <rect key="frame" x="293" y="195" width="85" height="62"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Bold" family="Edmondsans" pointSize="50"/>
+                                <state key="normal" title="3">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.40000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideDown"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="quantityButtonPressed:" destination="IAm-q9-9Nj" eventType="touchUpInside" id="E0h-O3-Slo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvY-qn-1xH" customClass="SpringButton" customModule="Spring">
+                                <rect key="frame" x="34" y="310" width="90" height="62"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Bold" family="Edmondsans" pointSize="50"/>
+                                <state key="normal" title="4">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideUp"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="quantityButtonPressed:" destination="IAm-q9-9Nj" eventType="touchUpInside" id="D3O-fb-4OW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CT9-6D-k3W" customClass="SpringButton" customModule="Spring">
+                                <rect key="frame" x="177" y="310" width="60" height="62"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Bold" family="Edmondsans" pointSize="50"/>
+                                <state key="normal" title="5">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideUp"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="quantityButtonPressed:" destination="IAm-q9-9Nj" eventType="touchUpInside" id="mFV-gH-ggb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hef-7S-f0K" customClass="SpringButton" customModule="Spring">
+                                <rect key="frame" x="288" y="310" width="90" height="62"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Bold" family="Edmondsans" pointSize="50"/>
+                                <state key="normal" title="6">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideUp"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.40000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="quantityButtonPressed:" destination="IAm-q9-9Nj" eventType="touchUpInside" id="ukd-3a-0oV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select a quantity!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dml-0s-KdW" customClass="SpringLabel" customModule="Spring">
+                                <rect key="frame" x="16" y="132" width="382" height="55"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Bold" family="Edmondsans" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="wobble"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="I need a lot more than that" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFW-AQ-YSs" customClass="SpringLabel" customModule="Spring">
+                                <rect key="frame" x="16" y="423" width="387" height="21"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeIn"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ssJ-zo-ZqC" firstAttribute="leading" secondItem="dap-FW-bTE" secondAttribute="leading" constant="34" id="6Uh-nc-VWv"/>
+                            <constraint firstAttribute="centerX" secondItem="dml-0s-KdW" secondAttribute="centerX" id="Hs0-Qe-MZu"/>
+                            <constraint firstItem="hef-7S-f0K" firstAttribute="top" secondItem="ap3-yC-ytR" secondAttribute="bottom" constant="53" id="MAB-2t-It3"/>
+                            <constraint firstItem="ap3-yC-ytR" firstAttribute="top" secondItem="dml-0s-KdW" secondAttribute="bottom" constant="37" id="OJn-Db-jC5"/>
+                            <constraint firstItem="kvY-qn-1xH" firstAttribute="top" secondItem="ssJ-zo-ZqC" secondAttribute="bottom" constant="53" id="QX1-vT-kga"/>
+                            <constraint firstAttribute="centerX" secondItem="GXy-3i-5Ni" secondAttribute="centerX" id="R7V-hh-rpC"/>
+                            <constraint firstItem="kvY-qn-1xH" firstAttribute="leading" secondItem="dap-FW-bTE" secondAttribute="leading" constant="34" id="TTq-2b-SiE"/>
+                            <constraint firstItem="dml-0s-KdW" firstAttribute="top" secondItem="dgl-aX-eTD" secondAttribute="bottom" constant="132" id="UOg-Z0-5RM"/>
+                            <constraint firstItem="GXy-3i-5Ni" firstAttribute="top" secondItem="dml-0s-KdW" secondAttribute="bottom" constant="37" id="Uv9-pz-wXl"/>
+                            <constraint firstItem="CT9-6D-k3W" firstAttribute="top" secondItem="GXy-3i-5Ni" secondAttribute="bottom" constant="53" id="brE-By-CP3"/>
+                            <constraint firstAttribute="trailing" secondItem="hef-7S-f0K" secondAttribute="trailing" constant="36" id="g11-5B-lLj"/>
+                            <constraint firstAttribute="trailing" secondItem="ap3-yC-ytR" secondAttribute="trailing" constant="36" id="o6i-KI-Pqi"/>
+                            <constraint firstAttribute="centerX" secondItem="CT9-6D-k3W" secondAttribute="centerX" id="qqu-hQ-aMP"/>
+                            <constraint firstItem="GXy-3i-5Ni" firstAttribute="leading" secondItem="ssJ-zo-ZqC" secondAttribute="trailing" constant="52" id="sde-M2-aAP"/>
+                            <constraint firstItem="ssJ-zo-ZqC" firstAttribute="top" secondItem="dml-0s-KdW" secondAttribute="bottom" constant="37" id="sqP-Af-M4Q"/>
+                            <constraint firstItem="CT9-6D-k3W" firstAttribute="leading" secondItem="kvY-qn-1xH" secondAttribute="trailing" constant="53" id="tgP-68-gPR"/>
+                            <constraint firstItem="ap3-yC-ytR" firstAttribute="leading" secondItem="GXy-3i-5Ni" secondAttribute="trailing" constant="51" id="toe-lh-Foz"/>
+                            <constraint firstItem="eFW-AQ-YSs" firstAttribute="top" secondItem="CT9-6D-k3W" secondAttribute="bottom" constant="51" id="uXV-BQ-bEB"/>
+                            <constraint firstItem="hef-7S-f0K" firstAttribute="leading" secondItem="CT9-6D-k3W" secondAttribute="trailing" constant="51" id="uZK-sW-xXX"/>
+                            <constraint firstAttribute="centerX" secondItem="eFW-AQ-YSs" secondAttribute="centerX" constant="-2.5" id="yaS-4c-NLU"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="backgroundBlackView" destination="d6R-go-7q6" id="14H-ld-gJz"/>
+                        <outlet property="quantityFiveButton" destination="CT9-6D-k3W" id="yFJ-e7-kvP"/>
+                        <outlet property="quantityFourButton" destination="kvY-qn-1xH" id="CYL-1R-UFW"/>
+                        <outlet property="quantityOneButton" destination="ssJ-zo-ZqC" id="IVo-9G-Z1V"/>
+                        <outlet property="quantitySixButton" destination="hef-7S-f0K" id="WNa-m2-vY7"/>
+                        <outlet property="quantityThreeButton" destination="ap3-yC-ytR" id="3mJ-D7-mu5"/>
+                        <outlet property="quantityTwoButton" destination="GXy-3i-5Ni" id="HMa-Ev-klK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sbn-5t-mtv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="AMO-J7-b0J">
+                    <connections>
+                        <action selector="backgroundBlackViewTapped:" destination="IAm-q9-9Nj" id="O2S-nR-ITM"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2952.5" y="717"/>
         </scene>
     </scenes>
     <resources>

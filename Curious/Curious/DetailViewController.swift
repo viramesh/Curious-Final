@@ -32,7 +32,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var imageNamePrefix:String = ""
     var imageNameMIN:Int = 0
     var imageNameMAX:Int = 0
-    var imageNameMAXs: [String: Int!] = ["candles":32, "coaster":30, "plant":10, "string":22, "wood":16, "tablecloth":37]
+    var imageNameMAXs: [String: Int!] = ["candles":32, "coaster":30, "plant":10, "string":22, "wood":16, "tablecloth":37, "magnet":10]
     var imageSpeed:CGFloat = 0.1
     var currentImage:Int!
     var initialImage:Int!
