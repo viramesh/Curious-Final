@@ -54,6 +54,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var detailSubLabel: String!
     
     //for scrolling instructions
+    var scrollWidthRatio:CGFloat! = 0.9
     var scrollPos:CGFloat! = 0
     
     override func viewDidLoad() {
@@ -187,12 +188,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         //for each image, create an instruction view and add it to the scrollview
         for var i=0; i<=imageNameMAX; i++ {
-            var vframe:CGRect = CGRectMake(instructionsScrollView.frame.width * CGFloat(i), 0.0, instructionsScrollView.frame.width, instructionsScrollView.frame.height)
+            var vframe:CGRect = CGRectMake(instructionsScrollView.frame.width * CGFloat(i) * scrollWidthRatio, 0.0, instructionsScrollView.frame.width * scrollWidthRatio, instructionsScrollView.frame.height)
             var instructionView:UIView = UIView(frame: vframe)
             instructionView.userInteractionEnabled = true
             
             //step number
-            var stepNumFrame:CGRect = CGRectMake(instructionsScrollView.center.x-20, 20, 40, 40)
+            var stepNumFrame:CGRect = CGRectMake(instructionsScrollView.center.x * scrollWidthRatio - 20, 20, 40, 40)
             var stepNum:UILabel = UILabel(frame: stepNumFrame)
             var num = i+1
             stepNum.text = String(num)
@@ -204,7 +205,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             instructionView.addSubview(stepNum)
             
             //step description
-            var stepDescFrame:CGRect = CGRectMake(25, 70, instructionsScrollView.frame.width-50, instructionsScrollView.frame.height-90.0)
+            var stepDescFrame:CGRect = CGRectMake(25, 70, instructionsScrollView.frame.width * scrollWidthRatio - 50, instructionsScrollView.frame.height-90.0)
             
             var stepDesc:UITextView = UITextView(frame: stepDescFrame)
             stepDesc.userInteractionEnabled = false
@@ -315,8 +316,13 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
 
             if(velocity.x > 0) {
                 //go to next step
+                var prevStepBuffer:CGFloat! = 0
+                if(stepNum>0) {
+                    prevStepBuffer = -1 * self.instructionsScrollView.frame.width * ((1-self.scrollWidthRatio)/2)
+                }
                 UIView.animateWithDuration(0.4, animations: { () -> Void in
-                    self.instructionsScrollView.contentOffset.x = CGFloat(stepNum) * self.instructionsScrollView.frame.width
+                    self.instructionsScrollView.contentOffset.x = prevStepBuffer + CGFloat(stepNum) * self.instructionsScrollView.frame.width * self.scrollWidthRatio
+                    
                 })
                 
                 let toImage = UIImage(named: self.imageNamePrefix + "-" + String(stepNum) + ".jpg")
@@ -327,9 +333,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                 updateProgressBar()
             }
             else {
+                var prevStepBuffer:CGFloat = -1 * self.instructionsScrollView.frame.width * ((1-self.scrollWidthRatio)/2)
                 //go to previous step
                 UIView.animateWithDuration(0.4, animations: { () -> Void in
-                    self.instructionsScrollView.contentOffset.x = CGFloat(stepNum+1) * self.instructionsScrollView.frame.width
+                    self.instructionsScrollView.contentOffset.x = prevStepBuffer + CGFloat(stepNum+1) * self.instructionsScrollView.frame.width * self.scrollWidthRatio
                 })
                 let toImage = UIImage(named: self.imageNamePrefix + "-" + String(stepNum+1) + ".jpg")
                 UIView.transitionWithView(self.carouselImageView, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
