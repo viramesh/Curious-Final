@@ -26,6 +26,7 @@
 		2B6E6C551ACB40C10054E4D9 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6E6C541ACB40C10054E4D9 /* CartViewController.swift */; };
 		2B6E6C571ACB5BCA0054E4D9 /* QuantityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6E6C561ACB5BCA0054E4D9 /* QuantityViewController.swift */; };
 		39AF5E0EB49D963D2F384837 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC55EEA653FF07B292755B93 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5E6D75021ACBC1240092976A /* CheckOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D75011ACBC1240092976A /* CheckOutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		2B6E6C541ACB40C10054E4D9 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		2B6E6C561ACB5BCA0054E4D9 /* QuantityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityViewController.swift; sourceTree = "<group>"; };
 		2E12F53F669391282825867C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		5E6D75011ACBC1240092976A /* CheckOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckOutViewController.swift; sourceTree = "<group>"; };
 		AC55EEA653FF07B292755B93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4875F80F26C42615FC65428 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +119,7 @@
 				24ABEE371AC519DD005B356C /* ViewController.swift */,
 				2B6E6C541ACB40C10054E4D9 /* CartViewController.swift */,
 				24ABEE391AC519DD005B356C /* Main.storyboard */,
+				5E6D75011ACBC1240092976A /* CheckOutViewController.swift */,
 				24ABEE3C1AC519DD005B356C /* Images.xcassets */,
 				24ABEE3E1AC519DD005B356C /* LaunchScreen.xib */,
 				24ABEE331AC519DD005B356C /* Supporting Files */,
@@ -327,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E6D75021ACBC1240092976A /* CheckOutViewController.swift in Sources */,
 				24ABEE381AC519DD005B356C /* ViewController.swift in Sources */,
 				24BAA7B41AC5B3FA000032DE /* LoremSwiftum.swift in Sources */,
 				24ABEE361AC519DD005B356C /* AppDelegate.swift in Sources */,

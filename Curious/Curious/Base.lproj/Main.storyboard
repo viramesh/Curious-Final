@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JMO-fr-WM9">
     <dependencies>
         <deployment version="2048" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -359,10 +359,10 @@
             </objects>
             <point key="canvasLocation" x="1469" y="1749"/>
         </scene>
-        <!--View Controller-->
+        <!--Check Out View Controller-->
         <scene sceneID="dX8-sw-BEB">
             <objects>
-                <viewController id="JMO-fr-WM9" sceneMemberID="viewController">
+                <viewController id="JMO-fr-WM9" customClass="CheckOutViewController" customModule="Curious" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PVn-XY-AQC"/>
                         <viewControllerLayoutGuide type="bottom" id="peR-Ls-ByQ"/>
@@ -371,91 +371,116 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WXV-dH-L2Z">
-                                <rect key="frame" x="16" y="142" width="167" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Shipping address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SXi-4x-DHv">
+                                <rect key="frame" x="22" y="212" width="341" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="8Jh-yG-zQu"/>
+                                </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zC3-Oo-Xca">
-                                <rect key="frame" x="16" y="175" width="154" height="1"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cHC-We-Kby">
-                                <rect key="frame" x="190" y="175" width="175" height="1"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Shipping address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SXi-4x-DHv">
-                                <rect key="frame" x="16" y="194" width="167" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aqY-IY-Bc3">
+                                <rect key="frame" x="22" y="262" width="154" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="167" id="nP2-vy-1BW"/>
+                                </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MhY-yP-7GI">
-                                <rect key="frame" x="16" y="227" width="343" height="1"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aqY-IY-Bc3">
-                                <rect key="frame" x="16" y="244" width="167" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yRL-SU-l83">
+                                <rect key="frame" x="192" y="262" width="167" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="167" id="7Ht-dM-bmv"/>
+                                </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ns3-4U-npZ">
-                                <rect key="frame" x="16" y="277" width="154" height="1"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yRL-SU-l83">
-                                <rect key="frame" x="186" y="244" width="167" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip code" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wFj-io-tzv">
+                                <rect key="frame" x="22" y="312" width="167" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="167" id="iyf-Cs-SGe"/>
+                                </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TW3-5e-ZWq">
-                                <rect key="frame" x="186" y="277" width="175" height="1"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip code" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wFj-io-tzv">
-                                <rect key="frame" x="16" y="294" width="167" height="30"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ceg-gf-BeG">
-                                <rect key="frame" x="16" y="327" width="154" height="1"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TeH-Aw-DYG">
-                                <rect key="frame" x="190" y="142" width="167" height="30"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="lgF-YP-c4C">
-                                <rect key="frame" x="171" y="20" width="73" height="65"/>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="lgF-YP-c4C">
+                                <rect key="frame" x="171" y="28" width="73" height="65"/>
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="14"/>
                                 <inset key="titleEdgeInsets" minX="-131" minY="99" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" image="Check out bag"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Check out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCQ-p2-DzV">
-                                <rect key="frame" x="168" y="93" width="79" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Check out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCQ-p2-DzV">
+                                <rect key="frame" x="168" y="101" width="79" height="21"/>
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="use saved card" translatesAutoresizingMaskIntoConstraints="NO" id="d8U-L3-Q7O">
+                                <rect key="frame" x="93" y="384" width="240" height="23"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TeH-Aw-DYG">
+                                <rect key="frame" x="191" y="145" width="167" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="167" id="tcU-QX-3Pb"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WXV-dH-L2Z">
+                                <rect key="frame" x="22" y="145" width="167" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="167" id="NiT-jx-tET"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="WXV-dH-L2Z" firstAttribute="leading" secondItem="I7P-HS-vl5" secondAttribute="leading" constant="16" id="8hX-QB-l53"/>
+                            <constraint firstItem="TeH-Aw-DYG" firstAttribute="top" secondItem="WXV-dH-L2Z" secondAttribute="top" id="9LH-Dd-WfS"/>
+                            <constraint firstItem="TeH-Aw-DYG" firstAttribute="top" secondItem="KCQ-p2-DzV" secondAttribute="bottom" constant="28" id="BlN-o4-Mqa"/>
+                            <constraint firstItem="KCQ-p2-DzV" firstAttribute="top" secondItem="lgF-YP-c4C" secondAttribute="bottom" constant="14" id="FLG-fp-JTR"/>
+                            <constraint firstItem="WXV-dH-L2Z" firstAttribute="top" secondItem="KCQ-p2-DzV" secondAttribute="bottom" constant="28" id="FZe-5F-MbS"/>
+                            <constraint firstItem="TeH-Aw-DYG" firstAttribute="leading" secondItem="WXV-dH-L2Z" secondAttribute="trailing" constant="16" id="JA6-4L-m9f"/>
+                            <constraint firstItem="TeH-Aw-DYG" firstAttribute="top" secondItem="KCQ-p2-DzV" secondAttribute="bottom" constant="28" id="O0Z-UD-Qeq"/>
+                            <constraint firstItem="aqY-IY-Bc3" firstAttribute="leading" secondItem="I7P-HS-vl5" secondAttribute="leading" constant="16" id="OKz-f6-7CH"/>
                             <constraint firstItem="KCQ-p2-DzV" firstAttribute="top" secondItem="lgF-YP-c4C" secondAttribute="bottom" constant="8" id="RNU-a1-wD4"/>
+                            <constraint firstAttribute="centerX" secondItem="d8U-L3-Q7O" secondAttribute="centerX" id="SNj-KK-Tei"/>
+                            <constraint firstItem="wFj-io-tzv" firstAttribute="leading" secondItem="I7P-HS-vl5" secondAttribute="leading" constant="16" id="Udq-WZ-101"/>
+                            <constraint firstItem="TeH-Aw-DYG" firstAttribute="leading" secondItem="yRL-SU-l83" secondAttribute="leading" constant="-1" id="W3W-Pi-LCE"/>
+                            <constraint firstItem="SXi-4x-DHv" firstAttribute="leading" secondItem="I7P-HS-vl5" secondAttribute="leading" constant="16" id="aa1-h1-kJu"/>
+                            <constraint firstItem="yRL-SU-l83" firstAttribute="top" secondItem="SXi-4x-DHv" secondAttribute="bottom" constant="38" id="bZJ-i6-xZd"/>
                             <constraint firstAttribute="centerX" secondItem="lgF-YP-c4C" secondAttribute="centerX" id="fhK-xJ-u1L"/>
-                            <constraint firstItem="lgF-YP-c4C" firstAttribute="top" secondItem="I7P-HS-vl5" secondAttribute="topMargin" constant="16" id="rX1-Xu-68N"/>
+                            <constraint firstItem="d8U-L3-Q7O" firstAttribute="top" secondItem="wFj-io-tzv" secondAttribute="bottom" constant="38" id="iQk-Iz-5JR"/>
+                            <constraint firstItem="aqY-IY-Bc3" firstAttribute="top" secondItem="SXi-4x-DHv" secondAttribute="bottom" constant="38" id="jqV-Xh-wJs"/>
+                            <constraint firstItem="lgF-YP-c4C" firstAttribute="top" secondItem="I7P-HS-vl5" secondAttribute="topMargin" constant="28" id="rX1-Xu-68N"/>
+                            <constraint firstAttribute="centerX" secondItem="KCQ-p2-DzV" secondAttribute="centerX" id="sIP-Nr-XaS"/>
+                            <constraint firstItem="wFj-io-tzv" firstAttribute="top" secondItem="aqY-IY-Bc3" secondAttribute="bottom" constant="38" id="twv-oK-WXM"/>
+                            <constraint firstItem="SXi-4x-DHv" firstAttribute="top" secondItem="WXV-dH-L2Z" secondAttribute="bottom" constant="38" id="wJz-52-n9j"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="FZe-5F-MbS"/>
+                                <exclude reference="RNU-a1-wD4"/>
+                                <exclude reference="O0Z-UD-Qeq"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="FirstNameField" destination="WXV-dH-L2Z" id="F8w-yW-uIi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SxR-aR-VI4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1965" y="1772"/>
+            <point key="canvasLocation" x="2042" y="1764"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="NX5-fH-Jap">
@@ -958,5 +983,6 @@ Ruler.</string>
         <image name="bottom-yellow" width="171" height="84"/>
         <image name="top-green" width="171" height="84"/>
         <image name="top-pink" width="84" height="171"/>
+        <image name="use saved card" width="230" height="18"/>
     </resources>
 </document>
