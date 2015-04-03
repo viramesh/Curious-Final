@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning  {
     
@@ -18,7 +19,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var loginButtons: UIView!
     @IBOutlet weak var loginContainerTop: NSLayoutConstraint!
     @IBOutlet weak var loginHideBtn: UIButton!
-    @IBOutlet weak var loginLabel: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    
     var loginHeight:CGFloat! = 50
     var loginViewShown:Bool! = false
     var loginView:LoginViewController!
@@ -361,7 +363,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func moveConstraintDown(){
+    func loggedInUser(){
         println("Hi")
+        loginButton. = "Hello, \(PFUser.currentUser().username)"
     }
 }
