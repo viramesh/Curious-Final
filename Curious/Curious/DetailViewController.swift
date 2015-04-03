@@ -25,8 +25,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var detailsTop: NSLayoutConstraint!
     @IBOutlet weak var rewindBtnTop: NSLayoutConstraint!
     
-    var btnHeight:CGFloat! = 50
-    var spacer:CGFloat! = 10
+    var btnHeight:CGFloat! = 100
+    var spacer:CGFloat! = 20
     
     //for scrubbing
     var imageNamePrefix:String = ""

@@ -44,7 +44,6 @@
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
-            <string>Edmondsans-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -370,7 +369,7 @@
         <!--Check Out View Controller-->
         <scene sceneID="dX8-sw-BEB">
             <objects>
-                <viewController id="JMO-fr-WM9" customClass="CheckOutViewController" customModule="Curious" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="checkOutViewController" id="JMO-fr-WM9" customClass="CheckOutViewController" customModule="Curious" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PVn-XY-AQC"/>
                         <viewControllerLayoutGuide type="bottom" id="peR-Ls-ByQ"/>
@@ -577,10 +576,9 @@
                                             <outletCollection property="gestureRecognizers" destination="rvA-ok-Awq" appends="YES" id="xtu-jg-thi"/>
                                         </connections>
                                     </scrollView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbU-Ib-czu">
-                                        <rect key="frame" x="25" y="353" width="364" height="30"/>
-                                        <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="16"/>
-                                        <state key="normal" title="Show me how its done!">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbU-Ib-czu">
+                                        <rect key="frame" x="25" y="353" width="364" height="56"/>
+                                        <state key="normal" image="tap to show process button">
                                             <color key="titleColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1051,6 +1049,7 @@ Ruler.</string>
         <image name="bottom-green" width="84" height="84"/>
         <image name="bottom-pink" width="84" height="84"/>
         <image name="bottom-yellow" width="171" height="84"/>
+        <image name="tap to show process button" width="126" height="56"/>
         <image name="top-green" width="171" height="84"/>
         <image name="top-pink" width="84" height="171"/>
         <image name="use saved card" width="230" height="18"/>
