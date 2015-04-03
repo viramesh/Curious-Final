@@ -54,8 +54,10 @@ class LoginViewController: UIViewController {
             println("logged in")
             if user != nil {
             self.performSegueWithIdentifier("signInUpCompleteSegue", sender: self)
-            } else {
+            } else if error.code == 101 {
                 println(error.description)
+                var alertView = UIAlertView(title: "Try again!", message: "Username or password is incorrect.", delegate: nil, cancelButtonTitle: "OK")
+                alertView.show()
             }
         }
     }
@@ -70,8 +72,8 @@ class LoginViewController: UIViewController {
             
             if success {
                 self.performSegueWithIdentifier("signInUpCompleteSegue", sender: self)
-            } else {
-                var alertView = UIAlertView(title: "Oops", message: error.description, delegate: nil, cancelButtonTitle: "OK")
+            } else if error.code == 202 {
+                var alertView = UIAlertView(title: "Username taken!", message: "Please try another one", delegate: nil, cancelButtonTitle: "OK")
                 alertView.show()
             }
         }
