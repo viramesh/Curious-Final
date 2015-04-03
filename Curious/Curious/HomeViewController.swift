@@ -359,4 +359,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.hideLoginViewController(self.loginView)
         }
     }
+    
+    func moveConstraintDown(){
+        println("Hi")
+    }
 }

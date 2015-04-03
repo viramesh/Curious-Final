@@ -53,7 +53,8 @@ class LoginViewController: UIViewController {
             //
             println("logged in")
             if user != nil {
-            self.performSegueWithIdentifier("signInUpCompleteSegue", sender: self)
+                var parentVC = self.parentViewController as HomeViewController
+                parentVC.hideLogin()
             } else if error.code == 101 {
                 println(error.description)
                 var alertView = UIAlertView(title: "Try again!", message: "Username or password is incorrect.", delegate: nil, cancelButtonTitle: "OK")
@@ -71,9 +72,13 @@ class LoginViewController: UIViewController {
         user.signUpInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
             
             if success {
-                self.performSegueWithIdentifier("signInUpCompleteSegue", sender: self)
+                var parentVC = self.parentViewController as HomeViewController
+                parentVC.hideLogin()
             } else if error.code == 202 {
                 var alertView = UIAlertView(title: "Username taken!", message: "Please try another one", delegate: nil, cancelButtonTitle: "OK")
+                alertView.show()
+            } else if error.code == 200 {
+                var alertView = UIAlertView(title: "No Username", message: "Please enter in a username", delegate: nil, cancelButtonTitle: "OK")
                 alertView.show()
             }
         }
