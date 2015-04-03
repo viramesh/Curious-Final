@@ -44,6 +44,7 @@
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
+            <string>Edmondsans-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -366,6 +367,38 @@
             </objects>
             <point key="canvasLocation" x="1469" y="1749"/>
         </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="mZZ-Ng-7VW">
+            <objects>
+                <viewController storyboardIdentifier="profileViewController" id="0Dh-P5-SNn" customClass="ProfileViewController" customModule="Curious" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="naE-fS-Rqf"/>
+                        <viewControllerLayoutGuide type="bottom" id="W8K-8I-HKI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k3W-Ah-hGq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6A-U5-T9J">
+                                <rect key="frame" x="184" y="141" width="49" height="30"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="15"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressLogout:" destination="0Dh-P5-SNn" eventType="touchUpInside" id="dVu-Sl-DaX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dKN-K0-AfG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1998" y="1755"/>
+        </scene>
         <!--Check Out View Controller-->
         <scene sceneID="dX8-sw-BEB">
             <objects>
@@ -490,7 +523,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="aqY-IY-Bc3" firstAttribute="leading" secondItem="Dui-ai-q1N" secondAttribute="leading" constant="3" id="0WW-pA-u1a"/>
                             <constraint firstItem="Dui-ai-q1N" firstAttribute="top" secondItem="aqY-IY-Bc3" secondAttribute="bottom" constant="10" id="6Mm-TA-Pc2"/>
@@ -549,7 +582,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SxR-aR-VI4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2042" y="1765"/>
+            <point key="canvasLocation" x="2537" y="1749"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="NX5-fH-Jap">

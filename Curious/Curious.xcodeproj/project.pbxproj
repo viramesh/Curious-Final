@@ -22,6 +22,7 @@
 		24ABEE621AC530D9005B356C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24ABEE611AC530D9005B356C /* Common.swift */; };
 		24BAA7B41AC5B3FA000032DE /* LoremSwiftum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BAA7B31AC5B3FA000032DE /* LoremSwiftum.swift */; };
 		24BAA7B61AC66F70000032DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BAA7B51AC66F70000032DE /* LoginViewController.swift */; };
+		24C6A6EC1ACF5CC8003407A0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6A6EB1ACF5CC8003407A0 /* ProfileViewController.swift */; };
 		2B129E1D1ACA533000D752ED /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2B129E1C1ACA533000D752ED /* Podfile */; };
 		2B6E6C551ACB40C10054E4D9 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6E6C541ACB40C10054E4D9 /* CartViewController.swift */; };
 		2B6E6C571ACB5BCA0054E4D9 /* QuantityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6E6C561ACB5BCA0054E4D9 /* QuantityViewController.swift */; };
@@ -59,6 +60,7 @@
 		24ABEE611AC530D9005B356C /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		24BAA7B31AC5B3FA000032DE /* LoremSwiftum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoremSwiftum.swift; sourceTree = "<group>"; };
 		24BAA7B51AC66F70000032DE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		24C6A6EB1ACF5CC8003407A0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2B129E1C1ACA533000D752ED /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2B6E6C541ACB40C10054E4D9 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		2B6E6C561ACB5BCA0054E4D9 /* QuantityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				24ABEE591AC52F4A005B356C /* DetailViewController.swift */,
 				24BAA7B31AC5B3FA000032DE /* LoremSwiftum.swift */,
 				24BAA7B51AC66F70000032DE /* LoginViewController.swift */,
+				24C6A6EB1ACF5CC8003407A0 /* ProfileViewController.swift */,
 			);
 			path = Curious;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				24ABEE361AC519DD005B356C /* AppDelegate.swift in Sources */,
 				24ABEE5A1AC52F4A005B356C /* DetailViewController.swift in Sources */,
 				24BAA7B61AC66F70000032DE /* LoginViewController.swift in Sources */,
+				24C6A6EC1ACF5CC8003407A0 /* ProfileViewController.swift in Sources */,
 				24ABEE561AC52C94005B356C /* HomeViewController.swift in Sources */,
 				24ABEE621AC530D9005B356C /* Common.swift in Sources */,
 				2B6E6C571ACB5BCA0054E4D9 /* QuantityViewController.swift in Sources */,
