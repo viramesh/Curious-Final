@@ -1,10 +1,16 @@
 PODS:
+  - Bolts (1.1.4)
+  - Parse (1.7.1):
+    - Bolts (~> 1.1)
   - Spring (1.0.2)
 
 DEPENDENCIES:
+  - Parse
   - Spring
 
 SPEC CHECKSUMS:
+  Bolts: f8e2f94edbf9fec7bb8de5ecaaa3aa6b7de6f64e
+  Parse: fa8ec29de6d82035635986c11946299fb1b38316
   Spring: b9c8a315befd509c531701f2edc4405ab9d00bad
 
 COCOAPODS: 0.36.0

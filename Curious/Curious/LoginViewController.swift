@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
 
@@ -48,10 +49,33 @@ class LoginViewController: UIViewController {
     */
 
     @IBAction func loginBtnDidPress(sender: AnyObject) {
+        PFUser.logInWithUsernameInBackground(inputUsername.text, password: inputPassword.text) { (user:PFUser!, error: NSError!) -> Void in
+            //
+            println("logged in")
+            if user != nil {
+            self.performSegueWithIdentifier("signInUpCompleteSegue", sender: self)
+            } else {
+                println(error.description)
+            }
+        }
     }
     
     
     @IBAction func signUpBtnDidPress(sender: AnyObject) {
+        
+        var user = PFUser()
+        user.username = inputUsername.text
+        user.password = inputPassword.text
+        user.signUpInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
+            
+            if success {
+                self.performSegueWithIdentifier("signInUpCompleteSegue", sender: self)
+            } else {
+                var alertView = UIAlertView(title: "Oops", message: error.description, delegate: nil, cancelButtonTitle: "OK")
+                alertView.show()
+            }
+        }
+        
     }
     
     @IBAction func forgotPasswordBtnDidPress(sender: AnyObject) {
