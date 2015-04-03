@@ -249,12 +249,12 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="loginButton" destination="90x-Uy-5pu" id="ROM-Nf-8ka"/>
                         <outlet property="loginButtons" destination="IcH-R2-B3p" id="Ppv-TI-ZJv"/>
                         <outlet property="loginContainer" destination="zjx-d3-b8C" id="NU0-Ux-NhF"/>
                         <outlet property="loginContainerTop" destination="AwG-n0-MkT" id="rN8-gq-Lua"/>
                         <outlet property="loginContents" destination="csv-nc-rhi" id="fFD-Jd-JDj"/>
                         <outlet property="loginHideBtn" destination="GlK-vr-Qm3" id="Qj6-XO-BAp"/>
-                        <outlet property="loginLabel" destination="90x-Uy-5pu" id="PSg-s5-1Kg"/>
                         <outlet property="projectsTableView" destination="vXg-lq-ZII" id="nVL-1y-4Wz"/>
                         <segue destination="Kfb-5H-2dY" kind="custom" identifier="detailSegue" id="Mo3-Tt-5fd"/>
                     </connections>

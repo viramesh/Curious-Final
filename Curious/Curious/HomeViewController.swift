@@ -26,6 +26,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var loginView:LoginViewController!
     var originalConstant:CGFloat!
     
+    //login stuff
+    var isLoggedIn: Bool = false
+    
     //Passing info over
     var movingImageView: UIImageView!
     var isPresenting: Bool = true
@@ -55,6 +58,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         TOP_height = self.view.frame.height * 0.4
         newHeight = TOP_height
         newAlpha = TOP_alpha
@@ -80,6 +84,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         loginHideBtn.alpha = 0
         loginButtons.alpha = 0
         NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: "revealTable", userInfo: nil, repeats: false)
+        
+        
+
 
     }
     
@@ -103,6 +110,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func revealTable() {
         loginContainerTop.constant = self.view.frame.height - loginHeight
+        isUserLoggedIn()
         
         UIView.animateWithDuration(1.2, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.loginContainer.layoutIfNeeded()
@@ -364,7 +372,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func loggedInUser(){
-        println("Hi")
-        loginButton. = "Hello, \(PFUser.currentUser().username)"
+        println("Hello, \(PFUser.currentUser().username)")
+        loginButton.titleLabel?.text = "Hello, \(PFUser.currentUser().username)"
+    }
+    
+    
+    func isUserLoggedIn(){
+        var currentUser = PFUser.currentUser()
+        if currentUser != nil {
+            // user is logged in
+            loginButton.titleLabel?.text = "Hello, \(PFUser.currentUser().username)"
+            println("Hello, \(PFUser.currentUser().username)")
+        } else {
+            //user is not logged in
+        }
     }
 }
