@@ -18,6 +18,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var loginButtons: UIView!
     @IBOutlet weak var loginContainerTop: NSLayoutConstraint!
     @IBOutlet weak var loginHideBtn: UIButton!
+    @IBOutlet weak var loginLabel: UIButton!
     var loginHeight:CGFloat! = 50
     var loginViewShown:Bool! = false
     var loginView:LoginViewController!

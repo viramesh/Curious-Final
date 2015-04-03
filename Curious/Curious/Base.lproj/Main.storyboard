@@ -254,6 +254,7 @@
                         <outlet property="loginContainerTop" destination="AwG-n0-MkT" id="rN8-gq-Lua"/>
                         <outlet property="loginContents" destination="csv-nc-rhi" id="fFD-Jd-JDj"/>
                         <outlet property="loginHideBtn" destination="GlK-vr-Qm3" id="Qj6-XO-BAp"/>
+                        <outlet property="loginLabel" destination="90x-Uy-5pu" id="PSg-s5-1Kg"/>
                         <outlet property="projectsTableView" destination="vXg-lq-ZII" id="nVL-1y-4Wz"/>
                         <segue destination="Kfb-5H-2dY" kind="custom" identifier="detailSegue" id="Mo3-Tt-5fd"/>
                     </connections>
