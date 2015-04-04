@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileViewController: UIViewController {
 
@@ -33,6 +34,12 @@ class ProfileViewController: UIViewController {
     */
 
     @IBAction func didPressLogout(sender: AnyObject) {
+        PFUser.logOutInBackgroundWithBlock { (error:NSError!) -> Void in
+            var parentVC = self.parentViewController as HomeViewController
+            parentVC.hideLogin()
+            println("User logged out")
+            
+        }
     }
     
 }
