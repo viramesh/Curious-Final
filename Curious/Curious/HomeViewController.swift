@@ -23,9 +23,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //variables used to maintain current state
     var overlayHeaderHeight:CGFloat! = 50
-    var isLoggedIn: Bool = false
     var overlayShown:Bool! = false
     var initialOverlayConstant:CGFloat! = 0
+    var currentUser: PFUser!
     
     //overlay VC's stuff
     var loginVC:LoginViewController!
@@ -63,7 +63,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //init user
+        currentUser = PFUser()
         
+        //init table view
         TOP_height = self.view.frame.height * 0.4
         newHeight = TOP_height
         newAlpha = TOP_alpha
@@ -92,9 +95,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         overlayHideButton.alpha = 0
         overlayHeaderView.alpha = 0
+        
         NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: "revealTable", userInfo: nil, repeats: false)
-        
-        
 
 
     }
@@ -118,8 +120,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func revealTable() {
+        //check if logged in and accordingly change label in overlay header
+        if(isUserLoggedIn()) {
+            setupUserLoggedIn()
+        }
+        
         overlayContainerViewTop.constant = self.view.frame.height - overlayHeaderHeight
-        isUserLoggedIn()
         
         UIView.animateWithDuration(1.2, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.overlayContainerView.layoutIfNeeded()
@@ -314,7 +320,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    @IBAction func overlayHeaderInvisibleButtonDidPress(sender: AnyObject) {
+    @IBAction func overlayHeaderDidTap(sender: AnyObject) {
+        attachVCtoOverlay()
         showOverlay()
     }
     
@@ -333,7 +340,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             else {
                 initialOverlayConstant = self.view.frame.height - overlayHeaderHeight
-                displayViewController(loginVC)
+                attachVCtoOverlay()
             }
         }
         else if sender.state == UIGestureRecognizerState.Changed {
@@ -356,40 +363,31 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func showOverlay() {
-        var currentUser = PFUser.currentUser()
-        if currentUser != nil {
+    func attachVCtoOverlay() {
+        if (isUserLoggedIn()) {
             // user is logged in
-            overlayHeaderLabel.text = "Hello, \(PFUser.currentUser().username)"
-            println("Hello, \(PFUser.currentUser().username)")
-
             displayViewController(profileVC)
-            overlayContainerViewTop.constant = 0
-
-            UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-                self.overlayContainerView.layoutIfNeeded()
-                self.overlayHideButton.alpha = 1
-                self.projectsTableView.transform = CGAffineTransformMakeScale(0.9, 0.9)
-                }) { (Bool) -> Void in
-                    self.overlayShown = true
-                    
-            }
             
         } else {
             //user is not logged in
             displayViewController(loginVC)
-            overlayContainerViewTop.constant = 0
-            
-            UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-                self.overlayContainerView.layoutIfNeeded()
-                self.overlayHideButton.alpha = 1
-                self.projectsTableView.transform = CGAffineTransformMakeScale(0.9, 0.9)
-                }) { (Bool) -> Void in
-                    self.overlayShown = true
-            }
         }
-        
-
+    }
+    
+    func detachVCfromOverlay() {
+        self.hideViewController(self.loginVC)
+        self.hideViewController(self.profileVC)
+    }
+    
+    func showOverlay() {
+        overlayContainerViewTop.constant = 0
+        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.overlayContainerView.layoutIfNeeded()
+            self.overlayHideButton.alpha = 1
+            self.projectsTableView.transform = CGAffineTransformMakeScale(0.9, 0.9)
+            }) { (Bool) -> Void in
+                self.overlayShown = true
+        }
     }
     
     func hideOverlay() {
@@ -399,32 +397,31 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.overlayHideButton.alpha = 0
             self.projectsTableView.transform = CGAffineTransformMakeScale(1.0,1.0)
             }) { (Bool) -> Void in
-                
                 self.overlayShown = false
-                self.hideViewController(self.loginVC)
-                self.hideViewController(self.profileVC)
-
-
+                self.detachVCfromOverlay()
         }
     }
     
-//    func loggedInUser(){
-//        var currentUser = PFUser.currentUser()
-//        println("Hello, \(PFUser.currentUser().username)")
-//        loginButton.titleLabel?.text = ("Hello, \(PFUser.currentUser().username)")
-//
-//    }
+    func setupUserLoggedIn() {
+        overlayHeaderLabel.text = "Hello, \(PFUser.currentUser().username)"
+        println("Hello, \(PFUser.currentUser().username)")
+    }
+    
+    func setupUserLoggedOut() {
+        overlayHeaderLabel.text = "LOGIN / SIGN UP"
+    }
     
     
-    func isUserLoggedIn(){
-        var currentUser = PFUser.currentUser()
+    func isUserLoggedIn() -> Bool {
+        currentUser = PFUser.currentUser()
         if currentUser != nil {
             // user is logged in
-            overlayHeaderLabel.text = "Hello, \(PFUser.currentUser().username)"
-            
-            println("Hello, \(PFUser.currentUser().username)")
-        } else {
+            return true
+        }
+        
+        else {
             //user is not logged in
+            return false
         }
     }
 }

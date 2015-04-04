@@ -38,7 +38,8 @@ class ProfileViewController: UIViewController {
         PFUser.logOutInBackgroundWithBlock { (error:NSError!) -> Void in
             var parentVC = self.parentViewController as HomeViewController
             parentVC.hideOverlay()
-            println("User logged out")
+            parentVC.setupUserLoggedOut()
+            println("logged out")
             
         }
     }

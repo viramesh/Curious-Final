@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        inputUsername.becomeFirstResponder()
         
         inputUsername.attributedPlaceholder = NSAttributedString(string:"Username",
             attributes:[NSForegroundColorAttributeName: UIColor(red: 255, green: 255, blue: 255, alpha: 0.3)])
@@ -55,7 +56,7 @@ class LoginViewController: UIViewController {
             if user != nil {
                 var parentVC = self.parentViewController as HomeViewController
                 parentVC.hideOverlay()
-                parentVC.isUserLoggedIn()
+                parentVC.setupUserLoggedIn()
             } else if error.code == 101 {
                 println(error.description)
                 var alertView = UIAlertView(title: "Try again!", message: "Username or password is incorrect.", delegate: nil, cancelButtonTitle: "OK")
@@ -75,6 +76,7 @@ class LoginViewController: UIViewController {
             if success {
                 var parentVC = self.parentViewController as HomeViewController
                 parentVC.hideOverlay()
+                parentVC.setupUserLoggedIn()
                 println("finished hiding")
             } else if error.code == 202 {
                 var alertView = UIAlertView(title: "Username taken!", message: "Please try another one", delegate: nil, cancelButtonTitle: "OK")

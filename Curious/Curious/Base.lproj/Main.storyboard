@@ -189,19 +189,14 @@
                                             <subviews>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="LOGIN / SIGN UP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ri-QK-TW0">
                                                     <rect key="frame" x="8" y="10" width="398" height="30"/>
+                                                    <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0r-Vg-U9x">
-                                                    <rect key="frame" x="8" y="10" width="398" height="30"/>
-                                                    <state key="normal">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
                                                     <connections>
-                                                        <action selector="overlayHeaderInvisibleButtonDidPress:" destination="sfQ-xY-agg" eventType="touchUpInside" id="uHa-Go-da2"/>
+                                                        <outletCollection property="gestureRecognizers" destination="FH7-Fk-Btg" appends="YES" id="yty-Vv-8yd"/>
                                                     </connections>
-                                                </button>
+                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GlK-vr-Qm3">
                                                     <rect key="frame" x="355" y="10" width="51" height="36"/>
                                                     <state key="normal" image="Down Arrow">
@@ -270,6 +265,11 @@
                         <action selector="overlayHeaderDidPan:" destination="sfQ-xY-agg" id="Waj-X1-wpl"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="FH7-Fk-Btg" userLabel="tap overlay header">
+                    <connections>
+                        <action selector="overlayHeaderDidTap:" destination="sfQ-xY-agg" id="QG6-Cu-1uU"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1469" y="717"/>
         </scene>
@@ -297,7 +297,7 @@
                                 <rect key="frame" x="41" y="176" width="338" height="30"/>
                                 <color key="textColor" red="0.96966655030000004" green="0.96966655030000004" blue="0.96966655030000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dED-52-IXH">
                                 <rect key="frame" x="41" y="118" width="338" height="30"/>
