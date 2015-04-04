@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
             println("logged in")
             if user != nil {
                 var parentVC = self.parentViewController as HomeViewController
-                parentVC.hideLogin()
+                parentVC.hideOverlay()
                 parentVC.isUserLoggedIn()
             } else if error.code == 101 {
                 println(error.description)
@@ -74,7 +74,7 @@ class LoginViewController: UIViewController {
             
             if success {
                 var parentVC = self.parentViewController as HomeViewController
-                parentVC.hideLogin()
+                parentVC.hideOverlay()
                 println("finished hiding")
             } else if error.code == 202 {
                 var alertView = UIAlertView(title: "Username taken!", message: "Please try another one", delegate: nil, cancelButtonTitle: "OK")

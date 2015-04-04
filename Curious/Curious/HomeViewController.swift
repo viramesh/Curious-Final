@@ -13,7 +13,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var projectsTableView: UITableView!
 
-    //Login Screen stuff
+    //overlay view setup stuff
     @IBOutlet weak var overlayContainerView: UIVisualEffectView!
     @IBOutlet weak var overlayContainerViewTop: NSLayoutConstraint!
     @IBOutlet weak var overlayHeaderView: UIView!
@@ -21,13 +21,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var overlayHideButton: UIButton!
     @IBOutlet weak var overlayHeaderLabel: UILabel!
     
-    var loginHeight:CGFloat! = 50
-    var loginViewShown:Bool! = false
-    var loginView:LoginViewController!
-    var originalConstant:CGFloat!
-    
-    //login stuff
+    //variables used to maintain current state
+    var overlayHeaderHeight:CGFloat! = 50
     var isLoggedIn: Bool = false
+    var overlayShown:Bool! = false
+    var initialOverlayConstant:CGFloat! = 0
+    
+    //overlay VC's stuff
+    var loginVC:LoginViewController!
     var profileVC: ProfileViewController!
     var checkOutVC: CheckOutViewController!
     
@@ -36,6 +37,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var isPresenting: Bool = true
     var selectedImage: NSIndexPath!
     
+    
+    //table view stuff
     var titles = [String]()
     var subLabels = [String]()
     var images = [String]()
@@ -81,7 +84,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //init login stuff
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        loginView = storyboard.instantiateViewControllerWithIdentifier("loginViewController") as LoginViewController
+        loginVC = storyboard.instantiateViewControllerWithIdentifier("loginViewController") as LoginViewController
         
         checkOutVC = storyboard.instantiateViewControllerWithIdentifier("checkOutViewController") as CheckOutViewController
         
@@ -100,7 +103,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return true
     }
     
-    func displayLoginViewController(content: UIViewController) {
+    func displayViewController(content: UIViewController) {
         addChildViewController(content)
         self.overlayContentsView.addSubview(content.view)
         self.overlayContainerView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
@@ -108,14 +111,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         content.didMoveToParentViewController(self)
     }
     
-    func hideLoginViewController(content: UIViewController) {
+    func hideViewController(content: UIViewController) {
         content.willMoveToParentViewController(nil)
         content.view.removeFromSuperview()
         content.removeFromParentViewController()
     }
     
     func revealTable() {
-        overlayContainerViewTop.constant = self.view.frame.height - loginHeight
+        overlayContainerViewTop.constant = self.view.frame.height - overlayHeaderHeight
         isUserLoggedIn()
         
         UIView.animateWithDuration(1.2, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
@@ -312,57 +315,55 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     @IBAction func overlayHeaderInvisibleButtonDidPress(sender: AnyObject) {
-        showLogin()
+        showOverlay()
     }
     
     @IBAction func overlayHideButtonDidPress(sender: AnyObject) {
-        hideLogin()
+        hideOverlay()
     }
     
     
-    @IBAction func loginDidPan(sender: UIPanGestureRecognizer) {
+    @IBAction func overlayHeaderDidPan(sender: UIPanGestureRecognizer) {
         var velocity = sender.velocityInView(view)
         var translation = sender.translationInView(view)
 
         if sender.state == UIGestureRecognizerState.Began {
-            if (loginViewShown == true) {
-                originalConstant = 0
+            if (overlayShown == true) {
+                initialOverlayConstant = 0
             }
             else {
-                originalConstant = self.view.frame.height - loginHeight
-                displayLoginViewController(loginView)
+                initialOverlayConstant = self.view.frame.height - overlayHeaderHeight
+                displayViewController(loginVC)
             }
         }
         else if sender.state == UIGestureRecognizerState.Changed {
             
-            var newConstant:CGFloat = originalConstant + translation.y
-            
+            var newConstant:CGFloat = initialOverlayConstant + translation.y
             overlayContainerViewTop.constant = newConstant
-            
             overlayContainerView.layoutIfNeeded()
             
-            var newScale = convertValue(Float(newConstant), 0, Float(self.view.frame.height - loginHeight), 0.9, 1.0)
+            var newScale = convertValue(Float(newConstant), 0, Float(self.view.frame.height - overlayHeaderHeight), 0.9, 1.0)
             projectsTableView.transform = CGAffineTransformMakeScale(CGFloat(newScale), CGFloat(newScale))
             
         }
         else if sender.state == UIGestureRecognizerState.Ended {
             if(velocity.y > 0) {
-                hideLogin()
+                hideOverlay()
             }
             else {
-                showLogin()
+                showOverlay()
             }
         }
     }
     
-    func showLogin() {
+    func showOverlay() {
         var currentUser = PFUser.currentUser()
         if currentUser != nil {
             // user is logged in
             overlayHeaderLabel.text = "Hello, \(PFUser.currentUser().username)"
-
             println("Hello, \(PFUser.currentUser().username)")
-            displayLoginViewController(profileVC)
+
+            displayViewController(profileVC)
             overlayContainerViewTop.constant = 0
 
             UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
@@ -370,37 +371,38 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.overlayHideButton.alpha = 1
                 self.projectsTableView.transform = CGAffineTransformMakeScale(0.9, 0.9)
                 }) { (Bool) -> Void in
-//                    self.loginViewShown = true
+                    self.overlayShown = true
                     
             }
             
         } else {
             //user is not logged in
-            displayLoginViewController(loginView)
+            displayViewController(loginVC)
             overlayContainerViewTop.constant = 0
+            
             UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
                 self.overlayContainerView.layoutIfNeeded()
                 self.overlayHideButton.alpha = 1
                 self.projectsTableView.transform = CGAffineTransformMakeScale(0.9, 0.9)
                 }) { (Bool) -> Void in
-                    self.loginViewShown = true
+                    self.overlayShown = true
             }
         }
         
 
     }
     
-    func hideLogin() {
-        overlayContainerViewTop.constant = self.view.frame.height - loginHeight
+    func hideOverlay() {
+        overlayContainerViewTop.constant = self.view.frame.height - overlayHeaderHeight
         UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.overlayContainerView.layoutIfNeeded()
             self.overlayHideButton.alpha = 0
             self.projectsTableView.transform = CGAffineTransformMakeScale(1.0,1.0)
             }) { (Bool) -> Void in
                 
-                self.loginViewShown = false
-                self.hideLoginViewController(self.loginView)
-                self.hideLoginViewController(self.profileVC)
+                self.overlayShown = false
+                self.hideViewController(self.loginVC)
+                self.hideViewController(self.profileVC)
 
 
         }

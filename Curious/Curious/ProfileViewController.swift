@@ -13,7 +13,8 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         // Do any additional setup after loading the view.
     }
 
@@ -36,7 +37,7 @@ class ProfileViewController: UIViewController {
     @IBAction func didPressLogout(sender: AnyObject) {
         PFUser.logOutInBackgroundWithBlock { (error:NSError!) -> Void in
             var parentVC = self.parentViewController as HomeViewController
-            parentVC.hideLogin()
+            parentVC.hideOverlay()
             println("User logged out")
             
         }

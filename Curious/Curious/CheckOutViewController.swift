@@ -16,7 +16,8 @@ class CheckOutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         // Do any additional setup after loading the view.
         
        

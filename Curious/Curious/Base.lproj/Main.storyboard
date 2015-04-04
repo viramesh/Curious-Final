@@ -267,7 +267,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6wS-xe-g8x" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="1A7-lE-xcF" userLabel="pan overlay header">
                     <connections>
-                        <action selector="loginDidPan:" destination="sfQ-xY-agg" id="vt0-KC-b2C"/>
+                        <action selector="overlayHeaderDidPan:" destination="sfQ-xY-agg" id="Waj-X1-wpl"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
