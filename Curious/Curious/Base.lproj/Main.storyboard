@@ -187,32 +187,37 @@
                                         <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IcH-R2-B3p">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90x-Uy-5pu">
-                                                    <rect key="frame" x="147" y="10" width="121" height="30"/>
-                                                    <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="16"/>
-                                                    <state key="normal" title="LOGIN / SIGN UP">
-                                                        <color key="titleColor" red="0.89038495110000004" green="0.89038495110000004" blue="0.89038495110000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="LOGIN / SIGN UP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ri-QK-TW0">
+                                                    <rect key="frame" x="8" y="10" width="398" height="30"/>
+                                                    <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0r-Vg-U9x">
+                                                    <rect key="frame" x="8" y="10" width="398" height="30"/>
+                                                    <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="loginBtnDidPress:" destination="sfQ-xY-agg" eventType="touchUpInside" id="oAZ-zT-XDr"/>
+                                                        <action selector="overlayHeaderInvisibleButtonDidPress:" destination="sfQ-xY-agg" eventType="touchUpInside" id="uHa-Go-da2"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GlK-vr-Qm3">
-                                                    <rect key="frame" x="376" y="10" width="30" height="22"/>
+                                                    <rect key="frame" x="355" y="10" width="51" height="36"/>
                                                     <state key="normal" image="Down Arrow">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="loginHideBtnDidPress:" destination="sfQ-xY-agg" eventType="touchUpInside" id="54t-sg-XQK"/>
+                                                        <action selector="overlayHideButtonDidPress:" destination="sfQ-xY-agg" eventType="touchUpInside" id="AMC-RU-92c"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="GlK-vr-Qm3" secondAttribute="trailing" constant="15" id="80T-hW-5HN"/>
+                                                <constraint firstAttribute="trailing" secondItem="7Ri-QK-TW0" secondAttribute="trailing" constant="25" id="Hbz-Gi-Emm"/>
+                                                <constraint firstItem="7Ri-QK-TW0" firstAttribute="leading" secondItem="IcH-R2-B3p" secondAttribute="leading" constant="25" id="PhO-wO-W9A"/>
                                                 <constraint firstItem="GlK-vr-Qm3" firstAttribute="top" secondItem="IcH-R2-B3p" secondAttribute="top" constant="12" id="eeu-cY-TO5"/>
-                                                <constraint firstAttribute="centerX" secondItem="90x-Uy-5pu" secondAttribute="centerX" id="u1a-SZ-5ag"/>
                                             </constraints>
                                             <connections>
                                                 <outletCollection property="gestureRecognizers" destination="1A7-lE-xcF" appends="YES" id="2uk-EZ-uru"/>
@@ -249,18 +254,18 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="loginButton" destination="90x-Uy-5pu" id="ROM-Nf-8ka"/>
-                        <outlet property="loginButtons" destination="IcH-R2-B3p" id="Ppv-TI-ZJv"/>
-                        <outlet property="loginContainer" destination="zjx-d3-b8C" id="NU0-Ux-NhF"/>
-                        <outlet property="loginContainerTop" destination="AwG-n0-MkT" id="rN8-gq-Lua"/>
-                        <outlet property="loginContents" destination="csv-nc-rhi" id="fFD-Jd-JDj"/>
-                        <outlet property="loginHideBtn" destination="GlK-vr-Qm3" id="Qj6-XO-BAp"/>
+                        <outlet property="overlayContainerView" destination="zjx-d3-b8C" id="WWb-ld-bhM"/>
+                        <outlet property="overlayContainerViewTop" destination="AwG-n0-MkT" id="8yd-qk-fJd"/>
+                        <outlet property="overlayContentsView" destination="csv-nc-rhi" id="g7V-V4-tjA"/>
+                        <outlet property="overlayHeaderLabel" destination="7Ri-QK-TW0" id="TTI-Te-yqr"/>
+                        <outlet property="overlayHeaderView" destination="IcH-R2-B3p" id="Rgv-Xp-5ra"/>
+                        <outlet property="overlayHideButton" destination="GlK-vr-Qm3" id="3HX-05-o3N"/>
                         <outlet property="projectsTableView" destination="vXg-lq-ZII" id="nVL-1y-4Wz"/>
                         <segue destination="Kfb-5H-2dY" kind="custom" identifier="detailSegue" id="Mo3-Tt-5fd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6wS-xe-g8x" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="1A7-lE-xcF" userLabel="pan login">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="1A7-lE-xcF" userLabel="pan overlay header">
                     <connections>
                         <action selector="loginDidPan:" destination="sfQ-xY-agg" id="vt0-KC-b2C"/>
                     </connections>
