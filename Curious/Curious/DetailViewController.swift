@@ -13,7 +13,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var detailView: UIView!
     @IBOutlet weak var carouselImageView: UIImageView!
-    @IBOutlet weak var details: UIView!
+    @IBOutlet weak var details: UIScrollView!
+    @IBOutlet weak var detailsContent: UIView!
     @IBOutlet weak var projectTitle: UILabel!
     @IBOutlet weak var projectDescription: UILabel!
     @IBOutlet weak var instructionsScrollView: UIScrollView!
@@ -23,7 +24,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     @IBOutlet weak var instructionsTop: NSLayoutConstraint!
     @IBOutlet weak var detailsTop: NSLayoutConstraint!
-    @IBOutlet weak var rewindBtnTop: NSLayoutConstraint!
+    @IBOutlet weak var detailsContentWidth: NSLayoutConstraint!
+    @IBOutlet weak var detailsContentTop: NSLayoutConstraint!
     
     var btnHeight:CGFloat! = 100
     var spacer:CGFloat! = 20
@@ -54,7 +56,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var detailSubLabel: String!
     
     //for scrolling instructions
-    var scrollWidthRatio:CGFloat! = 0.9
+    var scrollWidthRatio:CGFloat! = 1.0
     var scrollPos:CGFloat! = 0
     
     override func viewDidLoad() {
@@ -63,10 +65,15 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         imageHeight.constant = self.view.frame.height * 0.4
         instructionsTop.constant = imageHeight.constant - instructionsScrollView.frame.height
         instructionsScrollView.layoutIfNeeded()
-        detailsTop.constant = imageHeight.constant + btnHeight
+
+        detailsContentWidth.constant = self.view.frame.width
+        detailsContentTop.constant = btnHeight
+        detailsContent.layoutIfNeeded()
+        
+        detailsTop.constant = imageHeight.constant
         details.layoutIfNeeded()
-        rewindBtnTop.constant = imageHeight.constant + spacer
-        rewindButton.layoutIfNeeded()
+        
+        details.contentSize.height = detailsContent.frame.size.height + btnHeight
         
         currentImage = imageNameMIN
         
@@ -87,8 +94,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         self.progressView.alpha = 0
         setupRewindLabel()
         
-        //give everything time to load and then rewind back to first step
-//        NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: "resetToFirstStep", userInfo: nil, repeats: false)
+        println(detailsContent.frame)
         
     }
     
@@ -233,11 +239,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     func showInstructions() {
         
-        detailsTop.constant = self.view.frame.height - details.frame.height
-        instructionsTop.constant = imageHeight.constant + spacer
+        instructionsTop.constant = 0
+        detailsContentTop.constant = instructionsScrollView.frame.height
         
         UIView.animateWithDuration(2.0, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-                self.details.layoutIfNeeded()
+                self.detailsContent.layoutIfNeeded()
                 self.instructionsScrollView.layoutIfNeeded()
                 self.instructionsScrollView.alpha = 1
             }) { (Bool) -> Void in
@@ -246,6 +252,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         UIView.animateWithDuration(0.4, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.rewindButton.alpha = 0
+            self.details.contentSize.height = self.detailsContent.frame.size.height + self.instructionsScrollView.frame.size.height
+
         }, completion: nil)
     }
 
