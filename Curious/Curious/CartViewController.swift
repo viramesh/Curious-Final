@@ -179,4 +179,7 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
         performSegueWithIdentifier("quantitySegue", sender: self)
     }
 
+    @IBAction func addToCartDidPress(sender: AnyObject) {
+    
+    }
 }
