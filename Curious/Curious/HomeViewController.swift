@@ -28,6 +28,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //login stuff
     var isLoggedIn: Bool = false
+    var profileVC: ProfileViewController!
+    var checkOutVC: CheckOutViewController!
     
     //Passing info over
     var movingImageView: UIImageView!
@@ -80,6 +82,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         loginView = storyboard.instantiateViewControllerWithIdentifier("loginViewController") as LoginViewController
+        
+        checkOutVC = storyboard.instantiateViewControllerWithIdentifier("checkOutViewController") as CheckOutViewController
+        
+        profileVC = storyboard.instantiateViewControllerWithIdentifier("profileViewController") as ProfileViewController
         
         loginHideBtn.alpha = 0
         loginButtons.alpha = 0
@@ -348,15 +354,38 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func showLogin() {
-        displayLoginViewController(loginView)
-        loginContainerTop.constant = 0
-        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-            self.loginContainer.layoutIfNeeded()
-            self.loginHideBtn.alpha = 1
-            self.projectsTableView.transform = CGAffineTransformMakeScale(0.9, 0.9)
-            }) { (Bool) -> Void in
-                self.loginViewShown = true
+        var currentUser = PFUser.currentUser()
+        if currentUser != nil {
+            // user is logged in
+            loginButton.titleLabel?.text = "Hello, \(PFUser.currentUser().username)"
+
+            println("Hello, \(PFUser.currentUser().username)")
+            displayLoginViewController(profileVC)
+            loginContainerTop.constant = 0
+
+            UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+                self.loginContainer.layoutIfNeeded()
+                self.loginHideBtn.alpha = 1
+                self.projectsTableView.transform = CGAffineTransformMakeScale(0.9, 0.9)
+                }) { (Bool) -> Void in
+//                    self.loginViewShown = true
+                    
+            }
+            
+        } else {
+            //user is not logged in
+            displayLoginViewController(loginView)
+            loginContainerTop.constant = 0
+            UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+                self.loginContainer.layoutIfNeeded()
+                self.loginHideBtn.alpha = 1
+                self.projectsTableView.transform = CGAffineTransformMakeScale(0.9, 0.9)
+                }) { (Bool) -> Void in
+                    self.loginViewShown = true
+            }
         }
+        
+
     }
     
     func hideLogin() {
@@ -366,15 +395,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.loginHideBtn.alpha = 0
             self.projectsTableView.transform = CGAffineTransformMakeScale(1.0,1.0)
             }) { (Bool) -> Void in
+                
                 self.loginViewShown = false
                 self.hideLoginViewController(self.loginView)
+                self.hideLoginViewController(self.profileVC)
+
+
         }
     }
     
-    func loggedInUser(){
-        println("Hello, \(PFUser.currentUser().username)")
-        loginButton.titleLabel?.text = "Hello, \(PFUser.currentUser().username)"
-    }
+//    func loggedInUser(){
+//        var currentUser = PFUser.currentUser()
+//        println("Hello, \(PFUser.currentUser().username)")
+//        loginButton.titleLabel?.text = ("Hello, \(PFUser.currentUser().username)")
+//
+//    }
     
     
     func isUserLoggedIn(){
@@ -382,6 +417,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if currentUser != nil {
             // user is logged in
             loginButton.titleLabel?.text = "Hello, \(PFUser.currentUser().username)"
+            loginButton.setTitle("Hello, \(PFUser.currentUser().username)", forState: UIControlState.Highlighted)
+
             println("Hello, \(PFUser.currentUser().username)")
         } else {
             //user is not logged in
