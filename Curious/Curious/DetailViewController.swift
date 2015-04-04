@@ -56,8 +56,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var detailSubLabel: String!
     
     //for scrolling instructions
+    var scrollMargin:CGFloat! = 40
     var scrollWidthRatio:CGFloat! = 1.0
     var scrollPos:CGFloat! = 0
+    @IBOutlet weak var nextStepExistsLabel: UILabel!
+    @IBOutlet weak var prevStepExistsLabel: UILabel!
+    var stepExistsLabelHiddenAlpha:CGFloat! = 0.05
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,7 +116,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     func setupRewindLabel() {
         var rewindLabelFrame:CGRect = CGRectMake(0, imageHeight.constant-40, self.view.frame.width, 40)
         rewindLabel = UILabel(frame: rewindLabelFrame)
-        rewindLabel.text = "Let's go back to the first step..."
+        rewindLabel.text = "Let's go back to the first step"
         rewindLabel.textColor = UIColor.whiteColor()
         rewindLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         rewindLabel.textAlignment = NSTextAlignment.Center
@@ -199,19 +203,16 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             instructionView.userInteractionEnabled = true
             
             //step number
-            var stepNumFrame:CGRect = CGRectMake(instructionsScrollView.center.x * scrollWidthRatio - 20, 20, 40, 40)
+            var stepNumFrame:CGRect = CGRectMake(scrollMargin, 20, instructionsScrollView.frame.width * scrollWidthRatio - scrollMargin*2, 40)
             var stepNum:UILabel = UILabel(frame: stepNumFrame)
             var num = i+1
-            stepNum.text = String(num)
-            stepNum.layer.borderColor = UIColor.blackColor().CGColor
-            stepNum.layer.borderWidth = 1
-            stepNum.layer.cornerRadius = 20
+            stepNum.text = "STEP " + String(num)
             stepNum.textAlignment = NSTextAlignment.Center
-            stepNum.font = UIFont(name: "Edmondsans-Regular", size: 20.0)!
+            stepNum.font = UIFont(name: "Edmondsans-Medium", size: 16.0)!
             instructionView.addSubview(stepNum)
             
             //step description
-            var stepDescFrame:CGRect = CGRectMake(25, 70, instructionsScrollView.frame.width * scrollWidthRatio - 50, instructionsScrollView.frame.height-90.0)
+            var stepDescFrame:CGRect = CGRectMake(scrollMargin-4, 55, instructionsScrollView.frame.width * scrollWidthRatio - scrollMargin*2, instructionsScrollView.frame.height-90.0)
             
             var stepDesc:UITextView = UITextView(frame: stepDescFrame)
             stepDesc.userInteractionEnabled = false
@@ -231,7 +232,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             
             instructionsScrollView.addSubview(instructionView)
         }
-        
+
         instructionsScrollView.delegate = self
         instructionsScrollView.contentSize = CGSize(width: CGFloat(imageNameMAX+1)*instructionsScrollView.frame.width, height: instructionsScrollView.frame.height)
         
@@ -246,6 +247,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                 self.detailsContent.layoutIfNeeded()
                 self.instructionsScrollView.layoutIfNeeded()
                 self.instructionsScrollView.alpha = 1
+                self.prevStepExistsLabel.alpha = self.stepExistsLabelHiddenAlpha
+                self.nextStepExistsLabel.alpha = 1
             }) { (Bool) -> Void in
                 //
         }
@@ -269,6 +272,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         if(rewindCompleted == true) {
             if sender.state == UIGestureRecognizerState.Began {
                 initialImage = currentImage
+                
+                UIView.animateWithDuration(0.4, animations: { () -> Void in
+                    self.prevStepExistsLabel.alpha = self.stepExistsLabelHiddenAlpha
+                    self.nextStepExistsLabel.alpha = self.stepExistsLabelHiddenAlpha
+                })
+
             }
             else if sender.state == UIGestureRecognizerState.Changed {
                 currentImage = initialImage + Int(translation.x * imageSpeed)
@@ -278,17 +287,33 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                 else if(currentImage > imageNameMAX) {
                     currentImage = imageNameMAX
                 }
-            
-                let toImage = UIImage(named: self.imageNamePrefix + "-" + String(currentImage) + ".jpg")
-                UIView.transitionWithView(self.carouselImageView, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
-                    self.carouselImageView.image = toImage
-                }, completion: nil)
-                updateProgressBar()
+                
+                else {
+                    let toImage = UIImage(named: self.imageNamePrefix + "-" + String(currentImage) + ".jpg")
+                    UIView.transitionWithView(self.carouselImageView, duration: 0.3, options:   UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+                        self.carouselImageView.image = toImage
+                    }, completion: nil)
+                    updateProgressBar()
+                }
             }
             else if sender.state == UIGestureRecognizerState.Ended {
-            
                 instructionsScrollView.contentOffset.x = CGFloat(currentImage) * instructionsScrollView.frame.width
-            
+                UIView.animateWithDuration(0.4, animations: { () -> Void in
+                    if(self.currentImage == self.imageNameMIN) {
+                        self.prevStepExistsLabel.alpha = self.stepExistsLabelHiddenAlpha
+                        self.nextStepExistsLabel.alpha = 1.0
+                    }
+                    else if(self.currentImage == self.imageNameMAX) {
+                        self.prevStepExistsLabel.alpha = 1.0
+                        self.nextStepExistsLabel.alpha = self.stepExistsLabelHiddenAlpha
+                    }
+                    else {
+                        self.prevStepExistsLabel.alpha = 1.0
+                        self.nextStepExistsLabel.alpha = 1.0
+                    }
+                })
+                
+                
             }
         }
     }
@@ -303,6 +328,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         if sender.state == UIGestureRecognizerState.Began {
             scrollPos = instructionsScrollView.contentOffset.x
+            
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.prevStepExistsLabel.alpha = self.stepExistsLabelHiddenAlpha
+                self.nextStepExistsLabel.alpha = self.stepExistsLabelHiddenAlpha
+            })
         }
         else if sender.state == UIGestureRecognizerState.Changed {
             var newPos = scrollPos - translation.x
@@ -321,37 +351,56 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         }
         else if sender.state == UIGestureRecognizerState.Ended {
             var stepNum = Int(instructionsScrollView.contentOffset.x / instructionsScrollView.frame.width)
-
+            
             if(velocity.x > 0) {
-                //go to next step
+                //go to prev step
                 var prevStepBuffer:CGFloat! = 0
                 if(stepNum>0) {
                     prevStepBuffer = -1 * self.instructionsScrollView.frame.width * ((1-self.scrollWidthRatio)/2)
                 }
+                
                 UIView.animateWithDuration(0.4, animations: { () -> Void in
-                    self.instructionsScrollView.contentOffset.x = prevStepBuffer + CGFloat(stepNum) * self.instructionsScrollView.frame.width * self.scrollWidthRatio
+                    self.instructionsScrollView.contentOffset.x = prevStepBuffer + CGFloat(stepNum) *   self.instructionsScrollView.frame.width * self.scrollWidthRatio
+                    if(stepNum == self.imageNameMIN) {
+                        self.prevStepExistsLabel.alpha = self.stepExistsLabelHiddenAlpha
+                        self.nextStepExistsLabel.alpha = 1.0
+                    }
+                    else {
+                        self.prevStepExistsLabel.alpha = 1.0
+                        self.nextStepExistsLabel.alpha = 1.0
+                    }
                     
                 })
                 
                 let toImage = UIImage(named: self.imageNamePrefix + "-" + String(stepNum) + ".jpg")
                 UIView.transitionWithView(self.carouselImageView, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
-                    self.carouselImageView.image = toImage
-                    }, completion: nil)
+                self.carouselImageView.image = toImage
+                }, completion: nil)
                 currentImage = stepNum
                 updateProgressBar()
             }
             else {
-                var prevStepBuffer:CGFloat = -1 * self.instructionsScrollView.frame.width * ((1-self.scrollWidthRatio)/2)
-                //go to previous step
-                UIView.animateWithDuration(0.4, animations: { () -> Void in
-                    self.instructionsScrollView.contentOffset.x = prevStepBuffer + CGFloat(stepNum+1) * self.instructionsScrollView.frame.width * self.scrollWidthRatio
-                })
-                let toImage = UIImage(named: self.imageNamePrefix + "-" + String(stepNum+1) + ".jpg")
-                UIView.transitionWithView(self.carouselImageView, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+                //go to next step
+                if(stepNum < imageNameMAX) {
+                    var prevStepBuffer:CGFloat = -1 * self.instructionsScrollView.frame.width * ((1-self.scrollWidthRatio)/2)
+                    UIView.animateWithDuration(0.4, animations: { () -> Void in
+                        self.instructionsScrollView.contentOffset.x = prevStepBuffer + CGFloat(stepNum+1) * self.instructionsScrollView.frame.width * self.scrollWidthRatio
+                        if(stepNum+1 == self.imageNameMAX) {
+                            self.prevStepExistsLabel.alpha = 1.0
+                            self.nextStepExistsLabel.alpha = self.stepExistsLabelHiddenAlpha
+                        }
+                        else {
+                            self.prevStepExistsLabel.alpha = 1.0
+                            self.nextStepExistsLabel.alpha = 1.0
+                        }
+                    })
+                    let toImage = UIImage(named: self.imageNamePrefix + "-" + String(stepNum+1) + ".jpg")
+                    UIView.transitionWithView(self.carouselImageView, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
                     self.carouselImageView.image = toImage
-                    }, completion: nil)
-                currentImage = stepNum+1
-                updateProgressBar()
+                        }, completion: nil)
+                    currentImage = stepNum+1
+                    updateProgressBar()
+                }
                 
             }
         }

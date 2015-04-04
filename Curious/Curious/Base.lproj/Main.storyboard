@@ -45,6 +45,8 @@
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
+            <string>Edmondsans-Regular</string>
+            <string>Edmondsans-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -623,10 +625,6 @@
                                             <action selector="backButtonDidTap:" destination="Kfb-5H-2dY" eventType="touchUpInside" id="Iv1-zm-2pR"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YG4-p9-IY9" userLabel="Progress">
-                                        <rect key="frame" x="0.0" y="328" width="414" height="5"/>
-                                        <color key="backgroundColor" red="0.9519029329608939" green="0.9519029329608939" blue="0.9519029329608939" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jz8-vs-P1f" userLabel="Details">
                                         <rect key="frame" x="0.0" y="567" width="414" height="633"/>
                                         <subviews>
@@ -650,6 +648,18 @@
                                                     <outletCollection property="gestureRecognizers" destination="rvA-ok-Awq" appends="YES" id="xtu-jg-thi"/>
                                                 </connections>
                                             </scrollView>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xwa-ly-wp1">
+                                                <rect key="frame" x="390" y="100" width="20" height="20"/>
+                                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="30"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&lt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLV-fM-AEm">
+                                                <rect key="frame" x="0.0" y="100" width="20" height="20"/>
+                                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="30"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTc-ZT-yaD" userLabel="Title and Reviews">
                                                 <rect key="frame" x="0.0" y="195" width="414" height="633"/>
                                                 <subviews>
@@ -707,16 +717,24 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="8nR-w5-njr" firstAttribute="top" secondItem="Jz8-vs-P1f" secondAttribute="top" constant="-200" id="Ah0-4o-PAC"/>
+                                            <constraint firstItem="Xwa-ly-wp1" firstAttribute="top" secondItem="Jz8-vs-P1f" secondAttribute="top" constant="80" id="FE4-tT-As7"/>
                                             <constraint firstAttribute="trailing" secondItem="lbU-Ib-czu" secondAttribute="trailing" constant="25" id="Mqy-z4-1Mw"/>
                                             <constraint firstItem="lbU-Ib-czu" firstAttribute="top" secondItem="Jz8-vs-P1f" secondAttribute="top" constant="20" id="Pon-7n-Tvg"/>
                                             <constraint firstItem="8nR-w5-njr" firstAttribute="leading" secondItem="Jz8-vs-P1f" secondAttribute="leading" id="Qma-s0-91s"/>
+                                            <constraint firstItem="cLV-fM-AEm" firstAttribute="leading" secondItem="Jz8-vs-P1f" secondAttribute="leading" constant="4" id="RDy-m6-lwE"/>
                                             <constraint firstItem="lbU-Ib-czu" firstAttribute="leading" secondItem="Jz8-vs-P1f" secondAttribute="leading" constant="25" id="U6c-cA-P5O"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xwa-ly-wp1" secondAttribute="trailing" constant="4" id="YR5-N8-tvc"/>
+                                            <constraint firstItem="cLV-fM-AEm" firstAttribute="top" secondItem="Jz8-vs-P1f" secondAttribute="top" constant="80" id="g49-6V-AQA"/>
                                             <constraint firstAttribute="trailing" secondItem="8nR-w5-njr" secondAttribute="trailing" id="hb5-Y4-oia"/>
                                             <constraint firstItem="tTc-ZT-yaD" firstAttribute="leading" secondItem="Jz8-vs-P1f" secondAttribute="leading" id="lbe-7E-a9x"/>
                                             <constraint firstItem="tTc-ZT-yaD" firstAttribute="top" secondItem="Jz8-vs-P1f" secondAttribute="top" id="pay-l9-8aJ"/>
                                             <constraint firstAttribute="trailing" secondItem="tTc-ZT-yaD" secondAttribute="trailing" id="rqa-KJ-nx5"/>
                                         </constraints>
                                     </scrollView>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YG4-p9-IY9" userLabel="Progress">
+                                        <rect key="frame" x="0.0" y="328" width="414" height="5"/>
+                                        <color key="backgroundColor" red="0.9519029329608939" green="0.9519029329608939" blue="0.9519029329608939" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
@@ -754,6 +772,8 @@
                         <outlet property="imageHeight" destination="tgo-jz-aAi" id="FlN-fq-GQB"/>
                         <outlet property="instructionsScrollView" destination="8nR-w5-njr" id="bQy-0c-vWU"/>
                         <outlet property="instructionsTop" destination="Ah0-4o-PAC" id="bT5-QX-1t4"/>
+                        <outlet property="nextStepExistsLabel" destination="Xwa-ly-wp1" id="Bkc-6W-Aba"/>
+                        <outlet property="prevStepExistsLabel" destination="cLV-fM-AEm" id="t8K-6v-zdm"/>
                         <outlet property="progressView" destination="YG4-p9-IY9" id="ZpC-pq-FQI"/>
                         <outlet property="projectDescription" destination="2IB-UT-n4g" id="zsn-80-Jj4"/>
                         <outlet property="projectTitle" destination="2vZ-YE-7yT" id="rsu-A6-2xJ"/>
