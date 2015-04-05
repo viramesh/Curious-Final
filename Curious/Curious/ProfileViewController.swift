@@ -48,6 +48,11 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    @IBAction func didPressCheckout(sender: AnyObject) {
+        var parentVC = self.parentViewController as HomeViewController
+        parentVC.showCheckout()
+    }
+    
     func getKits(){
         var query = PFQuery(className: "Kit")
         query.whereKey("user", equalTo: PFUser.currentUser().username)
@@ -67,7 +72,8 @@ class ProfileViewController: UIViewController {
                 println("Error: \(error) \(error.userInfo!)")
             }
         }
-        }
+    }
     
+
     
 }

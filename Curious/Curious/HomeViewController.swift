@@ -385,6 +385,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func detachVCfromOverlay() {
         self.hideViewController(self.loginVC)
         self.hideViewController(self.profileVC)
+        self.hideViewController(self.checkOutVC)
     }
     
     func showOverlay() {
@@ -392,6 +393,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.overlayContainerView.layoutIfNeeded()
             self.overlayHideButton.alpha = 1
+            self.overlayHeaderLabel.alpha = 0
             self.projectsTableView.transform = CGAffineTransformMakeScale(0.9, 0.9)
             }) { (Bool) -> Void in
                 self.overlayShown = true
@@ -406,6 +408,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.overlayContainerView.layoutIfNeeded()
             self.overlayHideButton.alpha = 0
+            self.overlayHeaderLabel.alpha = 1
             self.projectsTableView.transform = CGAffineTransformMakeScale(1.0,1.0)
             }) { (Bool) -> Void in
                 self.overlayShown = false
@@ -434,5 +437,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             //user is not logged in
             return false
         }
+    }
+    
+    func showCheckout() {
+        self.hideViewController(self.profileVC)
+        self.displayViewController(self.checkOutVC)
     }
 }

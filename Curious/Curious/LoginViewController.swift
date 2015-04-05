@@ -39,6 +39,9 @@ class LoginViewController: UIViewController {
     
 
     @IBAction func loginBtnDidPress(sender: AnyObject) {
+        inputUsername.resignFirstResponder()
+        inputPassword.resignFirstResponder()
+        
         PFUser.logInWithUsernameInBackground(inputUsername.text, password: inputPassword.text) { (user:PFUser!, error: NSError!) -> Void in
             //
             println("logged in")
