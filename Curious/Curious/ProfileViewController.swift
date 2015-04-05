@@ -54,10 +54,17 @@ class ProfileViewController: UIViewController {
         query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]!, error:NSError!) -> Void in
             //
             if error == nil {
-                //The find succeeds
-                println("Query succeeded")
+                // The find succeeded.
+                println("Successfully retrieved \(objects.count) scores.")
+                // Do something with the found objects
+                if let objects = objects as? [PFObject] {
+                    for object in objects {
+                        println(object.objectForKey("title"))
+                    }
+                }
             } else {
-                //Fails
+                // Log details of the failure
+                println("Error: \(error) \(error.userInfo!)")
             }
         }
         }
