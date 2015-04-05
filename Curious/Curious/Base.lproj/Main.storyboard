@@ -189,7 +189,7 @@
                                         <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IcH-R2-B3p">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                             <subviews>
-                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="LOGIN / SIGN UP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ri-QK-TW0">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ri-QK-TW0">
                                                     <rect key="frame" x="8" y="10" width="398" height="30"/>
                                                     <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="17"/>
@@ -288,28 +288,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.30000000000000004" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VpP-xK-x3l">
-                                <rect key="frame" x="28" y="147" width="365" height="1"/>
+                                <rect key="frame" x="28" y="102" width="365" height="1"/>
                                 <color key="backgroundColor" red="0.67418819832402233" green="0.67418819832402233" blue="0.67418819832402233" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view alpha="0.30000000000000004" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dUe-4w-vhF">
-                                <rect key="frame" x="28" y="205" width="365" height="1"/>
+                                <rect key="frame" x="28" y="160" width="365" height="1"/>
                                 <color key="backgroundColor" red="0.67418819832402233" green="0.67418819832402233" blue="0.67418819832402233" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="leP-CT-lUE">
-                                <rect key="frame" x="41" y="176" width="338" height="30"/>
+                                <rect key="frame" x="41" y="131" width="338" height="30"/>
                                 <color key="textColor" red="0.96966655030000004" green="0.96966655030000004" blue="0.96966655030000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dED-52-IXH">
-                                <rect key="frame" x="41" y="118" width="338" height="30"/>
+                                <rect key="frame" x="41" y="73" width="338" height="30"/>
                                 <color key="textColor" red="0.96966655030000004" green="0.96966655030000004" blue="0.96966655030000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPz-9y-Z46">
-                                <rect key="frame" x="219" y="261" width="78" height="32"/>
-                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF5-si-Ifw">
+                                <rect key="frame" x="28" y="191" width="365" height="32"/>
+                                <color key="backgroundColor" red="0.12941176469999999" green="0.76862745099999996" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="18"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginBtnDidPress:" destination="PlI-9r-Zdg" eventType="touchUpInside" id="MVa-qJ-Zpm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPz-9y-Z46">
+                                <rect key="frame" x="168" y="246" width="78" height="32"/>
+                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="15"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -318,8 +329,8 @@
                                     <action selector="signUpBtnDidPress:" destination="PlI-9r-Zdg" eventType="touchUpInside" id="s09-ld-5aP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A86-zV-mdq">
-                                <rect key="frame" x="139" y="322" width="143" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A86-zV-mdq">
+                                <rect key="frame" x="136" y="276" width="143" height="32"/>
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="15"/>
                                 <state key="normal" title="Forgot Password?">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -329,32 +340,23 @@
                                     <action selector="forgotPasswordBtnDidPress:" destination="PlI-9r-Zdg" eventType="touchUpInside" id="oOx-bL-6lB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF5-si-Ifw">
-                                <rect key="frame" x="121" y="262" width="73" height="29"/>
-                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="19"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginBtnDidPress:" destination="PlI-9r-Zdg" eventType="touchUpInside" id="MVa-qJ-Zpm"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="OF5-si-Ifw" secondAttribute="centerX" constant="49.5" id="4EK-Az-Anv"/>
+                            <constraint firstAttribute="centerX" secondItem="OF5-si-Ifw" secondAttribute="centerX" id="4EK-Az-Anv"/>
                             <constraint firstItem="VpP-xK-x3l" firstAttribute="leading" secondItem="Jld-ao-UQ8" secondAttribute="leading" constant="50" id="5Xq-o7-Q9Y"/>
                             <constraint firstAttribute="trailing" secondItem="dED-52-IXH" secondAttribute="trailing" constant="60" id="KgD-lJ-h1n"/>
-                            <constraint firstAttribute="centerX" secondItem="hPz-9y-Z46" secondAttribute="centerX" constant="-51" id="RKQ-iR-XFS"/>
+                            <constraint firstAttribute="trailing" secondItem="OF5-si-Ifw" secondAttribute="trailing" constant="50" id="Msf-va-nYh"/>
+                            <constraint firstAttribute="centerX" secondItem="hPz-9y-Z46" secondAttribute="centerX" id="RKQ-iR-XFS"/>
+                            <constraint firstItem="OF5-si-Ifw" firstAttribute="leading" secondItem="Jld-ao-UQ8" secondAttribute="leading" constant="50" id="SKx-yt-qpe"/>
                             <constraint firstItem="dED-52-IXH" firstAttribute="leading" secondItem="Jld-ao-UQ8" secondAttribute="leading" constant="60" id="SZg-wd-4g4"/>
                             <constraint firstItem="dUe-4w-vhF" firstAttribute="leading" secondItem="Jld-ao-UQ8" secondAttribute="leading" constant="50" id="TxO-v3-5aW"/>
                             <constraint firstItem="leP-CT-lUE" firstAttribute="leading" secondItem="Jld-ao-UQ8" secondAttribute="leading" constant="60" id="WRy-LV-gFh"/>
                             <constraint firstAttribute="trailing" secondItem="leP-CT-lUE" secondAttribute="trailing" constant="60" id="cRt-XC-r50"/>
-                            <constraint firstItem="OF5-si-Ifw" firstAttribute="top" secondItem="leP-CT-lUE" secondAttribute="bottom" constant="56" id="eCO-ST-WAx"/>
-                            <constraint firstAttribute="centerX" secondItem="A86-zV-mdq" secondAttribute="centerX" constant="-3.5" id="fEc-lu-saV"/>
-                            <constraint firstItem="A86-zV-mdq" firstAttribute="top" secondItem="leP-CT-lUE" secondAttribute="bottom" constant="116" id="iwT-WA-Ylf"/>
-                            <constraint firstItem="hPz-9y-Z46" firstAttribute="top" secondItem="leP-CT-lUE" secondAttribute="bottom" constant="55" id="roV-4f-FrI"/>
+                            <constraint firstItem="OF5-si-Ifw" firstAttribute="top" secondItem="leP-CT-lUE" secondAttribute="bottom" constant="30" id="eCO-ST-WAx"/>
+                            <constraint firstAttribute="centerX" secondItem="A86-zV-mdq" secondAttribute="centerX" id="fEc-lu-saV"/>
+                            <constraint firstItem="A86-zV-mdq" firstAttribute="top" secondItem="leP-CT-lUE" secondAttribute="bottom" constant="115" id="iwT-WA-Ylf"/>
+                            <constraint firstItem="hPz-9y-Z46" firstAttribute="top" secondItem="leP-CT-lUE" secondAttribute="bottom" constant="85" id="roV-4f-FrI"/>
                             <constraint firstAttribute="trailing" secondItem="VpP-xK-x3l" secondAttribute="trailing" constant="50" id="slb-qr-2Sm"/>
                             <constraint firstAttribute="trailing" secondItem="dUe-4w-vhF" secondAttribute="trailing" constant="50" id="vZX-qE-X9d"/>
                         </constraints>

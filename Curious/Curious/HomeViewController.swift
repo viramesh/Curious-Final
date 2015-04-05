@@ -326,6 +326,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func overlayHideButtonDidPress(sender: AnyObject) {
+        if(!isUserLoggedIn()) {
+            loginVC.inputUsername.resignFirstResponder()
+            loginVC.inputPassword.resignFirstResponder()
+        }
         hideOverlay()
     }
     
@@ -337,6 +341,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if sender.state == UIGestureRecognizerState.Began {
             if (overlayShown == true) {
                 initialOverlayConstant = 0
+                if(!isUserLoggedIn()) {
+                    loginVC.inputUsername.resignFirstResponder()
+                    loginVC.inputPassword.resignFirstResponder()
+                }
             }
             else {
                 initialOverlayConstant = self.view.frame.height - overlayHeaderHeight
@@ -387,6 +395,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.projectsTableView.transform = CGAffineTransformMakeScale(0.9, 0.9)
             }) { (Bool) -> Void in
                 self.overlayShown = true
+                if(!self.isUserLoggedIn()) {
+                    self.loginVC.inputUsername.becomeFirstResponder()
+                }
         }
     }
     
@@ -408,7 +419,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func setupUserLoggedOut() {
-        overlayHeaderLabel.text = "LOGIN / SIGN UP"
+        overlayHeaderLabel.text = "Login"
     }
     
     
