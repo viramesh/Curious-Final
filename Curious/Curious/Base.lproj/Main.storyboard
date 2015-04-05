@@ -400,8 +400,8 @@
                                     <action selector="didPressCheckout:" destination="0Dh-P5-SNn" eventType="touchUpInside" id="KqW-98-uJi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6A-U5-T9J">
-                                <rect key="frame" x="183" y="370" width="49" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6A-U5-T9J">
+                                <rect key="frame" x="154" y="352" width="109" height="32"/>
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="15"/>
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -415,7 +415,6 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="L6A-U5-T9J" secondAttribute="centerX" id="AaF-fd-M8y"/>
-                            <constraint firstItem="W8K-8I-HKI" firstAttribute="top" secondItem="L6A-U5-T9J" secondAttribute="bottom" constant="100" id="IuD-zn-ffg"/>
                             <constraint firstAttribute="trailing" secondItem="wQq-fw-yJ1" secondAttribute="trailing" constant="25" id="UXi-7O-w2b"/>
                             <constraint firstItem="wQq-fw-yJ1" firstAttribute="leading" secondItem="k3W-Ah-hGq" secondAttribute="leading" constant="25" id="jfp-5L-cqe"/>
                         </constraints>

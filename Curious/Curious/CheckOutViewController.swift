@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class CheckOutViewController: UIViewController {
+class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
@@ -16,6 +17,8 @@ class CheckOutViewController: UIViewController {
     @IBOutlet weak var cityField: UITextField!
     @IBOutlet weak var stateField: UITextField!
     @IBOutlet weak var zipcodeField: UITextField!
+    
+    var locationManager:CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +42,6 @@ class CheckOutViewController: UIViewController {
 
         zipcodeField.attributedPlaceholder = NSAttributedString(string:"Zip code",
             attributes:[NSForegroundColorAttributeName: UIColor(red: 255, green: 255, blue: 255, alpha: 0.3)])
-
         
     }
 
@@ -48,15 +50,69 @@ class CheckOutViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func getCurrentLocation() {
+        //getting current location
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
     }
-    */
+
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!)
+    {
+        println("Updating location...")
+        //--- CLGeocode to get address of current location ---//
+        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)->Void in
+            
+            if (error != nil)
+            {
+                println("Reverse geocoder failed with error" + error.localizedDescription)
+                return
+            }
+            
+            if placemarks.count > 0
+            {
+                let pm = placemarks[0] as CLPlacemark
+                self.displayLocationInfo(pm)
+            }
+            else
+            {
+                println("Problem with the data received from geocoder")
+            }
+        })
+        
+    }
+    
+    
+    func displayLocationInfo(placemark: CLPlacemark?)
+    {
+        if let containsPlacemark = placemark
+        {
+            //stop updating location to save battery life
+            locationManager.stopUpdatingLocation()
+            
+            let street = (containsPlacemark.thoroughfare != nil) ? containsPlacemark.thoroughfare : ""
+            let city = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
+            let zipcode = (containsPlacemark.postalCode != nil) ? containsPlacemark.postalCode : ""
+            let state = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea : ""
+            
+            println(street)
+            println(city)
+            println(zipcode)
+            println(state)
+            
+            streetAddressField.text = street
+            cityField.text = city
+            stateField.text = state
+            zipcodeField.text = zipcode
+        }
+        
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!)
+    {
+        println("Error while updating location " + error.localizedDescription)
+    }
 
 }

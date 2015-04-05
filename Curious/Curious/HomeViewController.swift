@@ -442,5 +442,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func showCheckout() {
         self.hideViewController(self.profileVC)
         self.displayViewController(self.checkOutVC)
+        checkOutVC.getCurrentLocation()
     }
 }
