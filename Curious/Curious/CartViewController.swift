@@ -190,11 +190,14 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
         kit["quantity"] = cartQuantityButton.titleLabel?.text
         kit["user"] = PFUser.currentUser().username
 //        kit["image"] = cartMainImage.image
-        kit.saveInBackgroundWithBlock { (success: Bool, erro: NSError!) -> Void in
-            
-        var parentVC = self.parentViewController as HomeViewController
-        parentVC.hideOverlay()
-        println("Saved kit")
+        kit.saveInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
+        
+            if success{
+                println("Saved kit")
+                self.performSegueWithIdentifier("homeSeguefromCart", sender: self)
+            } else {
+                println(error.description)
+            }
         }
     }
 }

@@ -11,11 +11,15 @@ import Parse
 
 class ProfileViewController: UIViewController {
 
+    var kits: [PFObject]! = []
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         // Do any additional setup after loading the view.
+        getKits()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,5 +47,20 @@ class ProfileViewController: UIViewController {
             
         }
     }
+    
+    func getKits(){
+        var query = PFQuery(className: "Kit")
+        query.whereKey("user", equalTo: PFUser.currentUser().username)
+        query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]!, error:NSError!) -> Void in
+            //
+            if error == nil {
+                //The find succeeds
+                println("Query succeeded")
+            } else {
+                //Fails
+            }
+        }
+        }
+    
     
 }
