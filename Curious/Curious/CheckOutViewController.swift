@@ -55,7 +55,7 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
 
@@ -96,12 +96,7 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
             let city = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
             let zipcode = (containsPlacemark.postalCode != nil) ? containsPlacemark.postalCode : ""
             let state = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea : ""
-            
-            println(street)
-            println(city)
-            println(zipcode)
-            println(state)
-            
+
             streetAddressField.text = street
             cityField.text = city
             stateField.text = state
