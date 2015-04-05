@@ -8,6 +8,7 @@
 
 import UIKit
 import Spring
+import Parse
 
 class CartViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, QuantityNumberDelegate {
     
@@ -29,6 +30,9 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
     @IBOutlet weak var addCartButton: SpringButton!
 
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
+    
+    var kits: [PFObject]! = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,6 +43,7 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
         cartQuantityButton.alpha = 0
         addCartButton.alpha = 0
         cartItemsTextView.alpha = 0
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -180,6 +185,16 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
     }
 
     @IBAction func addToCartDidPress(sender: AnyObject) {
-    
+        var kit = PFObject(className: "Kit")
+        kit["title"] = cartTitleLabel.text
+        kit["quantity"] = cartQuantityButton.titleLabel?.text
+        kit["user"] = PFUser.currentUser().username
+//        kit["image"] = cartMainImage.image
+        kit.saveInBackgroundWithBlock { (success: Bool, erro: NSError!) -> Void in
+            
+        var parentVC = self.parentViewController as HomeViewController
+        parentVC.hideOverlay()
+        println("Saved kit")
+        }
     }
 }
