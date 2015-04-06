@@ -17,6 +17,9 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var cityField: UITextField!
     @IBOutlet weak var stateField: UITextField!
     @IBOutlet weak var zipcodeField: UITextField!
+    @IBOutlet weak var currentLocationCheckboxImageView: UIImageView!
+    
+    var usingCurrentLocationAsShippingAddress:Bool = false
     
     var locationManager:CLLocationManager!
     
@@ -61,7 +64,7 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
 
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!)
     {
-        println("Updating location...")
+        //println("Updating location...")
         //--- CLGeocode to get address of current location ---//
         CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)->Void in
             
@@ -110,4 +113,16 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
         println("Error while updating location " + error.localizedDescription)
     }
 
+    @IBAction func useCurrentLocationAsShippingAddress(sender: UITapGestureRecognizer) {
+        if(!usingCurrentLocationAsShippingAddress) {
+            getCurrentLocation()
+            currentLocationCheckboxImageView.image = UIImage(named: "currentlocation-filled")
+            usingCurrentLocationAsShippingAddress = true
+        }
+        else {
+            currentLocationCheckboxImageView.image = UIImage(named: "currentlocation")
+            usingCurrentLocationAsShippingAddress = false
+        }
+        
+    }
 }

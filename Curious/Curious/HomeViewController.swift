@@ -331,6 +331,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if(!isUserLoggedIn()) {
             loginVC.inputUsername.resignFirstResponder()
             loginVC.inputPassword.resignFirstResponder()
+            loginVC.inputUsername.text = ""
+            loginVC.inputPassword.text = ""
         }
         hideOverlay()
     }
@@ -444,7 +446,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func showCheckout() {
         self.hideViewController(self.profileVC)
         self.displayViewController(self.checkOutVC)
-        checkOutVC.getCurrentLocation()
+        checkOutVC.firstNameField.becomeFirstResponder()
     }
     
     
