@@ -49,6 +49,7 @@ class LoginViewController: UIViewController {
                 var parentVC = self.parentViewController as HomeViewController
                 parentVC.hideOverlay()
                 parentVC.setupUserLoggedIn()
+                parentVC.getKits()
             } else if error.code == 101 {
                 println(error.description)
                 var alertView = UIAlertView(title: "Try again!", message: "Username or password is incorrect.", delegate: nil, cancelButtonTitle: "OK")

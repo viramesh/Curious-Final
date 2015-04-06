@@ -64,7 +64,8 @@ class ProfileViewController: UIViewController {
                 // Do something with the found objects
                 if let objects = objects as? [PFObject] {
                     for object in objects {
-                        println(object.objectForKey("title"))
+                        var quantityAmount: AnyObject! = object.objectForKey("quantity")
+                        println(quantityAmount)
                     }
                 }
             } else {

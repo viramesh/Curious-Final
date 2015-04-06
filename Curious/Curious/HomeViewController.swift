@@ -97,6 +97,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         overlayHeaderView.alpha = 0
         
         NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: "revealTable", userInfo: nil, repeats: false)
+        
+        getKits()
 
 
     }
@@ -443,5 +445,33 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.hideViewController(self.profileVC)
         self.displayViewController(self.checkOutVC)
         checkOutVC.getCurrentLocation()
+    }
+    
+    
+    func getKits(){
+        if isUserLoggedIn() {
+        var query = PFQuery(className: "Kit")
+        query.whereKey("user", equalTo: PFUser.currentUser().username)
+        query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]!, error:NSError!) -> Void in
+            //
+            if error == nil {
+                // The find succeeded.
+                println("Successfully retrieved \(objects.count) scores.")
+                // Do something with the found objects
+                if let objects = objects as? [PFObject] {
+                    for object in objects {
+                        
+                        var quantityAmount: AnyObject! = object.objectForKey("quantity")
+                        self.overlayHeaderLabel.text = "You have \(objects.count) items in your cart"
+                        println(quantityAmount)
+                        
+                    }
+                }
+            } else {
+                // Log details of the failure
+                println("Error: \(error) \(error.userInfo!)")
+            }
+        }
+    }
     }
 }
