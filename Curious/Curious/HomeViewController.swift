@@ -450,28 +450,40 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func getKits(){
         if isUserLoggedIn() {
-        var query = PFQuery(className: "Kit")
-        query.whereKey("user", equalTo: PFUser.currentUser().username)
-        query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]!, error:NSError!) -> Void in
-            //
-            if error == nil {
-                // The find succeeded.
-                println("Successfully retrieved \(objects.count) scores.")
-                // Do something with the found objects
-                if let objects = objects as? [PFObject] {
-                    for object in objects {
+            var query = PFQuery(className: "Kit")
+            query.whereKey("user", equalTo: PFUser.currentUser().username)
+            query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]!, error:NSError!) -> Void in
+                //
+                if error == nil {
+                    // The find succeeded.
+                    println("Successfully retrieved \(objects.count) scores.")
+                    // Do something with the found objects
+                
+                    //use a local var to accumalate the total
+                    var total: Int! = 0
+
+                    if let objects = objects as? [PFObject] {
+                        for object in objects {
                         
-                        var quantityAmount: AnyObject! = object.objectForKey("quantity")
-                        self.overlayHeaderLabel.text = "You have \(objects.count) items in your cart"
-                        println(quantityAmount)
+                            var quantityAmount: AnyObject! = object.objectForKey("quantity")
+                            self.overlayHeaderLabel.text = "You have \(objects.count) items in your cart"
                         
+                            //add to the total
+                            total = total + String(quantityAmount as NSString).toInt()!
+                        
+                            println(quantityAmount)
+                        
+                        }
                     }
-                }
-            } else {
+                
+                    //now you have the final total to do what you want with it
+                    println(total)
+                
+                }   else {
                 // Log details of the failure
-                println("Error: \(error) \(error.userInfo!)")
+                    println("Error: \(error) \(error.userInfo!)")
+                }
             }
         }
-    }
     }
 }
