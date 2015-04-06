@@ -103,6 +103,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     }
     
+    override func viewDidAppear(animated: Bool) {
+        getKits()
+    }
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }

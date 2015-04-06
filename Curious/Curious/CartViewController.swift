@@ -28,7 +28,7 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
     @IBOutlet weak var cartPriceLabel: SpringLabel!
     @IBOutlet weak var cartItemsTextView: UITextView!
     @IBOutlet weak var addCartButton: SpringButton!
-
+    
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     var currentUser: PFUser!
     var kits: [PFObject]! = []
@@ -44,6 +44,7 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
         addCartButton.alpha = 0
         cartItemsTextView.alpha = 0
 
+        
     }
 
     override func didReceiveMemoryWarning() {

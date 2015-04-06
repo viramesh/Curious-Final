@@ -119,7 +119,7 @@
         <!--Home View Controller-->
         <scene sceneID="j35-W6-R2J">
             <objects>
-                <viewController id="sfQ-xY-agg" customClass="HomeViewController" customModule="Curious" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeViewController" id="sfQ-xY-agg" customClass="HomeViewController" customModule="Curious" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bD8-CY-Ufy"/>
                         <viewControllerLayoutGuide type="bottom" id="Uya-tl-RVb"/>
