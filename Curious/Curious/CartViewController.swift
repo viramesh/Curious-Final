@@ -30,7 +30,7 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
     @IBOutlet weak var addCartButton: SpringButton!
 
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
-    
+    var currentUser: PFUser!
     var kits: [PFObject]! = []
     
     override func viewDidLoad() {
@@ -185,19 +185,34 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
     }
 
     @IBAction func addToCartDidPress(sender: AnyObject) {
-        var kit = PFObject(className: "Kit")
-        kit["title"] = cartTitleLabel.text
-        kit["quantity"] = cartQuantityButton.titleLabel?.text
-        kit["user"] = PFUser.currentUser().username
-//        kit["image"] = cartMainImage.image
-        kit.saveInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
         
-            if success{
-                println("Saved kit")
-                self.performSegueWithIdentifier("homeSeguefromCart", sender: self)
-            } else {
-                println(error.description)
+        currentUser = PFUser.currentUser()
+        if currentUser != nil {
+            // user is logged in
+            var kit = PFObject(className: "Kit")
+            kit["title"] = cartTitleLabel.text
+            kit["quantity"] = cartQuantityButton.titleLabel?.text
+            kit["user"] = PFUser.currentUser().username
+            //        kit["image"] = cartMainImage.image
+            kit.saveInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
+                
+                if success{
+                    println("Saved kit")
+                    self.performSegueWithIdentifier("homeSeguefromCart", sender: self)
+                } else {
+                    println(error.description)
+                }
             }
         }
+            
+        else {
+            //user is not logged in
+            var alertView = UIAlertView(title: "Please login", message: "Login or Sign Up before addign to cart!", delegate: nil, cancelButtonTitle: "OK")
+            alertView.show()
+        }
+
+        
+        
+
     }
 }

@@ -468,7 +468,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         for object in objects {
                         
                             var quantityAmount: AnyObject! = object.objectForKey("quantity")
-                            self.overlayHeaderLabel.text = "You have \(objects.count) items in your cart"
                         
                             //add to the total
                             total = total + String(quantityAmount as NSString).toInt()!
@@ -480,7 +479,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                     //now you have the final total to do what you want with it
                     println(total)
-                
+                    self.overlayHeaderLabel.text = PFUser.currentUser().username + ", you have \(total) items in cart!"
                 }   else {
                 // Log details of the failure
                     println("Error: \(error) \(error.userInfo!)")
