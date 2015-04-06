@@ -122,19 +122,13 @@
 				24ABEE611AC530D9005B356C /* Common.swift */,
 				24ABEE351AC519DD005B356C /* AppDelegate.swift */,
 				24ABEE371AC519DD005B356C /* ViewController.swift */,
-				2B6E6C541ACB40C10054E4D9 /* CartViewController.swift */,
 				24ABEE391AC519DD005B356C /* Main.storyboard */,
 				24ABEE3C1AC519DD005B356C /* Images.xcassets */,
 				24ABEE3E1AC519DD005B356C /* LaunchScreen.xib */,
 				24ABEE331AC519DD005B356C /* Supporting Files */,
-				24ABEE551AC52C94005B356C /* HomeViewController.swift */,
 				24ABEE571AC52E3C005B356C /* ProjectCell.swift */,
-				2B6E6C561ACB5BCA0054E4D9 /* QuantityViewController.swift */,
-				24ABEE591AC52F4A005B356C /* DetailViewController.swift */,
 				24BAA7B31AC5B3FA000032DE /* LoremSwiftum.swift */,
-				24BAA7B51AC66F70000032DE /* LoginViewController.swift */,
-				24C6A6EB1ACF5CC8003407A0 /* ProfileViewController.swift */,
-				24D899A61AD115B400C7FD6D /* CheckOutViewController.swift */,
+				2BBCBB811AD22F8300CAC6FE /* View Controllers */,
 			);
 			path = Curious;
 			sourceTree = "<group>";
@@ -162,6 +156,20 @@
 				24ABEE4A1AC519DD005B356C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2BBCBB811AD22F8300CAC6FE /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				24C6A6EB1ACF5CC8003407A0 /* ProfileViewController.swift */,
+				24BAA7B51AC66F70000032DE /* LoginViewController.swift */,
+				2B6E6C541ACB40C10054E4D9 /* CartViewController.swift */,
+				24ABEE551AC52C94005B356C /* HomeViewController.swift */,
+				24ABEE591AC52F4A005B356C /* DetailViewController.swift */,
+				2B6E6C561ACB5BCA0054E4D9 /* QuantityViewController.swift */,
+				24D899A61AD115B400C7FD6D /* CheckOutViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		36957FD37B91240348C58D29 /* Pods */ = {
