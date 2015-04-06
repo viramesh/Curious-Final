@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24867D2D1AD25847006D06B7 /* KitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24867D2C1AD25847006D06B7 /* KitsTableViewCell.swift */; };
 		24ABEE361AC519DD005B356C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24ABEE351AC519DD005B356C /* AppDelegate.swift */; };
 		24ABEE381AC519DD005B356C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24ABEE371AC519DD005B356C /* ViewController.swift */; };
 		24ABEE3B1AC519DD005B356C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24ABEE391AC519DD005B356C /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24867D2C1AD25847006D06B7 /* KitsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KitsTableViewCell.swift; sourceTree = "<group>"; };
 		24ABEE301AC519DD005B356C /* Curious.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Curious.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24ABEE341AC519DD005B356C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24ABEE351AC519DD005B356C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				24ABEE571AC52E3C005B356C /* ProjectCell.swift */,
 				24BAA7B31AC5B3FA000032DE /* LoremSwiftum.swift */,
 				2BBCBB811AD22F8300CAC6FE /* View Controllers */,
+				24867D2C1AD25847006D06B7 /* KitsTableViewCell.swift */,
 			);
 			path = Curious;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24D899A71AD115B400C7FD6D /* CheckOutViewController.swift in Sources */,
+				24867D2D1AD25847006D06B7 /* KitsTableViewCell.swift in Sources */,
 				24ABEE381AC519DD005B356C /* ViewController.swift in Sources */,
 				24BAA7B41AC5B3FA000032DE /* LoremSwiftum.swift in Sources */,
 				24ABEE361AC519DD005B356C /* AppDelegate.swift in Sources */,
