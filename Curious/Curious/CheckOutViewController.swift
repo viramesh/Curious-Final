@@ -20,6 +20,7 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var zipcodeField: UITextField!
     @IBOutlet weak var currentLocationCheckboxImageView: UIImageView!
     @IBOutlet weak var sendToMeButton: SpringButton!
+    @IBOutlet weak var checkoutBagButton: UIButton!
     
     var usingCurrentLocationAsShippingAddress:Bool = false
     
@@ -149,6 +150,7 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
             
             UIView.animateWithDuration(1.0, animations: { () -> Void in
                 self.sendToMeButton.alpha = 1
+                self.checkoutBagButton.imageView?.image = UIImage(named: "Check out bag-filled")
 
             })
         }

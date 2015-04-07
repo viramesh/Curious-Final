@@ -752,6 +752,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="FirstNameField" destination="WXV-dH-L2Z" id="F8w-yW-uIi"/>
+                        <outlet property="checkoutBagButton" destination="lgF-YP-c4C" id="6EU-aQ-hT2"/>
                         <outlet property="cityField" destination="aqY-IY-Bc3" id="ChT-ew-AoF"/>
                         <outlet property="currentLocationCheckboxImageView" destination="KPa-eG-zYl" id="bfL-Qp-0Pw"/>
                         <outlet property="firstNameField" destination="WXV-dH-L2Z" id="jch-Zp-Lxd"/>
