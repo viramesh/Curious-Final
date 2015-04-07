@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Spring
 
 class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -18,6 +19,7 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var stateField: UITextField!
     @IBOutlet weak var zipcodeField: UITextField!
     @IBOutlet weak var currentLocationCheckboxImageView: UIImageView!
+    @IBOutlet weak var sendToMeButton: SpringButton!
     
     var usingCurrentLocationAsShippingAddress:Bool = false
     
@@ -25,6 +27,7 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sendToMeButton.alpha = 0
         
         self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         
@@ -45,6 +48,14 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
 
         zipcodeField.attributedPlaceholder = NSAttributedString(string:"Zip code",
             attributes:[NSForegroundColorAttributeName: UIColor(red: 255, green: 255, blue: 255, alpha: 0.3)])
+        
+        
+        if firstNameField.text.isEmpty {
+            println("is empty")
+        } else {
+            println("is not empty")
+            lastNameField.text = "Hi"
+        }
         
     }
 
@@ -125,4 +136,23 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
         }
         
     }
+    @IBAction func didStartEditing(sender: AnyObject) {
+        if  firstNameField.text.isEmpty ||
+            lastNameField.text.isEmpty ||
+            streetAddressField.text.isEmpty ||
+            cityField.text.isEmpty ||
+            stateField.text.isEmpty ||
+            zipcodeField.text.isEmpty {
+            println("Is empty")
+        } else {
+            println("Is not empty")
+            
+            UIView.animateWithDuration(1.0, animations: { () -> Void in
+                self.sendToMeButton.alpha = 1
+
+            })
+        }
+        
+    }
+
 }
