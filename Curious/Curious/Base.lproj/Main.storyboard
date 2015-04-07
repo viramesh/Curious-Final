@@ -985,23 +985,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfO-sJ-kU0" customClass="SpringButton" customModule="Spring">
-                                <rect key="frame" x="335" y="375" width="63" height="38"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="63" id="Ksu-S2-WYE"/>
-                                    <constraint firstAttribute="height" constant="38" id="W0X-NB-gaW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Edmondsans-Bold" family="Edmondsans" pointSize="34"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="1">
-                                    <color key="titleColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="quantityButtonTapped:" destination="1ER-BO-RCq" eventType="touchUpInside" id="ITH-s3-7cK"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kW7-Qk-tIh">
                                 <rect key="frame" x="16" y="420" width="382" height="256"/>
                                 <string key="text">12mm plywood 60 x 60 cm 
@@ -1019,13 +1002,30 @@ Ruler.</string>
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfO-sJ-kU0" customClass="SpringButton" customModule="Spring">
+                                <rect key="frame" x="329" y="367" width="60" height="38"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Ksu-S2-WYE"/>
+                                    <constraint firstAttribute="height" constant="38" id="W0X-NB-gaW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Edmondsans-Bold" family="Edmondsans" pointSize="26"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="1">
+                                    <color key="titleColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="quantityButtonTapped:" destination="1ER-BO-RCq" eventType="touchUpInside" id="ITH-s3-7cK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pZA-uN-v26" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" constant="16" id="5gS-u6-cbM"/>
                             <constraint firstItem="xYz-VQ-t4D" firstAttribute="leading" secondItem="1Jz-mQ-Zlc" secondAttribute="leading" id="ERj-XV-sjh"/>
                             <constraint firstAttribute="trailing" secondItem="Jhr-YJ-Qyj" secondAttribute="trailing" constant="25" id="Esb-kd-iM3"/>
-                            <constraint firstAttribute="trailing" secondItem="DfO-sJ-kU0" secondAttribute="trailing" constant="16" id="FqF-7q-gwE"/>
+                            <constraint firstAttribute="trailing" secondItem="DfO-sJ-kU0" secondAttribute="trailing" constant="25" id="FqF-7q-gwE"/>
                             <constraint firstItem="DfO-sJ-kU0" firstAttribute="top" secondItem="TQS-gZ-Gs3" secondAttribute="bottom" constant="5" id="Gc7-es-OXj"/>
                             <constraint firstItem="wQI-9F-4ah" firstAttribute="bottom" secondItem="Jhr-YJ-Qyj" secondAttribute="bottom" constant="35" id="Lld-gS-gfv"/>
                             <constraint firstItem="pZA-uN-v26" firstAttribute="top" secondItem="TQS-gZ-Gs3" secondAttribute="bottom" constant="5" id="Nyn-Ce-EBT"/>

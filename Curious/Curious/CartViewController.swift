@@ -164,7 +164,7 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
     
 
     func quantityAmount(info: NSString) {
-        cartQuantityButton.titleLabel?.text = info
+        cartQuantityButton.setTitle(info, forState: UIControlState.Normal)
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {
