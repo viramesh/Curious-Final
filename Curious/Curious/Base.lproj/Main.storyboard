@@ -800,19 +800,19 @@
                                                 <rect key="frame" x="0.0" y="195" width="414" height="633"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="OK STRING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vZ-YE-7yT">
-                                                        <rect key="frame" x="25" y="34" width="364" height="28"/>
+                                                        <rect key="frame" x="25" y="24" width="364" height="28"/>
                                                         <fontDescription key="fontDescription" name="Edmondsans-Medium" family="Edmondsans" pointSize="24"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="String wrapped around nails on wood canvas" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IB-UT-n4g">
-                                                        <rect key="frame" x="25" y="60" width="364" height="30"/>
+                                                        <rect key="frame" x="25" y="50" width="364" height="30"/>
                                                         <fontDescription key="fontDescription" name="Edmondsans-Medium" family="Edmondsans" pointSize="18"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpf-bs-gQ5">
-                                                        <rect key="frame" x="27" y="105" width="362" height="30"/>
+                                                        <rect key="frame" x="25" y="135" width="364" height="30"/>
                                                         <color key="backgroundColor" red="0.1019607843" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Edmondsans-Medium" family="Edmondsans" pointSize="18"/>
                                                         <state key="normal" title="Buy kit!"/>
@@ -828,24 +828,28 @@
                                                             <constraint firstAttribute="height" constant="1" id="vwV-KY-bz5"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="Reviews" translatesAutoresizingMaskIntoConstraints="NO" id="QyO-t5-8Bk">
-                                                        <rect key="frame" x="45" y="173" width="324" height="425"/>
+                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" image="Reviews" translatesAutoresizingMaskIntoConstraints="NO" id="QyO-t5-8Bk">
+                                                        <rect key="frame" x="45" y="193" width="324" height="425"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="QyO-t5-8Bk" secondAttribute="height" multiplier="324:425" id="BE1-s1-ynt"/>
+                                                        </constraints>
                                                     </imageView>
                                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="4 star rating" translatesAutoresizingMaskIntoConstraints="NO" id="RTP-0n-nv9">
-                                                        <rect key="frame" x="290" y="38" width="99" height="14"/>
+                                                        <rect key="frame" x="25" y="95" width="99" height="14"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="centerX" secondItem="5DU-aS-NRn" secondAttribute="centerX" id="1GN-gr-dcj"/>
                                                     <constraint firstAttribute="trailing" secondItem="2IB-UT-n4g" secondAttribute="trailing" constant="25" id="ClA-Xy-GQX"/>
+                                                    <constraint firstItem="QyO-t5-8Bk" firstAttribute="leading" secondItem="tTc-ZT-yaD" secondAttribute="leading" constant="25" id="DN2-S3-4zh"/>
                                                     <constraint firstAttribute="height" constant="633" id="IQy-5w-XQG"/>
-                                                    <constraint firstAttribute="centerX" secondItem="QyO-t5-8Bk" secondAttribute="centerX" id="M6e-aL-xSI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="QyO-t5-8Bk" secondAttribute="trailing" constant="25" id="LAI-wa-1Qm"/>
                                                     <constraint firstItem="2vZ-YE-7yT" firstAttribute="leading" secondItem="tTc-ZT-yaD" secondAttribute="leading" constant="25" id="PJe-qN-swO"/>
                                                     <constraint firstItem="2IB-UT-n4g" firstAttribute="leading" secondItem="tTc-ZT-yaD" secondAttribute="leading" constant="25" id="Zv2-l9-XB4"/>
                                                     <constraint firstItem="Fpf-bs-gQ5" firstAttribute="leading" secondItem="tTc-ZT-yaD" secondAttribute="leading" constant="25" id="aBd-An-80K"/>
+                                                    <constraint firstItem="RTP-0n-nv9" firstAttribute="leading" secondItem="tTc-ZT-yaD" secondAttribute="leading" constant="25" id="bdK-bK-ivU"/>
                                                     <constraint firstAttribute="width" constant="414" id="dlk-C4-JNp"/>
-                                                    <constraint firstAttribute="trailing" secondItem="RTP-0n-nv9" secondAttribute="trailing" constant="25" id="fGq-HX-TLM"/>
                                                     <constraint firstAttribute="trailing" secondItem="Fpf-bs-gQ5" secondAttribute="trailing" constant="25" id="hmU-Xr-mYg"/>
                                                     <constraint firstAttribute="trailing" secondItem="2vZ-YE-7yT" secondAttribute="trailing" constant="25" id="xjc-85-38f"/>
                                                 </constraints>
