@@ -16,8 +16,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var noKitsMessageView: UIView!
     @IBOutlet weak var kitsCheckoutContainerView: UIView!
     @IBOutlet weak var kitsTableView: UITableView!
+    @IBOutlet weak var totalAmountLabel: UILabel!
     
-
+    var totalAmount:Float! = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         //init table view
         kitsTableView.dataSource = self
         kitsTableView.delegate = self
+
         
         //get kits and initialize table
         getKits()
@@ -52,7 +54,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             noKitsMessageView.alpha = 0
             kitsCheckoutContainerView.alpha = 1
         }
-        println("kits count \(kits.count)")
+        
+        //println("kits count \(kits.count)")
         
         return kits.count
     }
@@ -64,9 +67,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         var titleStored: AnyObject! = cellObject.objectForKey("title")
         var priceStored: AnyObject = cellObject.objectForKey("price")
         var quantityStored: AnyObject = cellObject.objectForKey("quantity")
-        
-        var total: Int = 0
-        
+       
         switch String(cellObject.objectForKey("title") as NSString) {
             case "OK STRING":
                 cell.kitImage.image = UIImage(named: "string-22")
@@ -80,16 +81,23 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             default: cell.kitImage.image = UIImage(named: "string-22")
             
         }
-        
-        
-        
-        
+
         cell.kitNameLabel.text = String(titleStored as NSString)
         cell.kitQtyLabel.text = String(quantityStored as NSString)
-
-        cell.kitPriceLabel.text = String(priceStored as NSString)
         
-        println("cell created")
+        var qty:Float = (quantityStored as NSString).floatValue
+        var priceString:String = String(priceStored as NSString)
+        //remove the $ from the string
+        priceString = priceString.substringFromIndex(advance(priceString.startIndex,1))
+        var price:Float = (priceString as NSString).floatValue
+        var cellTotal:Float = qty * price
+        cell.kitPriceLabel.text = "$\(cellTotal)"
+        
+        totalAmount = totalAmount + cellTotal
+        totalAmountLabel.text = "$\(totalAmount)"
+        
+        //println("total price: \(totalAmount)")
+        //println("cell created")
         
         return cell
     }

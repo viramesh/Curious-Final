@@ -55,6 +55,7 @@
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
+            <string>Edmondsans-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -531,10 +532,20 @@
                                     <constraint firstAttribute="trailing" secondItem="JZr-4x-MpG" secondAttribute="trailing" id="lLb-uz-ayT"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6A-U5-T9J">
-                                <rect key="frame" x="153" y="445" width="109" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Logout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUT-7a-rVL">
+                                <rect key="frame" x="153" y="440" width="110" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="AsW-5z-Ujq"/>
+                                    <constraint firstAttribute="height" constant="45" id="kGX-XY-SLN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6A-U5-T9J">
+                                <rect key="frame" x="153" y="445" width="110" height="40"/>
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="15"/>
-                                <state key="normal" title="Logout">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -549,10 +560,12 @@
                             <constraint firstAttribute="centerX" secondItem="L6A-U5-T9J" secondAttribute="centerX" id="AaF-fd-M8y"/>
                             <constraint firstItem="oSU-nL-mDV" firstAttribute="leading" secondItem="k3W-Ah-hGq" secondAttribute="leading" id="H8V-KD-Q3T"/>
                             <constraint firstItem="Cwj-zV-rD9" firstAttribute="top" secondItem="k3W-Ah-hGq" secondAttribute="top" constant="5" id="JB6-Pw-cFF"/>
+                            <constraint firstAttribute="centerX" secondItem="sUT-7a-rVL" secondAttribute="centerX" id="KoI-Vi-hlm"/>
                             <constraint firstItem="oSU-nL-mDV" firstAttribute="top" secondItem="k3W-Ah-hGq" secondAttribute="top" id="MIT-dz-pao"/>
                             <constraint firstAttribute="trailing" secondItem="oSU-nL-mDV" secondAttribute="trailing" id="TBS-Ve-ypV"/>
+                            <constraint firstItem="L6A-U5-T9J" firstAttribute="top" secondItem="k3W-Ah-hGq" secondAttribute="top" constant="445" id="Tk4-hr-Fdd"/>
                             <constraint firstAttribute="trailing" secondItem="Cwj-zV-rD9" secondAttribute="trailing" id="qsM-6V-lej"/>
-                            <constraint firstItem="L6A-U5-T9J" firstAttribute="top" secondItem="k3W-Ah-hGq" secondAttribute="top" constant="445" id="y1g-D1-sxy"/>
+                            <constraint firstItem="sUT-7a-rVL" firstAttribute="top" secondItem="k3W-Ah-hGq" secondAttribute="top" constant="440" id="saf-y8-Gxy"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -560,6 +573,7 @@
                         <outlet property="kitsCheckoutContainerView" destination="Cwj-zV-rD9" id="thl-3F-AvL"/>
                         <outlet property="kitsTableView" destination="JZr-4x-MpG" id="pOV-a3-6EZ"/>
                         <outlet property="noKitsMessageView" destination="oSU-nL-mDV" id="6kz-nC-23w"/>
+                        <outlet property="totalAmountLabel" destination="JVP-tW-JAs" id="fNf-2M-kag"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKN-K0-AfG" userLabel="First Responder" sceneMemberID="firstResponder"/>
