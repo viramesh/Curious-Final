@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var kitsCheckoutContainerView: UIView!
     @IBOutlet weak var kitsTableView: UITableView!
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,10 +60,34 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("KitsTableViewCell") as KitsTableViewCell
         
-        cell.kitImage.image = UIImage(named: "string-22")
-        cell.kitNameLabel.text = "OK String"
-        cell.kitQtyLabel.text = "1"
-        cell.kitPriceLabel.text = "$8.99"
+        var cellObject: PFObject! = kits[indexPath.row]
+        var titleStored: AnyObject! = cellObject.objectForKey("title")
+        var priceStored: AnyObject = cellObject.objectForKey("price")
+        var quantityStored: AnyObject = cellObject.objectForKey("quantity")
+        
+        var total: Int = 0
+        
+        switch String(cellObject.objectForKey("title") as NSString) {
+            case "OK STRING":
+                cell.kitImage.image = UIImage(named: "string-22")
+            
+            case "PLANT HOLDER": cell.kitImage.image = UIImage(named: "plant-10")
+            
+            case "COLORFUL COASTERS": cell.kitImage.image = UIImage(named: "coaster-30")
+            
+            case "CANDLE PROJECT": cell.kitImage.image = UIImage(named: "candles-32.jpg")
+            
+            default: cell.kitImage.image = UIImage(named: "string-22")
+            
+        }
+        
+        
+        
+        
+        cell.kitNameLabel.text = String(titleStored as NSString)
+        cell.kitQtyLabel.text = String(quantityStored as NSString)
+
+        cell.kitPriceLabel.text = String(priceStored as NSString)
         
         println("cell created")
         
@@ -100,6 +126,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                         println(quantityAmount)
                     }
                 self.kitsTableView.reloadData()
+
+                    
                 }
                 
             } else {

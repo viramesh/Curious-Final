@@ -194,6 +194,7 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
             kit["title"] = cartTitleLabel.text
             kit["quantity"] = cartQuantityButton.titleLabel?.text
             kit["user"] = PFUser.currentUser().username
+            kit["price"] = cartPriceLabel.text
             //        kit["image"] = cartMainImage.image
             kit.saveInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
                 
