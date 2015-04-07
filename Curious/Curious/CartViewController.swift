@@ -122,7 +122,7 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
     }
 
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        println("animating transition")
+//        println("animating transition")
         var containerView = transitionContext.containerView()
         var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
@@ -138,13 +138,12 @@ class CartViewController: UIViewController, UIViewControllerTransitioningDelegat
             
             var buttonFromDetail = detailVC.buyButton
             self.backgroundGreenView = UIView()
-            self.backgroundGreenView.frame = detailVC.details.convertRect(buttonFromDetail.frame, toView: detailVC.details.superview)
+            self.backgroundGreenView.frame = detailVC.detailsContent.convertRect(buttonFromDetail.frame, toView: detailVC.view)
             self.backgroundGreenView.backgroundColor = UIColor(red: 26/255, green: 205/255, blue: 192/255, alpha: 1)
             self.view.insertSubview(backgroundGreenView, atIndex: 0)
-            
 
-            println("Frame of new green view \(self.backgroundGreenView.frame)")
-            println("Frame of detail button \(detailVC.buyButton.frame)")
+//            println("Frame of new green view \(self.backgroundGreenView.frame)")
+//            println("Frame of detail button \(detailVC.buyButton.frame)")
             
             containerView.addSubview(toViewController.view)
             toViewController.view.alpha = 0
