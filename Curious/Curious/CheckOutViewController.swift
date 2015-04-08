@@ -22,6 +22,9 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var sendToMeButton: SpringButton!
     @IBOutlet weak var checkoutBagButton: UIButton!
     
+    
+    @IBOutlet weak var findingLocationSpinner: UIActivityIndicatorView!
+    
     var usingCurrentLocationAsShippingAddress:Bool = false
     
     var locationManager:CLLocationManager!
@@ -29,6 +32,7 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         sendToMeButton.alpha = 0
+        findingLocationSpinner.stopAnimating()
         
         self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         
@@ -72,6 +76,7 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        findingLocationSpinner.startAnimating()
     }
 
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!)
@@ -106,6 +111,7 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
         {
             //stop updating location to save battery life
             locationManager.stopUpdatingLocation()
+            findingLocationSpinner.stopAnimating()
             
             let street = (containsPlacemark.thoroughfare != nil) ? containsPlacemark.thoroughfare : ""
             let city = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""

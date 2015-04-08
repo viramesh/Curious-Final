@@ -726,6 +726,10 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="7ur-er-KLo">
+                                <rect key="frame" x="369" y="132" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -733,6 +737,7 @@
                             <constraint firstItem="M0T-zY-mAf" firstAttribute="top" secondItem="d8U-L3-Q7O" secondAttribute="bottom" constant="27" id="68b-rg-Bb0"/>
                             <constraint firstItem="yRL-SU-l83" firstAttribute="leading" secondItem="I7P-HS-vl5" secondAttribute="centerX" constant="5" id="Cyc-z3-aJv"/>
                             <constraint firstAttribute="centerX" secondItem="Dui-ai-q1N" secondAttribute="trailing" constant="5" id="F1z-Wo-DDe"/>
+                            <constraint firstAttribute="trailing" secondItem="7ur-er-KLo" secondAttribute="trailing" constant="25" id="FOt-UH-dsH"/>
                             <constraint firstAttribute="trailing" secondItem="M0T-zY-mAf" secondAttribute="trailing" constant="25" id="Fbe-50-8Tt"/>
                             <constraint firstItem="Dui-ai-q1N" firstAttribute="leading" secondItem="I7P-HS-vl5" secondAttribute="leading" constant="25" id="IFi-WI-vrY"/>
                             <constraint firstAttribute="centerX" secondItem="aqY-IY-Bc3" secondAttribute="trailing" constant="5" id="IQt-Oy-OWp"/>
@@ -771,6 +776,7 @@
                         <outlet property="checkoutBagButton" destination="lgF-YP-c4C" id="6EU-aQ-hT2"/>
                         <outlet property="cityField" destination="aqY-IY-Bc3" id="ChT-ew-AoF"/>
                         <outlet property="currentLocationCheckboxImageView" destination="KPa-eG-zYl" id="bfL-Qp-0Pw"/>
+                        <outlet property="findingLocationSpinner" destination="7ur-er-KLo" id="ACg-uP-PJI"/>
                         <outlet property="firstNameField" destination="WXV-dH-L2Z" id="jch-Zp-Lxd"/>
                         <outlet property="lastNameField" destination="TeH-Aw-DYG" id="rVT-Dc-4Qw"/>
                         <outlet property="sendToMeButton" destination="M0T-zY-mAf" id="GGW-1S-r7E"/>
