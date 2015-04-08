@@ -402,10 +402,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="jcV-lM-Ae1">
-                                        <rect key="frame" x="0.0" y="140" width="414" height="20"/>
+                                        <rect key="frame" x="200" y="140" width="20" height="20"/>
                                     </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Loading your cart..." textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhd-bb-Em1">
                                         <rect key="frame" x="89" y="152" width="237" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Yjd-8P-Rbh"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
