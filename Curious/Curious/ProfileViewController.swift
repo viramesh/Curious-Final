@@ -93,6 +93,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         var cellTotal:Float = qty * price
         cell.kitPriceLabel.text = "$\(cellTotal)"
         
+        if(indexPath.row == 0) {
+            totalAmount = 0
+        }
         totalAmount = totalAmount + cellTotal
         totalAmountLabel.text = "$\(totalAmount)"
         
