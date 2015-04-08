@@ -57,6 +57,7 @@
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
             <string>Edmondsans-Regular</string>
+            <string>Edmondsans-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -397,11 +398,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZcP-db-WjI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="jcV-lM-Ae1">
+                                        <rect key="frame" x="0.0" y="140" width="414" height="20"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Loading your cart..." textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhd-bb-Em1">
+                                        <rect key="frame" x="89" y="152" width="237" height="50"/>
+                                        <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="15"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="yhd-bb-Em1" secondAttribute="centerY" id="1Pe-Ud-ywf"/>
+                                    <constraint firstAttribute="centerY" secondItem="jcV-lM-Ae1" secondAttribute="centerY" constant="40" id="6Q7-NB-usl"/>
+                                    <constraint firstAttribute="centerX" secondItem="yhd-bb-Em1" secondAttribute="centerX" id="HNV-Dr-9T6"/>
+                                    <constraint firstAttribute="centerX" secondItem="jcV-lM-Ae1" secondAttribute="centerX" id="QIB-U6-E5X"/>
+                                    <constraint firstAttribute="height" constant="300" id="swE-4G-DY7"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oSU-nL-mDV">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You have no items in your cart." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFh-uy-8Iw">
-                                        <rect key="frame" x="89" y="152" width="237" height="40"/>
+                                        <rect key="frame" x="89" y="152" width="237" height="50"/>
                                         <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -563,16 +586,24 @@
                             <constraint firstItem="Cwj-zV-rD9" firstAttribute="top" secondItem="k3W-Ah-hGq" secondAttribute="top" constant="5" id="JB6-Pw-cFF"/>
                             <constraint firstAttribute="centerX" secondItem="sUT-7a-rVL" secondAttribute="centerX" id="KoI-Vi-hlm"/>
                             <constraint firstItem="oSU-nL-mDV" firstAttribute="top" secondItem="k3W-Ah-hGq" secondAttribute="top" id="MIT-dz-pao"/>
+                            <constraint firstAttribute="trailing" secondItem="oSU-nL-mDV" secondAttribute="trailing" id="OTh-Bc-hIv"/>
                             <constraint firstAttribute="trailing" secondItem="oSU-nL-mDV" secondAttribute="trailing" id="TBS-Ve-ypV"/>
                             <constraint firstItem="L6A-U5-T9J" firstAttribute="top" secondItem="k3W-Ah-hGq" secondAttribute="top" constant="445" id="Tk4-hr-Fdd"/>
+                            <constraint firstItem="oSU-nL-mDV" firstAttribute="top" secondItem="k3W-Ah-hGq" secondAttribute="top" id="VtG-nM-JJR"/>
+                            <constraint firstItem="ZcP-db-WjI" firstAttribute="leading" secondItem="k3W-Ah-hGq" secondAttribute="leading" id="XnW-h5-Non"/>
+                            <constraint firstItem="ZcP-db-WjI" firstAttribute="top" secondItem="k3W-Ah-hGq" secondAttribute="top" id="dvb-v8-A1m"/>
+                            <constraint firstItem="oSU-nL-mDV" firstAttribute="leading" secondItem="k3W-Ah-hGq" secondAttribute="leading" id="hrp-gi-gXv"/>
                             <constraint firstAttribute="trailing" secondItem="Cwj-zV-rD9" secondAttribute="trailing" id="qsM-6V-lej"/>
                             <constraint firstItem="sUT-7a-rVL" firstAttribute="top" secondItem="k3W-Ah-hGq" secondAttribute="top" constant="440" id="saf-y8-Gxy"/>
+                            <constraint firstAttribute="trailing" secondItem="ZcP-db-WjI" secondAttribute="trailing" id="x4n-3E-2fj"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="kitsCheckoutContainerView" destination="Cwj-zV-rD9" id="thl-3F-AvL"/>
                         <outlet property="kitsTableView" destination="JZr-4x-MpG" id="pOV-a3-6EZ"/>
+                        <outlet property="loadingCartMessageLabel" destination="yhd-bb-Em1" id="u0u-yL-E8W"/>
+                        <outlet property="loadingCartMessageView" destination="ZcP-db-WjI" id="P1Q-7E-Bzj"/>
                         <outlet property="noKitsMessageView" destination="oSU-nL-mDV" id="6kz-nC-23w"/>
                         <outlet property="totalAmountLabel" destination="JVP-tW-JAs" id="fNf-2M-kag"/>
                     </connections>

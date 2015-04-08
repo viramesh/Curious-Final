@@ -12,7 +12,10 @@ import Parse
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var kits: [PFObject]! = []
-
+    var didGetKits:Bool = false
+    
+    @IBOutlet weak var loadingCartMessageView: UIView!
+    @IBOutlet weak var loadingCartMessageLabel: UILabel!
     @IBOutlet weak var noKitsMessageView: UIView!
     @IBOutlet weak var kitsCheckoutContainerView: UIView!
     @IBOutlet weak var kitsTableView: UITableView!
@@ -28,6 +31,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         //init nokits message to alpha 0
         noKitsMessageView.alpha = 0
+        
+        //init loading message label (so the g doesnt get cut off!!)
+        
         
         //init table view
         kitsTableView.dataSource = self
@@ -46,17 +52,20 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if(kits.count == 0) {
+        if(kits.count == 0  && didGetKits == false) {
+            //
+        }
+        else if (kits.count == 0 && didGetKits == true){
             noKitsMessageView.alpha = 1
             kitsCheckoutContainerView.alpha = 0
+            loadingCartMessageView.alpha = 0
         }
         else {
             noKitsMessageView.alpha = 0
             kitsCheckoutContainerView.alpha = 1
+            loadingCartMessageView.alpha = 0
         }
-        
         //println("kits count \(kits.count)")
-        
         return kits.count
     }
     
@@ -136,9 +145,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                         var quantityAmount: AnyObject! = object.objectForKey("quantity")
                         println(quantityAmount)
                     }
+                
+                self.didGetKits = true
                 self.kitsTableView.reloadData()
-
-                    
                 }
                 
             } else {
