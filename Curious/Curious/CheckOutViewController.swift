@@ -119,6 +119,9 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
         }
         
     }
+    @IBAction func didTapScreen(sender: AnyObject) {
+        self.view.endEditing(true)
+    }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!)
     {

@@ -716,6 +716,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="M0T-zY-mAf" firstAttribute="top" secondItem="d8U-L3-Q7O" secondAttribute="bottom" constant="27" id="68b-rg-Bb0"/>
                             <constraint firstItem="yRL-SU-l83" firstAttribute="leading" secondItem="I7P-HS-vl5" secondAttribute="centerX" constant="5" id="Cyc-z3-aJv"/>
@@ -748,6 +749,9 @@
                             <constraint firstItem="cR9-iU-a5f" firstAttribute="leading" secondItem="I7P-HS-vl5" secondAttribute="leading" constant="25" id="yr6-bG-4r0"/>
                             <constraint firstItem="WXV-dH-L2Z" firstAttribute="leading" secondItem="I7P-HS-vl5" secondAttribute="leading" constant="25" id="zUh-MC-bd3"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="HlW-Ih-YeD" appends="YES" id="rwV-2J-GBZ"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -767,6 +771,11 @@
                 <tapGestureRecognizer id="hEN-GJ-305" userLabel="tap current location">
                     <connections>
                         <action selector="useCurrentLocationAsShippingAddress:" destination="JMO-fr-WM9" id="o1m-oc-nvk"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="HlW-Ih-YeD">
+                    <connections>
+                        <action selector="didTapScreen:" destination="JMO-fr-WM9" id="bcI-mI-Cpl"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

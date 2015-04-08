@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-Bolts.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>Pods-Spring.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,7 +22,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>3331ED3652900E5C1C8DBAFB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7B83AF8F8F734407706EFE26</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>90A15C6AE89D658CC646CF75</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A6E348829159A27B165EC8DF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
