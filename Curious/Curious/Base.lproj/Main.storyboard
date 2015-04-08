@@ -599,7 +599,9 @@
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="didEndEditing:" destination="JMO-fr-WM9" eventType="editingDidEnd" id="33S-Np-cAn"/>
                                     <action selector="didStartEditing:" destination="JMO-fr-WM9" eventType="editingDidBegin" id="d3t-ea-c6Q"/>
+                                    <action selector="editedTextField:" destination="JMO-fr-WM9" eventType="editingChanged" id="eOc-tL-Ral"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aqY-IY-Bc3">
@@ -608,7 +610,9 @@
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="didEndEditing:" destination="JMO-fr-WM9" eventType="editingDidEnd" id="Jkr-Mc-hsM"/>
                                     <action selector="didStartEditing:" destination="JMO-fr-WM9" eventType="editingDidBegin" id="ac7-iI-G7K"/>
+                                    <action selector="editedTextField:" destination="JMO-fr-WM9" eventType="editingChanged" id="F2C-nb-9el"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip code" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wFj-io-tzv">
@@ -617,7 +621,9 @@
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="didEndEditing:" destination="JMO-fr-WM9" eventType="editingDidEnd" id="PxN-o3-edl"/>
                                     <action selector="didStartEditing:" destination="JMO-fr-WM9" eventType="editingDidBegin" id="rVU-uf-zD7"/>
+                                    <action selector="editedTextField:" destination="JMO-fr-WM9" eventType="editingChanged" id="0vf-yi-bdO"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TeH-Aw-DYG">
@@ -626,7 +632,9 @@
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="didEndEditing:" destination="JMO-fr-WM9" eventType="editingDidEnd" id="mKG-Ov-Axd"/>
                                     <action selector="didStartEditing:" destination="JMO-fr-WM9" eventType="editingDidBegin" id="5L9-PO-w3h"/>
+                                    <action selector="editedTextField:" destination="JMO-fr-WM9" eventType="editingChanged" id="HV9-Ox-Pg8"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WXV-dH-L2Z">
@@ -635,7 +643,9 @@
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="didEndEditing:" destination="JMO-fr-WM9" eventType="editingDidEnd" id="WfH-7M-NHW"/>
                                     <action selector="didStartEditing:" destination="JMO-fr-WM9" eventType="editingDidBegin" id="abV-yb-sWh"/>
+                                    <action selector="editedTextField:" destination="JMO-fr-WM9" eventType="editingChanged" id="KJk-sG-Q6L"/>
                                 </connections>
                             </textField>
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cR9-iU-a5f" userLabel="First name line">
@@ -668,7 +678,9 @@
                                 <fontDescription key="fontDescription" name="Edmondsans-Regular" family="Edmondsans" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="didEndEditing:" destination="JMO-fr-WM9" eventType="editingDidEnd" id="sNq-hZ-anf"/>
                                     <action selector="didStartEditing:" destination="JMO-fr-WM9" eventType="editingDidBegin" id="BYj-ha-DqU"/>
+                                    <action selector="editedTextField:" destination="JMO-fr-WM9" eventType="editingChanged" id="sG0-Pm-zKX"/>
                                 </connections>
                             </textField>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="currentlocation" translatesAutoresizingMaskIntoConstraints="NO" id="KPa-eG-zYl">

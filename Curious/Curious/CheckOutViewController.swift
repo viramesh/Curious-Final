@@ -116,6 +116,7 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
             cityField.text = city
             stateField.text = state
             zipcodeField.text = zipcode
+            validateTextFields()
         }
         
     }
@@ -141,23 +142,40 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     @IBAction func didStartEditing(sender: AnyObject) {
+//        validateTextFields()
+        
+    }
+    @IBAction func editedTextField(sender: AnyObject) {
+        validateTextFields()
+    }
+    
+    @IBAction func didEndEditing(sender: AnyObject) {
+//        validateTextFields()
+    }
+    
+    
+    func validateTextFields() {
         if  firstNameField.text.isEmpty ||
             lastNameField.text.isEmpty ||
             streetAddressField.text.isEmpty ||
             cityField.text.isEmpty ||
             stateField.text.isEmpty ||
             zipcodeField.text.isEmpty {
-            println("Is empty")
+                println("Is empty")
+                UIView.animateWithDuration(1.0, animations: { () -> Void in
+                    self.sendToMeButton.alpha = 0
+                    self.checkoutBagButton.imageView?.image = UIImage(named: "Check out bag")
+                    
+                })
+                
         } else {
-            println("Is not empty")
-            
-            UIView.animateWithDuration(1.0, animations: { () -> Void in
-                self.sendToMeButton.alpha = 1
-                self.checkoutBagButton.imageView?.image = UIImage(named: "Check out bag-filled")
-
-            })
+                println("Is not empty")
+                UIView.animateWithDuration(1.0, animations: { () -> Void in
+                    self.sendToMeButton.alpha = 1
+                    self.checkoutBagButton.imageView?.image = UIImage(named: "Check out bag-filled")
+                
+                })
         }
-        
     }
 
 }
