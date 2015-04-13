@@ -126,9 +126,8 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
         }
         
     }
-    @IBAction func didTapScreen(sender: AnyObject) {
-        self.view.endEditing(true)
-    }
+    
+  
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!)
     {
@@ -182,7 +181,16 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
                 
                 })
         }
+
+        
     }
+    
+    //dismiss keyboard when tapped outside
+    @IBAction func didTapScreen(sender: AnyObject) {
+        self.view.endEditing(true)
+        
+    }
+
 
     @IBAction func didPressSendButton(sender: AnyObject) {
         performSegueWithIdentifier("checkoutToHomeSegue", sender: self)
