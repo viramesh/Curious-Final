@@ -759,6 +759,9 @@
                                 <state key="normal" title="Send it to me!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPressSendButton:" destination="JMO-fr-WM9" eventType="touchUpInside" id="e04-XA-h09"/>
+                                </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="7ur-er-KLo">
                                 <rect key="frame" x="369" y="132" width="20" height="20"/>
@@ -817,6 +820,7 @@
                         <outlet property="stateField" destination="yRL-SU-l83" id="Mpm-b1-KU8"/>
                         <outlet property="streetAddressField" destination="SXi-4x-DHv" id="7Vl-Ex-fem"/>
                         <outlet property="zipcodeField" destination="wFj-io-tzv" id="pdK-a9-Tcu"/>
+                        <segue destination="sfQ-xY-agg" kind="presentation" identifier="checkoutToHomeSegue" id="nfF-8m-StC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SxR-aR-VI4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -831,7 +835,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2537" y="1755"/>
+            <point key="canvasLocation" x="2564" y="1749"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="NX5-fH-Jap">
@@ -1389,6 +1393,6 @@ Ruler.</string>
         <image name="use saved card" width="230" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nhw-nx-rLA"/>
+        <segue reference="nfF-8m-StC"/>
     </inferredMetricsTieBreakers>
 </document>

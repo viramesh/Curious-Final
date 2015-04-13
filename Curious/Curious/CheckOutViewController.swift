@@ -184,4 +184,7 @@ class CheckOutViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 
+    @IBAction func didPressSendButton(sender: AnyObject) {
+        performSegueWithIdentifier("checkoutToHomeSegue", sender: self)
+    }
 }
